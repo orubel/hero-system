@@ -1,0 +1,48 @@
+{
+  "HERO_SYSTEM": {
+    "Ability": {
+      "STR": { "long": "Strength", "abbr": "str" },
+      "DEX": { "long": "Dexterity", "abbr": "dex" },
+      "CON": { "long": "Constitution", "abbr": "con" },
+      "BODY": { "long": "Body", "abbr": "body" },
+      "INT": { "long": "Intelligence", "abbr": "int" },
+      "EGO": { "long": "Ego", "abbr": "ego" },
+      "PRE": { "long": "Presence", "abbr": "pre" },
+      "PD": { "long": "Defense (Physical)", "abbr": "pd" },
+      "ED": { "long": "Defense (Energy)", "abbr": "ed" },
+      "SPD": { "long": "Speed", "abbr": "spd" },
+      "REC": { "long": "Recovery", "abbr": "rec" },
+      "END": { "long": "Endurance", "abbr": "end" },
+      "STUN": { "long": "STUN Points", "abbr": "stun" }
+    },
+    "SheetLabels": {
+      "Actor": "HeroSystem Actor Sheet",
+      "Item": "HeroSystem Item Sheet"
+    },
+    "Item": {
+      "Spell": {
+        "SpellLVL": "Level {level} Spells",
+        "AddLVL": "Add LVL {level}"
+      }
+    },
+    "Effect": {
+      "Source": "Source",
+      "Toggle": "Toggle Effect",
+      "Temporary": "Temporary Effects",
+      "Passive": "Passive Effects",
+      "Inactive": "Inactive Effects"
+    }
+  },
+
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "npc": "NPC"
+    },
+    "Item": {
+      "item": "Item",
+      "feature": "Feature",
+      "spell": "Spell"
+    }
+  }
+}

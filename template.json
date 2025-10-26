@@ -1,0 +1,224 @@
+{
+  "Actor": {
+    "types": ["character", "npc"],
+    "templates": {
+      "base": {
+        "health": {
+          "value": 10,
+          "min": 0,
+          "max": 10
+        },
+        "power": {
+          "value": 5,
+          "min": 0,
+          "max": 5
+        },
+        "biography": ""
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "attributes": {
+        "level": {
+          "value": 1
+        }
+      },
+      "abilities": {
+        "STR": {
+          "value": 0,
+          "base": 10
+        },
+        "DEX": {
+          "value": 10,
+          "base": 10
+        },
+        "CON": {
+          "value": 10,
+          "base": 10
+        },
+        "BODY": {
+          "value": 10,
+          "base": 10
+        },
+        "INT": {
+          "value": 10,
+          "base": 10
+        },
+        "EGO": {
+          "value": 10,
+          "base": 10
+        },
+        "PRE": {
+          "value": 10,
+          "base": 10
+        },
+        "PD": {
+          "value": 0,
+          "base": 0
+        },
+        "ED": {
+          "value": 0,
+          "base": 0
+        },
+        "SPD": {
+          "value": 0,
+          "base": 0
+        },
+        "REC": {
+          "value": 0,
+          "base": 0
+        },
+        "END": {
+          "value": 0,
+          "base": 0
+        },
+        "STUN": {
+          "value": 0,
+          "base": 0
+        }
+      }
+    },
+    "npc": {
+      "templates": ["base"],
+      "cr": 0
+    }
+  },
+  "Item": {
+    "types": ["item", "feature", "spell","complication"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "item": {
+      "templates": ["base"],
+      "quantity": 1,
+      "weight": 0,
+      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+    },
+    "feature": {
+      "templates": ["base"]
+    },
+    "spell": {
+      "templates": ["base"],
+      "spellLevel": 1
+    },
+    "complication": {
+      "Accidental Change":{
+        "properties": {
+
+        }
+      },
+      "Age":{
+        "properties": {
+
+        }
+      },
+      "Berserk":{
+        "properties": {
+
+        }
+      },
+      "Dependence":{
+        "properties": {
+
+        }
+      },
+      "Dependent NPC":{
+        "value": 0,
+        "properties": {
+
+        }
+      },
+      "Distinctive Features":{
+        "value": 0,
+        "properties": {
+
+        }
+      },
+      "Hunted / Watched":{
+        "value": 0,
+        "properties": {
+
+        }
+      },
+      "Normal Characteristic Max":{
+        "value": 0,
+        "properties": {
+
+        }
+      },
+      "Physical Limitation":{
+        "value": 0,
+        "properties": {
+
+        }
+      },
+      "Psychological Limitations":{
+        "value": 0,
+        "properties": {
+
+        }
+      },
+      "Public Identity":{
+        "value": 0,
+        "properties": {
+
+        }
+      },
+      "Reputation":{
+        "value": 0,
+        "properties": {
+
+        }
+      },
+      "Rivalry":{
+        "situation": {
+          "professional/romantic": 5,
+          "professional AND romantic": 10,
+          "rival in superior position": 15
+        }
+      },
+      "Secret Identity":{
+          "value": 15
+      },
+      "Susceptibility":{
+        "value": 0,
+        "condition": {
+          "uncommon": 5,
+          "common": 10,
+          "very common": 15
+        },
+        "damage frequency": {
+          "turn/5 minutes": 5,
+          "phase": 10,
+          "segment": 15
+        },
+        "dice": {
+          "2": 5,
+          "3": 10
+        }
+      },
+      "Unluck":{
+        "value": 0,
+        "effects": {
+          "one level":5,
+          "two levels":10,
+          "three levels":15,
+          "four levels":20
+        }
+      },
+      "Vulnerability":{
+        "value": 0,
+        "attack is": {
+          "uncommon" : 5,
+          "common" : 10,
+          "very common" : 15
+        },
+        "multiplier": {
+          "target takes 2x damage": 2
+        }
+      }
+    }
+  }
+}
