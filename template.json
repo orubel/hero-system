@@ -2,6 +2,20 @@
   "Actor": {
     "types": ["character", "npc"],
     "templates": {
+      "biodata": {
+        "biodata": {
+          "alternateids":"",
+          "player": "",
+          "gender": 0,
+          "weight": "",
+          "height": "",
+          "background": "",
+          "quote" : "",
+          "description": "",
+          "notes": "",
+          "xpearned": 0
+        }
+      },
       "base": {
         "health": {
           "value": 10,
@@ -26,55 +40,68 @@
       "abilities": {
         "STR": {
           "value": 0,
-          "base": 10
+          "base": 10,
+          "cost_multiplier": 1
         },
         "DEX": {
           "value": 10,
-          "base": 10
+          "base": 10,
+          "cost_multiplier": 3
         },
         "CON": {
           "value": 10,
-          "base": 10
+          "base": 10,
+          "cost_multiplier": 2
         },
         "BODY": {
           "value": 10,
-          "base": 10
+          "base": 10,
+          "cost_multiplier": 2
         },
         "INT": {
           "value": 10,
-          "base": 10
+          "base": 10,
+          "cost_multiplier": 1
         },
         "EGO": {
           "value": 10,
-          "base": 10
+          "base": 10,
+          "cost_multiplier": 2
         },
         "PRE": {
           "value": 10,
-          "base": 10
+          "base": 10,
+          "cost_multiplier": 1
         },
         "PD": {
           "value": 0,
-          "base": 0
+          "base": 0,
+          "cost_multiplier": 1
         },
         "ED": {
           "value": 0,
-          "base": 0
+          "base": 0,
+          "cost_multiplier": 1
         },
         "SPD": {
           "value": 0,
-          "base": 0
+          "base": 1,
+          "cost_multiplier": 10
         },
         "REC": {
           "value": 0,
-          "base": 0
+          "base": 0,
+          "cost_multiplier": 2
         },
         "END": {
           "value": 0,
-          "base": 0
+          "base": 0,
+          "cost_multiplier": 0.5
         },
         "STUN": {
           "value": 0,
-          "base": 0
+          "base": 0,
+          "cost_multiplier": 2
         }
       }
     },

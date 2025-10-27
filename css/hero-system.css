@@ -281,6 +281,7 @@
   overflow-y: auto;
   scrollbar-width: thin;
   color: #444;
+  background: rgba(187, 187, 187, 1);
 }
 .hero-system .items-list .item-list {
   list-style: none;

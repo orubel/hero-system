@@ -8,6 +8,7 @@ import { HeroSystemItemSheet } from './sheets/item-sheet.mjs';
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { HERO_SYSTEM } from './helpers/config.mjs';
 
+
 /* -------------------------------------------- */
 /*  Init Hook                                   */
 /* -------------------------------------------- */
@@ -95,75 +96,85 @@ Handlebars.registerHelper('ceil', function(value) {
     return Math.ceil(value);
 });
 
+Handlebars.registerHelper('calcStr', function(str) {
+    let out = str.value+str.base;
+    return out;
+});
+
 // characteristics calculations
-Handlebars.registerHelper('calcDex', function(value, base) {
-    let out = Math.floor((value/3)+base);
+Handlebars.registerHelper('calcDex', function(dex) {
+    let out = Math.floor((dex.value/dex.cost_multiplier)+dex.base);
     return out;
 });
 
-Handlebars.registerHelper('calcStr', function(value, base) {
-    let out = value+base;
+Handlebars.registerHelper('calcInt', function(int) {
+    let out = int.value+int.base;
     return out;
 });
 
-Handlebars.registerHelper('calcInt', function(value, base) {
-    let out = value+base;
+Handlebars.registerHelper('calcPre', function(pre) {
+    let out = pre.value+pre.base;
     return out;
 });
 
-Handlebars.registerHelper('calcPre', function(value, base) {
-    let out = value+base;
+Handlebars.registerHelper('calcCon', function(con) {
+    let out = Math.floor((con.value/con.cost_multiplier)+con.base);
     return out;
 });
 
-Handlebars.registerHelper('calcCon', function(value, base) {
-    let out = Math.floor((value/2)+base);
+Handlebars.registerHelper('calcBody', function(bod) {
+    let out = Math.floor((bod.value/bod.cost_multiplier)+bod.base);
     return out;
 });
 
-Handlebars.registerHelper('calcBody', function(value, base) {
-    let out = Math.floor((value/2)+base);
+Handlebars.registerHelper('calcEgo', function(ego) {
+    let out = Math.floor((ego.value/ego.cost_multiplier)+ego.base);
     return out;
 });
 
-Handlebars.registerHelper('calcEgo', function(value, base) {
-    let out = Math.floor((value/2)+base);
+Handlebars.registerHelper('calcPd', function(abilities) {
+    let temp_str = abilities.STR.value+abilities.STR.base;
+    let out = Math.floor((temp_str)+abilities.PD.value);
     return out;
 });
 
-Handlebars.registerHelper('calcPd', function(str, base, pd_value) {
-    let temp_str = str+base;
-    let out = Math.floor((temp_str/5)+pd_value);
+Handlebars.registerHelper('calcEd', function(abilities) {
+    let temp_con = Math.floor((abilities.CON.value/abilities.CON.cost_multiplier)+abilities.CON.base);
+    let out = Math.floor((temp_con/5)+abilities.ED.value);
     return out;
 });
 
-Handlebars.registerHelper('calcEd', function(con, base, ed_value) {
-    let temp_con = Math.floor((con/2)+base);
-    let out = Math.floor((temp_con/5)+ed_value);
+Handlebars.registerHelper('calcSpd', function(abilities) {
+    let temp_dex = Math.floor((abilities.DEX.value/abilities.DEX.cost_multiplier)+abilities.DEX.base);
+    let out = Math.floor((temp_dex+abilities.SPD.value)/abilities.SPD.cost_multiplier)+abilities.SPD.base;
     return out;
 });
 
-Handlebars.registerHelper('calcSpd', function(dex, dex_base, spd) {
-    let temp_dex = Math.floor((dex/3)+dex_base);
-    let out = Math.floor((temp_dex+spd)/10)+1;
+Handlebars.registerHelper('calcRec', function(abilities) {
+    let temp_str = abilities.STR.value+abilities.STR.base;
+    let temp_con = Math.floor((abilities.CON.value/abilities.CON.cost_multiplier)+abilities.CON.base);
+    let out = Math.floor((temp_str/5 + temp_con/5) + abilities.REC.value/abilities.REC.cost_multiplier);
     return out;
 });
 
-Handlebars.registerHelper('calcRec', function(con, con_base, str, str_base, rec) {
-    let temp_str = str + str_base;
-    let temp_con = Math.floor((con/2)+con_base);
-    let out = Math.floor((temp_str/5 + temp_con/5) + rec/2);
+Handlebars.registerHelper('calcEnd', function(abilities) {
+    let temp_con = Math.floor((abilities.CON.value/abilities.CON.cost_multiplier)+abilities.CON.base);
+    let out = (temp_con*2)+(abilities.STUN.value*2);
     return out;
 });
 
-Handlebars.registerHelper('calcStun', function(str, str_base, con, con_base, body, body_base, stun_value) {
-    let temp_str = str+str_base;
-    let temp_con = Math.floor((con/2)+con_base);
-    let temp_body = Math.floor((body/2)+body_base);
-    let out = Math.floor((temp_str/2 + temp_con/2 + temp_body)+stun_value);
+Handlebars.registerHelper('calcStun', function(abilities) {
+    let temp_str = abilities.STR.value+abilities.STR.base;
+    let temp_con = Math.floor((abilities.CON.value/abilities.CON.cost_multiplier)+abilities.CON.base);
+    let temp_body = Math.floor((abilities.BODY.value/abilities.BODY.cost_multiplier)+abilities.BODY.base);
+    let out = Math.floor((temp_str/2 + temp_con/2 + temp_body)+abilities.STUN.value);
     return out;
 });
 
+Handlebars.registerHelper('calcCharTotal', function(abilities) {
+    let out = abilities.STR.value + abilities.DEX.value + abilities.CON.value + abilities.BODY.value + abilities.EGO.value + abilities.PRE.value + abilities.PD.value + abilities.ED.value + abilities.SPD.value + abilities.REC.value + abilities.END.value + abilities.STUN.value;
+    return out;
+});
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */

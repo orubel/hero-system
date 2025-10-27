@@ -1,8 +1,8 @@
-<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+<form class="{{cssClass}}" autocomplete="off">
 
   {{!-- Sheet Header --}}
   <header class="sheet-header">
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="400" width="300"/>
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
       {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
@@ -42,6 +42,7 @@
     </div>
   </header>
 
+
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
@@ -70,131 +71,214 @@
             <div>Base</div>
             <div>Cost</div>
             <div>Points</div>
+            <div>Ability Roll</div>
           </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcStr system.abilities.[STR].base system.abilities.[STR].value }}</div>
+              <div class="align-center">{{ calcStr system.abilities.[STR] }}</div>
               <div class='resource-label align-center'>{{localize 'STR'}}</div>
               <div class="align-center">{{ system.abilities.[STR].base }}</div>
-              <div class="align-center">[x1]</div>
+              <div class="align-center">[x{{ system.abilities.[STR].cost_multiplier }}]</div>
               <div class="align-center">
-                <input type="text" name="system.abilities.STR.value" value="{{ system.abilities.[STR].value }}" data-dtype="Number"/>
+                <input type="text" name="system.abilities.STR.value" value="{{ system.abilities.STR.value }}" data-dtype="Number"/>
+              </div>
+              <div class="align-center">
+                <!-- example 3d6+@abilities.BODY.mod -->
+                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize (STR)}} roll"><i class="fas fa-dice"></i>{{numberFormat system.abilities.STR.mod decimals=0 sign=false}}></span>
               </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcDex system.abilities.[DEX].value system.abilities.[DEX].base }}</div>
+              <div class="align-center">{{ calcDex system.abilities.[DEX] }}</div>
               <div class='resource-label align-center'>{{localize 'DEX'}}</div>
               <div class="align-center">{{ system.abilities.[DEX].base }}</div>
-              <div class="align-center">[x3]</div>
+              <div class="align-center">[x{{ system.abilities.[DEX].cost_multiplier }}]</div>
               <div class="align-center">
                 <input type="text" name="system.abilities.DEX.value" value="{{ system.abilities.[DEX].value }}" data-dtype="Number"/>
               </div>
+              <div class="align-center">
+                <!-- example 3d6+@abilities.BODY.mod -->
+                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize ('DEX')}} roll"><i class="fas fa-dice"></i>{{numberFormat system.abilities.DEX.mod decimals=0 sign=false}}></span>
+              </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcCon system.abilities.[CON].value system.abilities.[CON].base }}</div>
+              <div class="align-center">{{ calcCon system.abilities.[CON] }}</div>
               <div class='resource-label align-center'>{{localize 'CON'}}</div>
               <div class="align-center">{{ system.abilities.[CON].base }}</div>
-              <div class="align-center">[x2]</div>
+              <div class="align-center">[x{{ system.abilities.[CON].cost_multiplier }}]</div>
               <div class="align-center">
                 <input type="text" name="system.abilities.CON.value" value="{{ system.abilities.[CON].value }}" data-dtype="Number"/>
               </div>
+              <div class="align-center">
+                <!-- example 3d6+@abilities.BODY.mod -->
+                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize ('CON')}} roll"><i class="fas fa-dice"></i>{{numberFormat system.abilities.CON.mod decimals=0 sign=false}}></span>
+              </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcBody system.abilities.[BODY].value system.abilities.[BODY].base }}</div>
+              <div class="align-center">{{ calcBody system.abilities.[BODY] }}</div>
               <div class='resource-label align-center'>{{localize 'BODY'}}</div>
               <div class="align-center">{{ system.abilities.[BODY].base }}</div>
-              <div class="align-center">[x2]</div>
+              <div class="align-center">[x{{ system.abilities.[BODY].cost_multiplier }}]</div>
               <div class="align-center">
                 <input type="text" name="system.abilities.BODY.value" value="{{ system.abilities.[BODY].value }}" data-dtype="Number"/>
               </div>
+              <div class="align-center">
+                <!-- example 3d6+@abilities.BODY.mod -->
+                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize ('BODY')}} roll"><i class="fas fa-dice"></i>{{numberFormat system.abilities.BODY.mod decimals=0 sign=false}}></span>
+              </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcInt system.abilities.[INT].value system.abilities.[INT].base }}</div>
+              <div class="align-center">{{ calcInt system.abilities.[INT] }}</div>
               <div class='resource-label align-center'>{{localize 'INT'}}</div>
               <div class="align-center">{{ system.abilities.[INT].base }}</div>
-              <div class="align-center">[x1]</div>
+              <div class="align-center">[x{{ system.abilities.[INT].cost_multiplier }}]</div>
               <div class="align-center">
                 <input type="text" name="system.abilities.INT.value" value="{{ system.abilities.[INT].value }}" data-dtype="Number"/>
               </div>
+              <div class="align-center">
+                <!-- example 3d6+@abilities.BODY.mod -->
+                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize ('INT')}} roll"><i class="fas fa-dice"></i>{{numberFormat system.abilities.INT.mod decimals=0 sign=false}}></span>
+              </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcEgo system.abilities.[EGO].value system.abilities.[EGO].base }}</div>
+              <div class="align-center">{{ calcEgo system.abilities.[EGO] }}</div>
               <div class='resource-label align-center'>{{localize 'EGO'}}</div>
               <div class="align-center">{{ system.abilities.[EGO].base }}</div>
-              <div class="align-center">[x2]</div>
+              <div class="align-center">[x{{ system.abilities.[EGO].cost_multiplier }}]</div>
               <div class="align-center">
                 <input type="text" name="system.abilities.EGO.value" value="{{ system.abilities.[EGO].value }}" data-dtype="Number"/>
               </div>
-            </li>
-            <li class='item flexrow'>
-              <div class="align-center">{{ calcPre system.abilities.[PRE].value system.abilities.[PRE].base }}</div>
-              <div class='resource-label align-center'>{{localize 'PRE'}}</div>
-              <div class="align-center">{{ system.abilities.[PRE].base }}</div>
-              <div class="align-center">[x1]</div>
               <div class="align-center">
-                <input type="text" name="system.abilities.PRE.value" value="{{ system.abilities.[PRE].value }}" data-dtype="Number"/>
+                <!-- example 3d6+@abilities.BODY.mod -->
+                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize ('EGO')}} roll"><i class="fas fa-dice"></i>{{numberFormat system.abilities.EGO.mod decimals=0 sign=false}}></span>
               </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcPd system.abilities.[STR].value system.abilities.[STR].base system.abilities.[PD].value }}</div>
+              <div class="align-center">{{ calcPre system.abilities.[PRE] }}</div>
+              <div class='resource-label align-center'>{{localize 'PRE'}}</div>
+              <div class="align-center">{{ system.abilities.[PRE].base }}</div>
+              <div class="align-center">[x{{ system.abilities.[PRE].cost_multiplier }}]</div>
+              <div class="align-center">
+                <input type="text" name="system.abilities.PRE.value" value="{{ system.abilities.[PRE].value }}" data-dtype="Number"/>
+              </div>
+              <div class="align-center">
+                <!-- example 3d6+@abilities.BODY.mod -->
+                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize (PRE)}} roll"><i class="fas fa-dice"></i>{{numberFormat system.abilities.PRE.mod decimals=0 sign=false}}></span>
+              </div>
+            </li>
+            <li class='item flexrow'>
+              <div class="align-center">{{ calcPd system.abilities }}</div>
               <div class='resource-label align-center'>{{localize 'PD'}}</div>
               <div class="align-center">STR/5</div>
               <div class="align-center">[x1]</div>
               <div class="align-center">
                 <input type="text" name="system.abilities.PD.value" value="{{ system.abilities.[PD].value }}" data-dtype="Number"/>
               </div>
+              <div class="align-center">
+                <h4 class="item-field-label-short margin-item-list"><a class="roll-charac"><iclass="fas fa-dice"></i>{{charac.roll}}-</a></h4>
+              </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcEd system.abilities.[CON].value system.abilities.[CON].base system.abilities.[ED].value }}</div>
+              <div class="align-center">{{ calcEd system.abilities }}</div>
               <div class='resource-label align-center'>{{localize 'ED'}}</div>
               <div class="align-center">CON/5</div>
               <div class="align-center">[x1]</div>
               <div class="align-center">
                 <input type="text" name="system.abilities.ED.value" value="{{ system.abilities.[ED].value }}" data-dtype="Number"/>
               </div>
+              <div class="align-center">
+                <h4 class="item-field-label-short margin-item-list"><a class="roll-charac"><iclass="fas fa-dice"></i>{{charac.roll}}-</a></h4>
+              </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcSpd system.abilities.[DEX].value system.abilities.[DEX].base system.abilities.[SPD].value }}</div>
+              <div class="align-center">{{ calcSpd system.abilities }}</div>
               <div class='resource-label align-center'>{{localize 'SPD'}}</div>
               <div class="align-center">DEX/10+1</div>
               <div class="align-center">[x10]</div>
               <div class="align-center">
                 <input type="text" name="system.abilities.SPD.value" value="{{ system.abilities.[SPD].value }}" data-dtype="Number"/>
               </div>
+              <div class="align-center">
+                <h4 class="item-field-label-short margin-item-list"><a class="roll-charac"><iclass="fas fa-dice"></i>{{charac.roll}}-</a></h4>
+              </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcRec system.abilities.[CON].value system.abilities.[CON].base system.abilities.[STR].value system.abilities.[STR].base system.abilities.[REC].value }}</div>
+              <div class="align-center">{{ calcRec system.abilities }}</div>
               <div class='resource-label align-center'>{{localize 'REC'}}</div>
               <div class="align-center">STR/5+CON/5</div>
               <div class="align-center">[x2]</div>
               <div class="align-center">
                 <input type="text" name="system.abilities.REC.value" value="{{ system.abilities.[REC].value }}" data-dtype="Number"/>
               </div>
+              <div class="align-center">
+                <h4 class="item-field-label-short margin-item-list"><a class="roll-charac"><iclass="fas fa-dice"></i>{{charac.roll}}-</a></h4>
+              </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ sum (multiply (calcCon system.abilities.[CON].value system.abilities.[CON].base) 2) (multiply system.abilities.[END].value 2) }}</div>
+              <div class="align-center">{{ calcEnd system.abilities }}</div>
               <div class='resource-label align-center'>{{localize 'END'}}</div>
               <div class="align-center">CONx2</div>
               <div class="align-center">[x2]</div>
               <div class="align-center">
                 <input type="text" name="system.abilities.END.value" value="{{ system.abilities.[END].value }}" data-dtype="Number"/>
               </div>
+              <div class="align-center">
+                <h4 class="item-field-label-short margin-item-list"><a class="roll-charac"><iclass="fas fa-dice"></i>{{charac.roll}}-</a></h4>
+              </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcRec system.abilities.[STR].value system.abilities.[STR].base system.abilities.[CON].value system.abilities.[CON].base system.abilities.[BODY].value system.abilities.[BODY].base system.abilities.[REC].value }}</div>
+              <div class="align-center">{{ calcStun system.abilities }}</div>
               <div class='resource-label align-center'>{{localize 'STUN'}}</div>
               <div class="align-center">BODY+STR/2+CON/2</div>
               <div class="align-center">[x2]</div>
               <div class="align-center">
                 <input type="text" name="system.abilities.STUN.value" value="{{ system.abilities.[STUN].value }}" data-dtype="Number"/>
               </div>
+              <div class="align-center">
+                <h4 class="item-field-label-short margin-item-list"><a class="roll-charac"><iclass="fas fa-dice"></i>{{charac.roll}}-</a></h4>
+              </div>
+            </li>
+
+            <li class='item flexrow items-header'>
+              <div class="align-center"></div>
+              <div class='resource-label align-center'></div>
+              <div class="align-center"></div>
+              <div class="align-center"><span class="resource-label align-right">Char Total = </span></div>
+              <div class="align-left">
+                {{ calcCharTotal system.abilities }}
+              </div>
+              <div class="align-center"></div>
             </li>
         </ol>
     </div>
 
     {{!-- Biography Tab --}}
     <div class="tab biography" data-group="primary" data-tab="background">
-      {{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
-      {{editor enrichedBiography target="system.biography" engine="prosemirror" button=true editable=editable}}
+
+      <h3>Personality/Motivation : </h3>
+      <div class="form-group editor">
+        {{editor motivation target="system.biodata.motivation" button=true owner=owner
+        editable=editable}}
+      </div>
+      <hr>
+      <h3>Quote : </h3>
+      <div class="form-group editor">
+        {{editor quote target="system.biodata.quote" button=true owner=owner
+        editable=editable}}
+      </div>
+      <h3>Powers/Tactics : </h3>
+      <div class="form-group editor">
+        {{editor tactics target="system.biodata.tactics" button=true owner=owner
+        editable=editable}}
+      </div>
+      <h3>Campaign Use : </h3>
+      <div class="form-group editor">
+        {{editor campaignuse target="system.biodata.campaignuse" button=true owner=owner
+        editable=editable}}
+      </div>
+      <h3>Appearance : </h3>
+      <div class="form-group editor">
+        {{editor appearance target="system.biodata.appearance" button=true owner=owner
+        editable=editable}}
+      </div>
     </div>
 
     {{!-- Combat Tab --}}

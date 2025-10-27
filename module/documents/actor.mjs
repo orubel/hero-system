@@ -48,9 +48,10 @@ export class HeroSystemActor extends Actor {
     const systemData = actorData.system;
 
     // Loop through ability scores, and add their modifiers to our sheet output.
+    // do not set for PD, ED, SPD, REC, END, STUN; these are calculated values
     for (let [key, ability] of Object.entries(systemData.abilities)) {
       // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 10) / 2);
+      ability.mod = Math.floor(Math.floor((ability.value/ability.cost_multiplier)+ability.base)/5)+9;
     }
   }
 
