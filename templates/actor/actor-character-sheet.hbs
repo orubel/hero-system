@@ -69,144 +69,164 @@
             <div>Value</div>
             <div>Char</div>
             <div>Base</div>
-            <div>Cost</div>
+            <div>Multiplier</div>
             <div>Points</div>
             <div>Ability Roll</div>
           </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcStr system.abilities.[STR] }}</div>
-              <div class='resource-label align-center'>{{localize 'STR'}}</div>
-              <div class="align-center">{{ system.abilities.[STR].base }}</div>
-              <div class="align-center">[x{{ system.abilities.[STR].cost_multiplier }}]</div>
               <div class="align-center">
                 <input type="text" name="system.abilities.STR.value" value="{{ system.abilities.STR.value }}" data-dtype="Number"/>
               </div>
+              <div class='resource-label align-center'>{{localize 'STR'}}</div>
+              <div class="align-center">{{ system.abilities.[STR].base }}</div>
+              <div class="align-center">[x{{ system.abilities.[STR].cost_multiplier }}]</div>
+              <div class="align-center">{{ calcStrPts system.abilities.[STR] }}</div>
               <div class="align-center">
                 <!-- example 3d6+@abilities.BODY.mod -->
-                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize (STR)}} roll"><i class="fas fa-dice"></i>{{numberFormat system.abilities.STR.mod decimals=0 sign=false}}></span>
+                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'STR'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.STR.mod decimals=0 sign=false}}></span>
               </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcDex system.abilities.[DEX] }}</div>
+              <div class="align-center">
+                <input type="text" name="system.abilities.DEX.value" value="{{ system.abilities.[DEX].value }}" data-dtype="Number"/>
+              </div>
               <div class='resource-label align-center'>{{localize 'DEX'}}</div>
               <div class="align-center">{{ system.abilities.[DEX].base }}</div>
               <div class="align-center">[x{{ system.abilities.[DEX].cost_multiplier }}]</div>
               <div class="align-center">
-                <input type="text" name="system.abilities.DEX.value" value="{{ system.abilities.[DEX].value }}" data-dtype="Number"/>
+                {{ calcDexPts system.abilities.[DEX] }}
               </div>
               <div class="align-center">
                 <!-- example 3d6+@abilities.BODY.mod -->
-                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize ('DEX')}} roll"><i class="fas fa-dice"></i>{{numberFormat system.abilities.DEX.mod decimals=0 sign=false}}></span>
+                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'DEX'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.DEX.mod decimals=0 sign=false}}></span>
               </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcCon system.abilities.[CON] }}</div>
+              <div class="align-center">
+                <input type="text" name="system.abilities.CON.value" value="{{ system.abilities.[CON].value }}" data-dtype="Number"/>
+              </div>
               <div class='resource-label align-center'>{{localize 'CON'}}</div>
               <div class="align-center">{{ system.abilities.[CON].base }}</div>
               <div class="align-center">[x{{ system.abilities.[CON].cost_multiplier }}]</div>
               <div class="align-center">
-                <input type="text" name="system.abilities.CON.value" value="{{ system.abilities.[CON].value }}" data-dtype="Number"/>
+                {{ calcConPts system.abilities.[CON] }}
               </div>
               <div class="align-center">
                 <!-- example 3d6+@abilities.BODY.mod -->
-                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize ('CON')}} roll"><i class="fas fa-dice"></i>{{numberFormat system.abilities.CON.mod decimals=0 sign=false}}></span>
+                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'CON'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.CON.mod decimals=0 sign=false}}></span>
               </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcBody system.abilities.[BODY] }}</div>
+              <div class="align-center">
+                <input type="text" name="system.abilities.BODY.value" value="{{ system.abilities.[BODY].value }}" data-dtype="Number"/>
+              </div>
               <div class='resource-label align-center'>{{localize 'BODY'}}</div>
               <div class="align-center">{{ system.abilities.[BODY].base }}</div>
               <div class="align-center">[x{{ system.abilities.[BODY].cost_multiplier }}]</div>
               <div class="align-center">
-                <input type="text" name="system.abilities.BODY.value" value="{{ system.abilities.[BODY].value }}" data-dtype="Number"/>
+                {{ calcBodyPts system.abilities.[BODY] }}
               </div>
               <div class="align-center">
                 <!-- example 3d6+@abilities.BODY.mod -->
-                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize ('BODY')}} roll"><i class="fas fa-dice"></i>{{numberFormat system.abilities.BODY.mod decimals=0 sign=false}}></span>
+                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'BODY'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.BODY.mod decimals=0 sign=false}}></span>
               </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcInt system.abilities.[INT] }}</div>
+              <div class="align-center">
+                <input type="text" name="system.abilities.INT.value" value="{{ system.abilities.[INT].value }}" data-dtype="Number"/>
+              </div>
               <div class='resource-label align-center'>{{localize 'INT'}}</div>
               <div class="align-center">{{ system.abilities.[INT].base }}</div>
               <div class="align-center">[x{{ system.abilities.[INT].cost_multiplier }}]</div>
               <div class="align-center">
-                <input type="text" name="system.abilities.INT.value" value="{{ system.abilities.[INT].value }}" data-dtype="Number"/>
+                {{ calcIntPts system.abilities.[INT] }}
               </div>
               <div class="align-center">
                 <!-- example 3d6+@abilities.BODY.mod -->
-                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize ('INT')}} roll"><i class="fas fa-dice"></i>{{numberFormat system.abilities.INT.mod decimals=0 sign=false}}></span>
+                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'INT'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.INT.mod decimals=0 sign=false}}></span>
               </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcEgo system.abilities.[EGO] }}</div>
-              <div class='resource-label align-center'>{{localize 'EGO'}}</div>
-              <div class="align-center">{{ system.abilities.[EGO].base }}</div>
-              <div class="align-center">[x{{ system.abilities.[EGO].cost_multiplier }}]</div>
               <div class="align-center">
                 <input type="text" name="system.abilities.EGO.value" value="{{ system.abilities.[EGO].value }}" data-dtype="Number"/>
               </div>
+              <div class='resource-label align-center'>{{ localize 'EGO' }}</div>
+              <div class="align-center">{{ system.abilities.[EGO].base }}</div>
+              <div class="align-center">[x{{ system.abilities.[EGO].cost_multiplier }}]</div>
+              <div class="align-center">
+                {{ calcEgoPts system.abilities.[EGO] }}
+              </div>
               <div class="align-center">
                 <!-- example 3d6+@abilities.BODY.mod -->
-                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize ('EGO')}} roll"><i class="fas fa-dice"></i>{{numberFormat system.abilities.EGO.mod decimals=0 sign=false}}></span>
+                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'EGO'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.EGO.mod decimals=0 sign=false}}></span>
               </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcPre system.abilities.[PRE] }}</div>
+              <div class="align-center">
+                <input type="text" name="system.abilities.PRE.value" value="{{ system.abilities.[PRE].value }}" data-dtype="Number"/>
+              </div>
               <div class='resource-label align-center'>{{localize 'PRE'}}</div>
               <div class="align-center">{{ system.abilities.[PRE].base }}</div>
               <div class="align-center">[x{{ system.abilities.[PRE].cost_multiplier }}]</div>
               <div class="align-center">
-                <input type="text" name="system.abilities.PRE.value" value="{{ system.abilities.[PRE].value }}" data-dtype="Number"/>
+                {{ calcPrePts system.abilities.[PRE] }}
               </div>
               <div class="align-center">
                 <!-- example 3d6+@abilities.BODY.mod -->
-                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize (PRE)}} roll"><i class="fas fa-dice"></i>{{numberFormat system.abilities.PRE.mod decimals=0 sign=false}}></span>
+                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'PRE'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.PRE.mod decimals=0 sign=false}}></span>
               </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcPd system.abilities }}</div>
+              <div class="align-center">
+                <input type="text" name="system.abilities.PD.value" value="{{ system.abilities.[PD].value }}" data-dtype="Number"/>
+              </div>
               <div class='resource-label align-center'>{{localize 'PD'}}</div>
               <div class="align-center">STR/5</div>
               <div class="align-center">[x1]</div>
               <div class="align-center">
-                <input type="text" name="system.abilities.PD.value" value="{{ system.abilities.[PD].value }}" data-dtype="Number"/>
+                {{ calcPdPts system.abilities }}
               </div>
               <div class="align-center">
                 <h4 class="item-field-label-short margin-item-list"><a class="roll-charac"><iclass="fas fa-dice"></i>{{charac.roll}}-</a></h4>
               </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcEd system.abilities }}</div>
+              <div class="align-center">
+                <input type="text" name="system.abilities.ED.value" value="{{ system.abilities.[ED].value }}" data-dtype="Number"/>
+              </div>
               <div class='resource-label align-center'>{{localize 'ED'}}</div>
               <div class="align-center">CON/5</div>
               <div class="align-center">[x1]</div>
               <div class="align-center">
-                <input type="text" name="system.abilities.ED.value" value="{{ system.abilities.[ED].value }}" data-dtype="Number"/>
+                {{ calcEdPts system.abilities }}
               </div>
               <div class="align-center">
                 <h4 class="item-field-label-short margin-item-list"><a class="roll-charac"><iclass="fas fa-dice"></i>{{charac.roll}}-</a></h4>
               </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcSpd system.abilities }}</div>
+              <div class="align-center">
+                <input type="text" name="system.abilities.SPD.value" value="{{ system.abilities.[SPD].value }}" data-dtype="Number"/>
+              </div>
               <div class='resource-label align-center'>{{localize 'SPD'}}</div>
               <div class="align-center">DEX/10+1</div>
               <div class="align-center">[x10]</div>
               <div class="align-center">
-                <input type="text" name="system.abilities.SPD.value" value="{{ system.abilities.[SPD].value }}" data-dtype="Number"/>
+                {{ calcSpdPts system.abilities }}
               </div>
               <div class="align-center">
                 <h4 class="item-field-label-short margin-item-list"><a class="roll-charac"><iclass="fas fa-dice"></i>{{charac.roll}}-</a></h4>
               </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcRec system.abilities }}</div>
+              <div class="align-center">
+                <input type="text" name="system.abilities.REC.value" value="{{ system.abilities.[REC].value }}" data-dtype="Number"/>
+              </div>
               <div class='resource-label align-center'>{{localize 'REC'}}</div>
               <div class="align-center">STR/5+CON/5</div>
               <div class="align-center">[x2]</div>
               <div class="align-center">
-                <input type="text" name="system.abilities.REC.value" value="{{ system.abilities.[REC].value }}" data-dtype="Number"/>
+                {{ calcRecPts system.abilities }}
               </div>
               <div class="align-center">
                 <h4 class="item-field-label-short margin-item-list"><a class="roll-charac"><iclass="fas fa-dice"></i>{{charac.roll}}-</a></h4>

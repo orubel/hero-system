@@ -59,14 +59,28 @@ Hooks.once('init', function () {
   return preloadHandlebarsTemplates();
 });
 
+
 /* -------------------------------------------- */
 /*  Handlebars Helpers                          */
 /* -------------------------------------------- */
 
 // If you need to add Handlebars helpers, here is a useful example:
-Handlebars.registerHelper('toLowerCase', function (value) {
-  return value.toLowerCase();
-});
+
+Handlebars.registerHelper('upper', function (text) {
+  if (text) {
+    return text.toUpperCase();
+  }
+  return text
+})
+
+Handlebars.registerHelper('lower', function (text) {
+  return text.toLowerCase()
+})
+
+Handlebars.registerHelper('upperFirst', function (text) {
+  if (typeof text !== 'string') return text
+  return text.charAt(0).toUpperCase() + text.slice(1)
+})
 
 // sum
 Handlebars.registerHelper('sum', function (value1, value2) {
@@ -84,76 +98,77 @@ Handlebars.registerHelper('divide', function(value, divisor) {
 
 // multiply
 Handlebars.registerHelper('multiply', function(a, b) {
-    return a*b;
+    return Number(a) * Number(b);
 });
 
 //round down
 Handlebars.registerHelper('floor', function(value) {
     return Math.floor(value);
 });
+
 // round up
 Handlebars.registerHelper('ceil', function(value) {
     return Math.ceil(value);
 });
 
-Handlebars.registerHelper('calcStr', function(str) {
-    let out = str.value+str.base;
+Handlebars.registerHelper('calcStrPts', function(str) {
+    let out = str.value-str.base;
     return out;
 });
 
 // characteristics calculations
-Handlebars.registerHelper('calcDex', function(dex) {
-    let out = Math.floor((dex.value/dex.cost_multiplier)+dex.base);
+Handlebars.registerHelper('calcDexPts', function(dex) {
+    let out = (dex.value-dex.base)*dex.cost_multiplier;
     return out;
 });
 
-Handlebars.registerHelper('calcInt', function(int) {
-    let out = int.value+int.base;
+Handlebars.registerHelper('calcIntPts', function(int) {
+    let out = int.value-int.base;
     return out;
 });
 
-Handlebars.registerHelper('calcPre', function(pre) {
-    let out = pre.value+pre.base;
+Handlebars.registerHelper('calcPrePts', function(pre) {
+    let out = pre.value-pre.base;
     return out;
 });
 
-Handlebars.registerHelper('calcCon', function(con) {
-    let out = Math.floor((con.value/con.cost_multiplier)+con.base);
+Handlebars.registerHelper('calcConPts', function(con) {
+    let out = (con.value-con.base)*con.cost_multiplier;
     return out;
 });
 
-Handlebars.registerHelper('calcBody', function(bod) {
-    let out = Math.floor((bod.value/bod.cost_multiplier)+bod.base);
+Handlebars.registerHelper('calcBodyPts', function(bod) {
+    let out = (bod.value-bod.base)*bod.cost_multiplier;
     return out;
 });
 
-Handlebars.registerHelper('calcEgo', function(ego) {
-    let out = Math.floor((ego.value/ego.cost_multiplier)+ego.base);
+Handlebars.registerHelper('calcEgoPts', function(ego) {
+    let out = Math.floor((ego.value-ego.base)*ego.cost_multiplier);
     return out;
 });
 
-Handlebars.registerHelper('calcPd', function(abilities) {
-    let temp_str = abilities.STR.value+abilities.STR.base;
-    let out = Math.floor((temp_str)+abilities.PD.value);
+Handlebars.registerHelper('calcPdPts', function(abilities) {
+    let temp_str = Math.floor(abilities.STR.value/5);
+    let out = abilities.PD.value-temp_str;
     return out;
 });
 
-Handlebars.registerHelper('calcEd', function(abilities) {
-    let temp_con = Math.floor((abilities.CON.value/abilities.CON.cost_multiplier)+abilities.CON.base);
-    let out = Math.floor((temp_con/5)+abilities.ED.value);
+Handlebars.registerHelper('calcEdPts', function(abilities) {
+    let temp_con = Math.floor(abilities.CON.value/5)
+    let out = abilities.ED.value-temp_con;
     return out;
 });
 
-Handlebars.registerHelper('calcSpd', function(abilities) {
-    let temp_dex = Math.floor((abilities.DEX.value/abilities.DEX.cost_multiplier)+abilities.DEX.base);
-    let out = Math.floor((temp_dex+abilities.SPD.value)/abilities.SPD.cost_multiplier)+abilities.SPD.base;
+Handlebars.registerHelper('calcSpdPts', function(abilities) {
+    let temp_dex = Math.floor(abilities.DEX.value/10);
+    let out = (abilities.SPD.value-temp_dex)*10;
     return out;
 });
 
-Handlebars.registerHelper('calcRec', function(abilities) {
-    let temp_str = abilities.STR.value+abilities.STR.base;
-    let temp_con = Math.floor((abilities.CON.value/abilities.CON.cost_multiplier)+abilities.CON.base);
-    let out = Math.floor((temp_str/5 + temp_con/5) + abilities.REC.value/abilities.REC.cost_multiplier);
+Handlebars.registerHelper('calcRecPts', function(abilities) {
+    let temp_str = Math.floor(abilities.STR.value/5);
+    let temp_con = Math.floor(abilities.CON.value/5);
+    let out = (abilities.REC.value-(temp_str+temp_con))*2;
     return out;
 });
 
@@ -189,11 +204,9 @@ Hooks.once('ready', function () {
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
 
-async function calcSpd(actorName){
-    const actor = await game.actors.getName(actorName);
-    const system = await actor.system;
-    let temp_dex = Math.floor((system.abilities.DEX.value/3)+system.abilities.DEX.base);
-    let out = Math.floor((temp_dex+system.abilities.SPD.value)/10)+1;
+async function calcSpd(abilities){
+    let temp_dex = Math.floor((abilities.DEX.value/abilities.DEX.cost_multiplier)+abilities.DEX.base);
+    let out = Math.floor((temp_dex+abilities.SPD.value)/abilities.SPD.cost_multiplier)+abilities.SPD.base;
     return out;
 }
 
@@ -266,4 +279,6 @@ function rollItemMacro(itemUuid) {
     // Trigger the item roll
     item.roll();
   });
+
+
 }

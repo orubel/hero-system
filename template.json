@@ -88,6 +88,21 @@
           "base": 1,
           "cost_multiplier": 10
         },
+        "OCV": {
+          "value": 0,
+          "base": 1,
+          "cost_multiplier": 10
+        },
+        "DCV": {
+          "value": 0,
+          "base": 1,
+          "cost_multiplier": 10
+        },
+        "ECV": {
+          "value": 0,
+          "base": 1,
+          "cost_multiplier": 10
+        },
         "REC": {
           "value": 0,
           "base": 0,

@@ -35,21 +35,13 @@
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "lang/en.json",
+      "system": "system-id",
+      "module": "module-id",
+      "flags": {}
     }
   ],
-  "packs": [
-    {
-      "name": "complications",
-      "label": "Complications",
-      "path": "packs/complications.db",
-      "type": "Item",
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "GAMEMASTER": "OWNER"
-      }
-    }
-  ],
+  "packs": [],
   "packFolders": [],
   "socket": false,
   "manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
