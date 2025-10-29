@@ -233,24 +233,28 @@
               </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcEnd system.abilities }}</div>
-              <div class='resource-label align-center'>{{localize 'END'}}</div>
-              <div class="align-center">CONx2</div>
-              <div class="align-center">[x2]</div>
               <div class="align-center">
                 <input type="text" name="system.abilities.END.value" value="{{ system.abilities.[END].value }}" data-dtype="Number"/>
+              </div>
+              <div class='resource-label align-center'>{{localize 'END'}}</div>
+              <div class="align-center">CONx2</div>
+              <div class="align-center">[x1/2]</div>
+              <div class="align-center">
+                {{ calcEndPts system.abilities }}
               </div>
               <div class="align-center">
                 <h4 class="item-field-label-short margin-item-list"><a class="roll-charac"><iclass="fas fa-dice"></i>{{charac.roll}}-</a></h4>
               </div>
             </li>
             <li class='item flexrow'>
-              <div class="align-center">{{ calcStun system.abilities }}</div>
+              <div class="align-center">
+                <input type="text" name="system.abilities.STUN.value" value="{{ system.abilities.[STUN].value }}" data-dtype="Number"/>
+              </div>
               <div class='resource-label align-center'>{{localize 'STUN'}}</div>
               <div class="align-center">BODY+STR/2+CON/2</div>
               <div class="align-center">[x2]</div>
               <div class="align-center">
-                <input type="text" name="system.abilities.STUN.value" value="{{ system.abilities.[STUN].value }}" data-dtype="Number"/>
+                {{ calcStunPts system.abilities }}
               </div>
               <div class="align-center">
                 <h4 class="item-field-label-short margin-item-list"><a class="roll-charac"><iclass="fas fa-dice"></i>{{charac.roll}}-</a></h4>

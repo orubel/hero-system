@@ -143,7 +143,7 @@ Handlebars.registerHelper('calcBodyPts', function(bod) {
 });
 
 Handlebars.registerHelper('calcEgoPts', function(ego) {
-    let out = Math.floor((ego.value-ego.base)*ego.cost_multiplier);
+    let out = (ego.value-ego.base)*ego.cost_multiplier;
     return out;
 });
 
@@ -160,9 +160,7 @@ Handlebars.registerHelper('calcEdPts', function(abilities) {
 });
 
 Handlebars.registerHelper('calcSpdPts', function(abilities) {
-    let temp_dex = Math.floor(abilities.DEX.value/10);
-    let out = (abilities.SPD.value-temp_dex)*10;
-    return out;
+    return calcSpdPts(abilities);
 });
 
 Handlebars.registerHelper('calcRecPts', function(abilities) {
@@ -172,22 +170,31 @@ Handlebars.registerHelper('calcRecPts', function(abilities) {
     return out;
 });
 
-Handlebars.registerHelper('calcEnd', function(abilities) {
-    let temp_con = Math.floor((abilities.CON.value/abilities.CON.cost_multiplier)+abilities.CON.base);
-    let out = (temp_con*2)+(abilities.STUN.value*2);
+Handlebars.registerHelper('calcEndPts', function(abilities) {
+    let temp_con = abilities.CON.value*2;
+    let out = Math.floor((abilities.END.value-temp_con)/2);
     return out;
 });
 
-Handlebars.registerHelper('calcStun', function(abilities) {
-    let temp_str = abilities.STR.value+abilities.STR.base;
-    let temp_con = Math.floor((abilities.CON.value/abilities.CON.cost_multiplier)+abilities.CON.base);
-    let temp_body = Math.floor((abilities.BODY.value/abilities.BODY.cost_multiplier)+abilities.BODY.base);
-    let out = Math.floor((temp_str/2 + temp_con/2 + temp_body)+abilities.STUN.value);
+Handlebars.registerHelper('calcStunPts', function(abilities) {
+    let temp_str = Math.floor(abilities.STR.value/2);
+    let temp_con = Math.floor(abilities.CON.value/2);
+    let out = Math.floor((abilities.STUN.value - (temp_str+temp_con+abilities.BODY.value))*2);
     return out;
 });
 
 Handlebars.registerHelper('calcCharTotal', function(abilities) {
-    let out = abilities.STR.value + abilities.DEX.value + abilities.CON.value + abilities.BODY.value + abilities.EGO.value + abilities.PRE.value + abilities.PD.value + abilities.ED.value + abilities.SPD.value + abilities.REC.value + abilities.END.value + abilities.STUN.value;
+    let str_pts = abilities.STR.value-abilities.STR.base;
+
+    let temp_dex = Math.floor(abilities.DEX.value/10);
+    let dex_pts = (abilities.SPD.value-temp_dex)*10;
+
+    let con_pts = (abilities.CON.value-abilities.CON.base)*abilities.CON.cost_multiplier;
+    let body_pts = (abilities.BODY.value-abilities.BODY.base)*abilities.BODY.cost_multiplier;
+    let int_pts = abilities.INT.value-abilities.INT.base;
+    let ego_pts = (abilities.EGO.value-abilities.EGO.base)*abilities.EGO.cost_multiplier;
+
+    let out = str_pts + dex_pts + con_pts + body_pts + int_pts + ego_pts + abilities.PRE.value + abilities.PD.value + abilities.ED.value + abilities.SPD.value + abilities.REC.value + abilities.END.value + abilities.STUN.value;
     return out;
 });
 
@@ -204,7 +211,14 @@ Hooks.once('ready', function () {
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
 
-async function calcSpd(abilities){
+function calcSpdPts(abilities){
+    let temp_dex = Math.floor(abilities.DEX.value/10);
+    let out = (abilities.SPD.value-temp_dex)*10;
+    return foundry.utils.duplicate(out);
+    //return out;
+}
+
+function calcSpd(abilities){
     let temp_dex = Math.floor((abilities.DEX.value/abilities.DEX.cost_multiplier)+abilities.DEX.base);
     let out = Math.floor((temp_dex+abilities.SPD.value)/abilities.SPD.cost_multiplier)+abilities.SPD.base;
     return out;
