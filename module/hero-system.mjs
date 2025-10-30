@@ -112,51 +112,40 @@ Handlebars.registerHelper('ceil', function(value) {
 });
 
 Handlebars.registerHelper('calcStrPts', function(str) {
-    let out = str.value-str.base;
-    return out;
+    return calcStrPts(str);
 });
 
 // characteristics calculations
 Handlebars.registerHelper('calcDexPts', function(dex) {
-    let out = (dex.value-dex.base)*dex.cost_multiplier;
-    return out;
+    return calcDexPts(dex);
 });
 
 Handlebars.registerHelper('calcIntPts', function(int) {
-    let out = int.value-int.base;
-    return out;
+    return calcIntPts(int);
 });
 
 Handlebars.registerHelper('calcPrePts', function(pre) {
-    let out = pre.value-pre.base;
-    return out;
+    return calcPrePts(pre);
 });
 
 Handlebars.registerHelper('calcConPts', function(con) {
-    let out = (con.value-con.base)*con.cost_multiplier;
-    return out;
+    return calcConPts(con);
 });
 
 Handlebars.registerHelper('calcBodyPts', function(bod) {
-    let out = (bod.value-bod.base)*bod.cost_multiplier;
-    return out;
+    return calcBodyPts(bod);
 });
 
 Handlebars.registerHelper('calcEgoPts', function(ego) {
-    let out = (ego.value-ego.base)*ego.cost_multiplier;
-    return out;
+    return calcEgoPts(ego);
 });
 
 Handlebars.registerHelper('calcPdPts', function(abilities) {
-    let temp_str = Math.floor(abilities.STR.value/5);
-    let out = abilities.PD.value-temp_str;
-    return out;
+    return calcPdPts(abilities);
 });
 
 Handlebars.registerHelper('calcEdPts', function(abilities) {
-    let temp_con = Math.floor(abilities.CON.value/5)
-    let out = abilities.ED.value-temp_con;
-    return out;
+    return calcEdPts(abilities);
 });
 
 Handlebars.registerHelper('calcSpdPts', function(abilities) {
@@ -164,37 +153,23 @@ Handlebars.registerHelper('calcSpdPts', function(abilities) {
 });
 
 Handlebars.registerHelper('calcRecPts', function(abilities) {
-    let temp_str = Math.floor(abilities.STR.value/5);
-    let temp_con = Math.floor(abilities.CON.value/5);
-    let out = (abilities.REC.value-(temp_str+temp_con))*2;
-    return out;
+    return calcRecPts(abilities);
 });
 
 Handlebars.registerHelper('calcEndPts', function(abilities) {
-    let temp_con = abilities.CON.value*2;
-    let out = Math.floor((abilities.END.value-temp_con)/2);
-    return out;
+    return calcEndPts(abilities);
 });
 
 Handlebars.registerHelper('calcStunPts', function(abilities) {
-    let temp_str = Math.floor(abilities.STR.value/2);
-    let temp_con = Math.floor(abilities.CON.value/2);
-    let out = Math.floor((abilities.STUN.value - (temp_str+temp_con+abilities.BODY.value))*2);
-    return out;
+    return calcStunPts(abilities);
+});
+
+Handlebars.registerHelper('calcCurrentStun', function(stun,current_stun) {
+    return calcCurrentStun(stun,current_stun);
 });
 
 Handlebars.registerHelper('calcCharTotal', function(abilities) {
-    let str_pts = abilities.STR.value-abilities.STR.base;
-
-    let temp_dex = Math.floor(abilities.DEX.value/10);
-    let dex_pts = (abilities.SPD.value-temp_dex)*10;
-
-    let con_pts = (abilities.CON.value-abilities.CON.base)*abilities.CON.cost_multiplier;
-    let body_pts = (abilities.BODY.value-abilities.BODY.base)*abilities.BODY.cost_multiplier;
-    let int_pts = abilities.INT.value-abilities.INT.base;
-    let ego_pts = (abilities.EGO.value-abilities.EGO.base)*abilities.EGO.cost_multiplier;
-
-    let out = str_pts + dex_pts + con_pts + body_pts + int_pts + ego_pts + abilities.PRE.value + abilities.PD.value + abilities.ED.value + abilities.SPD.value + abilities.REC.value + abilities.END.value + abilities.STUN.value;
+    let out = calcStrPts(abilities.STR) + calcDexPts(abilities.DEX) + calcConPts(abilities.CON) + calcBodyPts(abilities.BODY) + calcIntPts(abilities.INT) + calcEgoPts(abilities.EGO) + calcPrePts(abilities.PRE) + calcPdPts(abilities) + calcEdPts(abilities) + calcSpdPts(abilities) + calcRecPts(abilities) + calcEndPts(abilities) + calcStunPts(abilities);
     return out;
 });
 
@@ -211,26 +186,88 @@ Hooks.once('ready', function () {
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
 
+function calcStrPts(str){
+    let out = str.value-str.base;
+    return foundry.utils.duplicate(out);
+}
+
+function calcDexPts(dex){
+    let out = (dex.value-dex.base)*dex.cost_multiplier;
+    return foundry.utils.duplicate(out);
+}
+
+function calcIntPts(int){
+    let out = int.value-int.base;
+    return foundry.utils.duplicate(out);
+}
+
+function calcPrePts(pre){
+    let out = pre.value-pre.base;
+    return foundry.utils.duplicate(out);
+}
+
+function calcConPts(con){
+    let out = (con.value-con.base)*con.cost_multiplier;
+    return foundry.utils.duplicate(out);
+}
+
+function calcBodyPts(bod){
+    let out = (bod.value-bod.base)*bod.cost_multiplier;
+    return foundry.utils.duplicate(out);
+}
+
+function calcEgoPts(ego){
+    let out = (ego.value-ego.base)*ego.cost_multiplier;
+    return foundry.utils.duplicate(out);
+}
+
+function calcPdPts(abilities){
+    let temp_str = Math.floor(abilities.STR.value/5);
+    let out = abilities.PD.value-temp_str;
+    return foundry.utils.duplicate(out);
+}
+
+function calcEdPts(abilities){
+    let temp_con = Math.floor(abilities.CON.value/5)
+    let out = abilities.ED.value-temp_con;
+    return foundry.utils.duplicate(out);
+}
+
 function calcSpdPts(abilities){
     let temp_dex = Math.floor(abilities.DEX.value/10);
     let out = (abilities.SPD.value-temp_dex)*10;
     return foundry.utils.duplicate(out);
-    //return out;
 }
 
-function calcSpd(abilities){
-    let temp_dex = Math.floor((abilities.DEX.value/abilities.DEX.cost_multiplier)+abilities.DEX.base);
-    let out = Math.floor((temp_dex+abilities.SPD.value)/abilities.SPD.cost_multiplier)+abilities.SPD.base;
-    return out;
+function calcRecPts(abilities){
+    let temp_str = Math.floor(abilities.STR.value/5);
+    let temp_con = Math.floor(abilities.CON.value/5);
+    let out = (abilities.REC.value-(temp_str+temp_con))*2;
+    return foundry.utils.duplicate(out);
 }
 
-async function calcRec(actorName) {
-    const actor = await game.actors.getName(actorName);
-    const system = await actor.system;
-    let temp_str = system.abilities.STR.value + system.abilities.STR.base;
-    let temp_con = Math.floor((system.abilities.CON.value/2)+system.abilities.CON.base);
-    let out = Math.floor((temp_str/5 + temp_con/5) + system.abilities.REC.value/2);
-    return out;
+function calcEndPts(abilities){
+    let temp_con = abilities.CON.value*2;
+    let out = Math.floor((abilities.END.value-temp_con)/2);
+    return foundry.utils.duplicate(out);
+}
+
+function calcStunPts(abilities){
+    let temp_str = Math.floor(abilities.STR.value/2);
+    let temp_con = Math.floor(abilities.CON.value/2);
+    let out = Math.floor((abilities.STUN.value - (temp_str+temp_con+abilities.BODY.value))*2);
+    return foundry.utils.duplicate(out);
+}
+
+function calcCurrentStun(stun,current_stun){
+    console.log(current_stun);
+    if(current_stun==null){
+        console.log("is empty");
+        return foundry.utils.duplicate(stun);
+    }else{
+        console.log("NOT empty");
+        return foundry.utils.duplicate(current_stun);
+    }
 }
 
 /**
