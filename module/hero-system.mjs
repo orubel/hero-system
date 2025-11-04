@@ -235,7 +235,7 @@ function calcEdPts(abilities){
 
 function calcSpdPts(abilities){
     let temp_dex = Math.floor(abilities.DEX.value/10);
-    let out = (abilities.SPD.value-temp_dex)*10;
+    let out = ((abilities.SPD.value-temp_dex)*10)-10;
     return foundry.utils.duplicate(out);
 }
 
