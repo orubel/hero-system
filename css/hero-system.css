@@ -217,8 +217,8 @@
   margin-bottom: 10px;
 }
 .hero-system .sheet-header .profile-img {
-  flex: 0 0 100px;
-  height: 100px;
+  flex: 0 0 200px;
+  height: 200px;
   margin-right: 10px;
 }
 .hero-system .sheet-header .header-fields {
@@ -368,4 +368,14 @@
 }
 .hero-system .effects .item .effect-controls {
   border: none;
+}
+
+
+
+.window-app .window-content {
+    background-color: #fff;
+    background-image: url(../assets/super_bg.png);
+    background-size: 900px auto;
+    background-repeat: no-repeat;
+    background-position: center top;
 }

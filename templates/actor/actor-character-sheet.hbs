@@ -12,28 +12,25 @@
         </div>
 
         <!-- RIGHT COLUMN -->
-        <div class="flexcol" style="flex: 0 0 150px; grid-template-rows: 1fr 1fr 1fr; grid-template-columns: 1fr; gap: 0.25em;">
-          <div style="padding:10px;border-radius: 25px;border: 2px solid #000; background-color: #4287f5;">
+        <div class="flexcol" style="flex: 0 0 100px; grid-template-rows: 1fr 1fr 1fr; grid-template-columns: 1fr; gap: 0.25em;">
+          <div style="padding:5px;border-radius: 25px; background-color: #4287f5;text-align:center;">
               <label class="resource-label" style="align:center; color:#fff;">Stun</label>
-              <div class="flexrow flex-center flex-between" style="padding:10px;">
-                  <div style="align:center;">{{ system.abilities.STUN.value }}</div>
-                  <span> / </span>
+              <div class="flexrow flex-center flex-between" style="padding:10px;display: flex; align-items: center;">
+                  <div>{{ system.abilities.STUN.value }} /</div>
                   <input type="text" name="system.STUN.current" value="{{calcCurrentStun system.abilities.STUN.value system.STUN.current}}" data-dtype="Number"/>
               </div>
           </div>
-          <div style="padding:10px;border-radius: 25px;border: 2px solid #000; background-color: #4287f5;align:center;">
-              <label class="resource-label" style="align:center; color:#fff;">Body</label>
-              <div class="flexrow flex-center flex-between" style="padding:10px;">
-                  <div style="align:center;">{{ calcBodyPts system.abilities }}</div>
-                  <span> / </span>
+          <div style="padding:5px;border-radius: 25px; background-color: #4287f5;text-align:center;">
+              <label class="resource-label" style="align:center; color:#fff;">BODY</label>
+              <div class="flexrow flex-center flex-between" style="padding:10px; display: flex; align-items: center;">
+                  <div>{{ system.abilities.BODY.value }} /</div>
                   <input type="text" name="system.BODY.current" value="{{system.BODY.value}}" data-dtype="Number"/>
               </div>
           </div>
-          <div style="padding:10px;border-radius: 25px;border: 2px solid #000; background-color: #4287f5;">
+          <div style="padding:5px;border-radius: 25px; background-color: #4287f5;text-align:center;">
               <label class="resource-label" style="align:center; color:#fff;">END</label>
-              <div class="flexrow flex-center flex-between" style="padding:10px;">
-                  <div style="align:center;">{{ calcRecPts system.abilities }}</div>
-                  <span> / </span>
+              <div class="flexrow flex-center flex-between" style="padding:10px;display: flex; align-items: center;">
+                  <div>{{ system.abilities.REC.value }} /</div>
                   <input type="text" name="system.END.current" value="{{system.END.value}}" data-dtype="Number"/>
               </div>
           </div>
