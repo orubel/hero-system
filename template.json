@@ -125,7 +125,7 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell","complication"],
+    "types": ["item", "feature", "power","complication"],
     "templates": {
       "base": {
         "description": ""
@@ -140,84 +140,259 @@
     "feature": {
       "templates": ["base"]
     },
-    "spell": {
+    "power": {
       "templates": ["base"],
       "spellLevel": 1
     },
     "complication": {
       "Accidental Change":{
-        "properties": {
-
+        "value": 0,
+        "select1": {
+          "label": { "Circumstances": "Points" },
+          "values": {
+            "uncommon": 5,
+            "common": 10,
+            "very common": 15
+          }
+        },
+        "select2": {
+          "label": { "Chance to change": "Bonus" },
+          "values": {
+            "occasionally (8>)": 0,
+            "frequently (11>)": 5,
+            "often (14>)": 10
+          }
         }
       },
-      "Age":{
-        "properties": {
-
-        }
-      },
-      "Berserk":{
-        "properties": {
-
+      "Berserk/Enrage":{
+        "value": 0,
+        "select1": {
+          "label": { "Circumstances": "Points" },
+          "values": {
+            "uncommon": 5,
+            "common": 10,
+            "very common": 15
+          }
+        },
+        "select2": {
+          "label": { "Chance to Berserk": "Bonus" },
+          "values": {
+            "occasionally (8>)": 0,
+            "frequently (11>)": 5,
+            "often (14>)": 10
+          }
+        },
+        "select3": {
+          "label": { "Chance to Recover": "Bonus" },
+          "values": {
+            "often (14>)": 0,
+            "frequently (11>)": 5,
+            "occasionally (8>)": 10
+          }
+        },
+        "select4": {
+          "label": { "Type": "Multiplier" },
+          "values": {
+            "Berserk": 1,
+            "Enraged": 0.5
+          }
         }
       },
       "Dependence":{
-        "properties": {
-
+        "value": 0,
+        "select1": {
+          "label": { "Substance is": "Points" },
+          "values": {
+            "very common": 5,
+            "common": 10,
+            "uncommon": 15
+          }
+        },
+        "select2": {
+          "label": { "Time before taking damage": "Bonus" },
+          "values": {
+            "segment": 15,
+            "phase": 10,
+            "turn": 5,
+            "minute": 0,
+            "5 minutes": -5,
+            "1 hour": -10,
+            "5 hours": -15
+          }
+        },
+        "select3": {
+          "label": { "# of Dice": "Bonus" },
+          "values": {
+            "1d6": 0,
+            "2d6": 5,
+            "3d6": 10
+          }
         }
       },
       "Dependent NPC":{
         "value": 0,
-        "properties": {
-
+        "select1": {
+          "label": { "DNPC is": "Points" },
+          "values": {
+            "incompetent (-20 pts below norm)": 10,
+            "normal": 5,
+            "slightly less powerful": 0,
+            "as powerful": -5
+          }
+        },
+        "select2": {
+          "label": { "Appears...": "Bonus" },
+          "values": {
+            "occasionally (8>)": 5,
+            "frequently (11>)": 10,
+            "often (14>)": 15
+          }
+        },
+        "select3": {
+          "label": { "Skills": "Bonus" },
+          "values": {
+            "none": 0,
+            "useful noncombat skills": -5
+          }
         }
       },
       "Distinctive Features":{
         "value": 0,
-        "properties": {
-
+        "select1": {
+          "label": { "Concealability": "Points" },
+          "values": {
+            "easily concealed": 5,
+            "concealable w/ disguise": 10,
+            "not concealable": 15
+          }
+        },
+        "select2": {
+          "label": { "Reaction": "Bonus" },
+          "values": {
+            "recognized": 0,
+            "major reaction": 5,
+            "extreme reaction": 10
+          }
         }
       },
-      "Hunted / Watched":{
+      "Hunted/Watched":{
         "value": 0,
-        "properties": {
-
+        "select1": {
+          "label": { "Capabilities": "Points" },
+          "values": {
+            "less powerful": 5,
+            "as powerful": 10,
+            "more powerful": 15
+          }
+        },
+        "select2": {
+          "label": { "Appearance": "Bonus" },
+          "values": {
+            "occasionally (8>)": 5,
+            "frequently (11>)": 10,
+            "often (14>)": 15
+          }
+        },
+        "select3": {
+          "label": { "Response": "Bonus" },
+          "values": {
+            "Punish": -5,
+            "Imprison/Kill": 0
+          }
+        },
+        "select4": {
+          "label": { "Motivation": "Multiplier" },
+          "values": {
+            "Hunting": 1,
+            "Watching": 0.5
+          }
         }
       },
       "Normal Characteristic Max":{
         "value": 0,
-        "properties": {
-
+        "select1": {
+          "label": { "Characteristics": "Points" },
+          "values": {
+            "normal": 20
+          }
+        },
+        "select2": {
+          "label": { "Age": "Bonus" },
+          "values": {
+            "40>": 0,
+            "40+": 5,
+            "60+": 10
+          }
         }
       },
       "Physical Limitation":{
         "value": 0,
-        "properties": {
-
+        "select1": {
+          "label": { "Occurs": "Points" },
+          "values": {
+            "occasionally": 5,
+            "frequently": 10,
+            "often": 15
+          }
+        },
+        "select2": {
+          "label": { "Impairs": "Bonus" },
+          "values": {
+            "slightly": 0,
+            "greatly": 5,
+            "fully": 10
+          }
         }
       },
       "Psychological Limitations":{
         "value": 0,
-        "properties": {
-
+        "select1": {
+          "label": { "situation is": "Points" },
+          "values": {
+            "uncommon": 5,
+            "common": 10,
+            "very common": 15
+          }
+        },
+        "select2": {
+          "label": { "Intensity": "Bonus" },
+          "values": {
+            "moderate reaction": 0,
+            "strong reaction": 5,
+            "total collapse": 10
+          }
         }
       },
       "Public Identity":{
-        "value": 0,
-        "properties": {
-
-        }
+        "value": 10
       },
       "Reputation":{
         "value": 0,
-        "properties": {
-
+        "select1": {
+          "label": { "Recognized": "Points" },
+          "values": {
+            "occasionally (8>)": 5,
+            "frequently (11>)": 10,
+            "often (14>)": 15
+          }
+        },
+        "select2": {
+          "label": { "Reputation": "Points" },
+          "values": {
+            "normal": 0,
+            "extreme": 5
+          }
         }
       },
       "Rivalry":{
-        "situation": {
-          "professional/romantic": 5,
-          "professional AND romantic": 10,
-          "rival in superior position": 15
+        "value": 0,
+        "select1": {
+          "label": { "Situation": "Points" },
+          "values": {
+            "professional/romantic": 5,
+            "professional AND romantic": 10,
+            "rival in superior position": 15
+          }
         }
       },
       "Secret Identity":{
@@ -225,39 +400,61 @@
       },
       "Susceptibility":{
         "value": 0,
-        "condition": {
-          "uncommon": 5,
-          "common": 10,
-          "very common": 15
+        "select1": {
+          "label": { "Condition is": "Points" },
+          "values": {
+            "uncommon": 5,
+            "common": 10,
+            "very common": 15
+          }
         },
-        "damage frequency": {
-          "turn/5 minutes": 5,
-          "phase": 10,
-          "segment": 15
+        "select2": {
+          "label": { "Damage every": "Bonus" },
+          "values": {
+            "segment": 15,
+            "phase": 10,
+            "turn": 5,
+            "minute": 0,
+            "5 minutes": -5,
+            "1 hour": -10,
+            "5 hours": -15
+          }
         },
-        "dice": {
-          "2": 5,
-          "3": 10
+        "select3": {
+          "label": { "# of Dice": "Bonus" },
+          "values": {
+            "1d6": 0,
+            "2d6": 5,
+            "3d6": 10
+          }
         }
       },
       "Unluck":{
         "value": 0,
-        "effects": {
-          "one level":5,
-          "two levels":10,
-          "three levels":15,
-          "four levels":20
+        "select1": {
+          "label": { "Levels": "Points" },
+          "values": {
+            "one level": 5,
+            "two levels": 10,
+            "three levels": 15,
+            "four levels": 20
+          }
         }
       },
       "Vulnerability":{
         "value": 0,
-        "attack is": {
+        "select1": {
+          "label": { "Attack is": "Points" },
           "uncommon" : 5,
           "common" : 10,
           "very common" : 15
         },
-        "multiplier": {
-          "target takes 2x damage": 2
+        "select2": {
+          "label": { "Description": "Multiplier" },
+          "values": {
+            "target takes 1.5x damage": 1,
+            "target takes 2x damage": 2
+          }
         }
       }
     }

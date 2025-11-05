@@ -108,6 +108,9 @@ export class HeroSystemActorSheet extends ActorSheet {
     const spells = {
       0: []
     };
+    const powers = {
+      0: []
+    };
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -122,6 +125,12 @@ export class HeroSystemActorSheet extends ActorSheet {
       }
       // Append to spells.
       else if (i.type === 'spell') {
+        if (i.system.spellLevel != undefined) {
+          spells[i.system.spellLevel].push(i);
+        }
+      }
+      // Append to powers.
+      else if (i.type === 'power') {
         if (i.system.spellLevel != undefined) {
           spells[i.system.spellLevel].push(i);
         }
