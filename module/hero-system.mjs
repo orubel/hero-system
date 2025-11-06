@@ -111,6 +111,11 @@ Handlebars.registerHelper('ceil', function(value) {
     return Math.ceil(value);
 });
 
+// round up
+Handlebars.registerHelper('log', function(value) {
+    return Math.ceil("LOG :"+value);
+});
+
 Handlebars.registerHelper('calcStrPts', function(str) {
     return calcStrPts(str);
 });
@@ -260,7 +265,7 @@ function calcStunPts(abilities){
 }
 
 function calcCurrentStun(stun,current_stun){
-    console.log(current_stun);
+    console.log("current:"+current_stun);
     if(current_stun==null){
         console.log("is empty");
         return foundry.utils.duplicate(stun);
