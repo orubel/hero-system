@@ -187,7 +187,6 @@ Handlebars.registerHelper('compSelect', function(values,comp_key) {
             output += `<option name='name' type='text' value='`+key+`' placeholder='Name'>`+key+`</option>`;
         }
     };
-    console.log(output);
     return output;
 });
 

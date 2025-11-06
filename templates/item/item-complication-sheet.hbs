@@ -2,19 +2,22 @@
 {{! Generally, you'll want to make more specific templates when possible. }}
 <form class='{{cssClass}}' autocomplete='off'>
   <header class='sheet-header'>
-    <img
-      class='profile-img'
-      src='{{item.img}}'
-      data-edit='img'
-      title='{{item.name}}'
-    />
-    <div class='header-fields'>
-    {{ log system }}
-    <label for="mySelect">{{localize "Complication"}}</label>
-      <select name="system.key" value="{{system.key}}">
-          {{{ compSelect system.values system.key }}}
-      </select>
+    <img class='profile-img' src='{{item.img}}' data-edit='img' title='{{item.name}}'/>
 
+      <div class="flexrow" style="height:100%; gap: 0.5em;">
+        <!-- LEFT COLUMN -->
+        <div class="flexcol" style="flex: 1;">
+          <section>
+            <label class='resource-label' style="position: absolute;width:80px;">{{localize "Name"}}</label>
+            <input style="margin-left: 90px;width:190px;" type="text" name="system.name" value="{{system.name}}"/>
+          </section>
+          <section>
+              <label style="position: absolute;width:80px;">{{localize "Complication"}}</label>
+              <select style="margin-left: 90px;" name="system.key" value="{{system.key}}">
+                  {{{ compSelect system.values system.key }}}
+              </select>
+          </section>
+        </div>
     </div>
   </header>
 
