@@ -6,3 +6,8 @@
 
 # notes
 - **system.abilities** - found in actor_sheet; 'shorthand' system parameter for game.actors.getName(actorName).system.abilities
+
+# directories
+- **templates/item** - these are the popup windows for 'items'
+- **templates/actor** - 'actor' character sheets
+- **module/** - functions for individual parts (item/effects/actor)
