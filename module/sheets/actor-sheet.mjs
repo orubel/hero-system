@@ -157,8 +157,8 @@ export class HeroSystemActorSheet extends ActorSheet {
 
     html.on('click', '.complication-edit', (ev) => {
       const li = $(ev.currentTarget).parents('.item');
-      const item = this.actor.items.get(li.data('itemId'));
-      item.sheet.render(true);
+      const complication = this.actor.items.get(li.data('itemId'));
+      complication.sheet.render(true);
     });
 
     // Add Inventory Item

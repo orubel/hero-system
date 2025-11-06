@@ -113,7 +113,7 @@ Handlebars.registerHelper('ceil', function(value) {
 
 // round up
 Handlebars.registerHelper('log', function(value) {
-    return Math.ceil("LOG :"+value);
+    console.log("LOG :"+JSON.stringify(value));
 });
 
 Handlebars.registerHelper('calcStrPts', function(str) {
@@ -176,6 +176,19 @@ Handlebars.registerHelper('calcCurrentStun', function(stun,current_stun) {
 Handlebars.registerHelper('calcCharTotal', function(abilities) {
     let out = calcStrPts(abilities.STR) + calcDexPts(abilities.DEX) + calcConPts(abilities.CON) + calcBodyPts(abilities.BODY) + calcIntPts(abilities.INT) + calcEgoPts(abilities.EGO) + calcPrePts(abilities.PRE) + calcPdPts(abilities) + calcEdPts(abilities) + calcSpdPts(abilities) + calcRecPts(abilities) + calcEndPts(abilities) + calcStunPts(abilities);
     return out;
+});
+
+Handlebars.registerHelper('compSelect', function(values,comp_key) {
+    var output = ``
+    for (let key in values) {
+        if(key==comp_key){
+            output += `<option name='name' type='text' value='`+key+`' placeholder='Name' selected>`+key+`</option>`;
+        }else{
+            output += `<option name='name' type='text' value='`+key+`' placeholder='Name'>`+key+`</option>`;
+        }
+    };
+    console.log(output);
+    return output;
 });
 
 /* -------------------------------------------- */
@@ -265,12 +278,9 @@ function calcStunPts(abilities){
 }
 
 function calcCurrentStun(stun,current_stun){
-    console.log("current:"+current_stun);
     if(current_stun==null){
-        console.log("is empty");
         return foundry.utils.duplicate(stun);
     }else{
-        console.log("NOT empty");
         return foundry.utils.duplicate(current_stun);
     }
 }

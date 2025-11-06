@@ -9,12 +9,12 @@
       title='{{item.name}}'
     />
     <div class='header-fields'>
-      <h1 class='charname'><input
-          name='name'
-          type='text'
-          value='{{item.name}}'
-          placeholder='Name'
-        /></h1>
+    {{ log system }}
+    <label for="mySelect">{{localize "Complication"}}</label>
+      <select name="system.key" value="{{system.key}}">
+          {{{ compSelect system.values system.key }}}
+      </select>
+
     </div>
   </header>
 
