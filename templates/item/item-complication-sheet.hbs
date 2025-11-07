@@ -12,7 +12,7 @@
             <input style="margin-left: 90px;width:190px;" type="text" name="system.name" value="{{system.name}}"/>
           </section>
           <section>
-              <label style="position: absolute;width:80px;">{{localize "Complication"}}</label>
+              <label class='resource-label' style="position: absolute;width:80px;">{{localize "Complication"}}</label>
               <select style="margin-left: 90px;" name="system.key" value="{{system.key}}">
                   {{{ compSelect system.values system.key }}}
               </select>
@@ -29,17 +29,10 @@
 
   {{! Sheet Body }}
   <section class='sheet-body'>
-
     {{! Description Tab }}
     <div class='tab' data-group='primary' data-tab='description'>
       {{! Editors must receive enriched text data from getData to properly handle rolls }}
-      {{editor
-        enrichedDescription
-        target='system.description'
-        engine='prosemirror'
-        button=true
-        editable=editable
-      }}
+      {{editor (lookup (lookup system.values system.key) 'desc') target='system.desc' engine='prosemirror' button=true editable=editable}}
     </div>
 
     {{! Attributes Tab }}
