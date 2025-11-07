@@ -2,42 +2,56 @@
 {{! Generally, you'll want to make more specific templates when possible. }}
 <form class='{{cssClass}}' autocomplete='off'>
   <header class='sheet-header'>
-    <img class='profile-img' src='{{item.img}}' data-edit='img' title='{{item.name}}'/>
-
-      <div class="flexrow" style="height:100%; gap: 0.5em;">
-        <!-- LEFT COLUMN -->
-        <div class="flexcol" style="flex: 1;">
-          <section>
-            <label class='resource-label' style="position: absolute;width:80px;">{{localize "Name"}}</label>
-            <input style="margin-left: 90px;width:190px;" type="text" name="system.name" value="{{system.name}}"/>
-          </section>
-          <section>
-              <label class='resource-label' style="position: absolute;width:80px;">{{localize "Complication"}}</label>
-              <select style="margin-left: 90px;" name="system.key" value="{{system.key}}">
-                  {{{ compSelect system.values system.key }}}
-              </select>
-          </section>
-        </div>
-    </div>
+        {{! Editors must receive enriched text data from getData to properly handle rolls }}
+        {{editor (lookup (lookup system.values system.key) 'desc') target='system.desc' engine='prosemirror' button=true editable=editable}}
   </header>
 
-  {{! Sheet Tab Navigation }}
-  <nav class='sheet-tabs tabs' data-group='primary'>
-    <a class='item' data-tab='description'>Description</a>
-    <a class='item' data-tab='attributes'>Attributes</a>
-  </nav>
+      <div class="flexrow" style="gap: 0.5em;">
+        <!-- LEFT COLUMN -->
+        <div class="flexcol" style="flex: 1;">
+            <ol class='items-list'>
+              <li class='item flexrow items-header'>
+                <div>Setup</div>
+              </li>
+                <li class='item flexrow'>
+                    <div class="flexcol" style="flex: 1;">
+                      <section style="text-align: left;">
+                          <label class='resource-label' style="display: inline-block;width:100px;">{{localize "Name"}}</label>
+                          <input style="width:250px;" type="text" name="system.name" value="{{system.name}}"/>
+                      </section>
+                      <section style="text-align: left;">
+                          <label class='resource-label' style="display:inline-block;;width:100px;">{{localize "Complication"}}</label>
+                          <select style="width:250px;" name="system.key" value="{{system.key}}">
+                              {{{ compSelect system.values system.key }}}
+                          </select>
+                      </section>
+                    </div>
+                </li>
+            </ol>
+        </div>
+      </div>
 
-  {{! Sheet Body }}
-  <section class='sheet-body'>
-    {{! Description Tab }}
-    <div class='tab' data-group='primary' data-tab='description'>
-      {{! Editors must receive enriched text data from getData to properly handle rolls }}
-      {{editor (lookup (lookup system.values system.key) 'desc') target='system.desc' engine='prosemirror' button=true editable=editable}}
-    </div>
+      <div class="flexrow" style="gap: 0.5em;">
+        <!-- LEFT COLUMN -->
+        <div class="flexcol" style="flex: 1;">
+            <ol class='items-list'>
+              <li class='item flexrow items-header'>
+                <div>Config</div>
+              </li>
+                <li class='item flexrow'>
+                    <div class="flexcol" style="flex: 1;">
+                        {{#if (lookup (lookup system.values system.key) 'select1')}}
+                          <section style="text-align: left;">
+                              <label class='resource-label' style="display: inline-block;width:100px;">{{localize "Name"}}</label>
+                              <input style="width:250px;" type="text" name="system.name" value="{{system.name}}"/>
+                          </section>
+                        {{/if}}
 
-    {{! Attributes Tab }}
-    <div class='tab attributes' data-group='primary' data-tab='attributes'>
-      {{! As you add new fields, add them in here! }}
-    </div>
-  </section>
+
+                    </div>
+                </li>
+            </ol>
+        </div>
+      </div>
+
 </form>

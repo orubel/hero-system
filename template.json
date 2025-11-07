@@ -148,22 +148,22 @@
       "name": "New Complication (test)",
       "key": "",
       "points": 0,
-      "select1": "",
-      "select2": "",
-      "select3": "",
-      "select4": "",
+      "select1": 0,
+      "select2": 0,
+      "select3": 0,
+      "select4": 0,
+      "multiplier": 0,
       "values": {
         "Accidental Change": {
           "desc": "A character with this disadvantage will accidentally change into his superhero identity. The character defines the circumstances under which they change and how often under those circumstances they will change.",
-          "value": 0,
           "select1": {
             "label": {
               "Circumstances": "Points"
             },
             "values": {
-              "uncommon": 5,
-              "common": 10,
-              "very common": 15
+              "5": "uncommon",
+              "10": "common",
+              "15": "very common"
             }
           },
           "select2": {
@@ -171,23 +171,22 @@
               "Chance to change": "Bonus"
             },
             "values": {
-              "occasionally (8>)": 0,
-              "frequently (11>)": 5,
-              "often (14>)": 10
+              "0":  "occasionally (8>)" ,
+              "5":  "frequently (11>)",
+              "10": "often (14>)"
             }
           }
         },
         "Berserk/Enrage": {
           "desc": "A character with this disadvantage tends to go berserk during periods of stress or in canbat. Berserk characters do not know friend fran foe, and autanatically attack whoever is in front of them, until the target is knocked out or killed (whichever canes first). The Berserk character will then attack the nearest moving character in his sight. Berserk characters will use their most effective offensive power at full damage while Berserk.",
-          "value": 0,
           "select1": {
             "label": {
               "Circumstances": "Points"
             },
             "values": {
-              "uncommon": 5,
-              "common": 10,
-              "very common": 15
+              "5": "uncommon",
+              "10": "common",
+              "15": "very common"
             }
           },
           "select2": {
@@ -195,9 +194,9 @@
               "Chance to Berserk": "Bonus"
             },
             "values": {
-              "occasionally (8>)": 0,
-              "frequently (11>)": 5,
-              "often (14>)": 10
+              "0":  "occasionally (8>)" ,
+              "5":  "frequently (11>)",
+              "10": "often (14>)"
             }
           },
           "select3": {
@@ -205,32 +204,31 @@
               "Chance to Recover": "Bonus"
             },
             "values": {
-              "often (14>)": 0,
-              "frequently (11>)": 5,
-              "occasionally (8>)": 10
+              "0": "often (14>)",
+              "5": "frequently (11>)",
+              "10": "occasionally (8>)"
             }
           },
-          "select4": {
+          "multiplier": {
             "label": {
               "Type": "Multiplier"
             },
             "values": {
-              "Berserk": 1,
-              "Enraged": 0.5
+              "1": "Berserk",
+              "0.5": "Enraged"
             }
           }
         },
         "Dependency": {
           "desc": "A character with this disadvantage must have a certain substance/item or they will die. The character may need water every hour or a serum every day to stay alive. ",
-          "value": 0,
           "select1": {
             "label": {
               "Substance is": "Points"
             },
             "values": {
-              "very common": 5,
-              "common": 10,
-              "uncommon": 15
+              "5": "uncommon",
+              "10": "common",
+              "15": "very common"
             }
           },
           "select2": {
@@ -238,13 +236,13 @@
               "Time before taking damage": "Bonus"
             },
             "values": {
-              "segment": 15,
-              "phase": 10,
-              "turn": 5,
-              "minute": 0,
-              "5 minutes": -5,
-              "1 hour": -10,
-              "5 hours": -15
+              "15": "segment",
+              "10": "phase",
+              "5": "turn",
+              "0": "minute",
+              "-5": "5 minutes",
+              "-10": "1 hour",
+              "-15": "5 hours"
             }
           },
           "select3": {
@@ -252,24 +250,23 @@
               "# of Dice": "Bonus"
             },
             "values": {
-              "1d6": 0,
-              "2d6": 5,
-              "3d6": 10
+              "0": "1d6",
+              "5": "2d6",
+              "10": "3d6"
             }
           }
         },
         "Dependent NPC": {
           "desc": "A character with this disadvantage has a non-player character friend or loved one who gets in the way and gets into trouble a lot, requiring the character to protect or save them. The character should define how competent the NPC is and hCM often the NPC gets involved in scenarios. The points for a Dependent NPC are given by the following chart.",
-          "value": 0,
           "select1": {
             "label": {
               "DNPC is": "Points"
             },
             "values": {
-              "incompetent (-20 pts below norm)": 10,
-              "normal": 5,
-              "slightly less powerful": 0,
-              "as powerful": -5
+              "10": "incompetent (-20 pts below norm)",
+              "5": "normal",
+              "0": "slightly less powerful",
+              "-5": "as powerful"
             }
           },
           "select2": {
@@ -277,9 +274,9 @@
               "Appears...": "Bonus"
             },
             "values": {
-              "occasionally (8>)": 5,
-              "frequently (11>)": 10,
-              "often (14>)": 15
+              "5":  "occasionally (8>)" ,
+              "10":  "frequently (11>)",
+              "15": "often (14>)"
             }
           },
           "select3": {
@@ -287,22 +284,21 @@
               "Skills": "Bonus"
             },
             "values": {
-              "none": 0,
-              "useful noncombat skills": -5
+              "0": "none",
+              "-5": "useful noncombat skills"
             }
           }
         },
         "Distinctive Features": {
           "desc": "Distinct features can cause a negative reaction from those who view the character and make it hard for them to conceal their identity",
-          "value": 0,
           "select1": {
             "label": {
               "Concealability": "Points"
             },
             "values": {
-              "easily concealed": 5,
-              "concealable w/ disguise": 10,
-              "not concealable": 15
+              "5": "easily concealed",
+              "10": "concealable w/ disguise",
+              "15": "not concealable"
             }
           },
           "select2": {
@@ -310,23 +306,22 @@
               "Reaction": "Bonus"
             },
             "values": {
-              "recognized": 0,
-              "major reaction": 5,
-              "extreme reaction": 10
+              "0": "recognized",
+              "5": "major reaction",
+              "10": "extreme reaction"
             }
           }
         },
         "Hunted/Watched": {
           "desc": "A character with this disadvantage is hunted by some person or group in the campaign. The character may or may not know he is Hunted, at the player's discretion.",
-          "value": 0,
           "select1": {
             "label": {
               "Capabilities": "Points"
             },
             "values": {
-              "less powerful": 5,
-              "as powerful": 10,
-              "more powerful": 15
+              "5": "less powerful",
+              "10": "as powerful",
+              "15": "more powerful"
             }
           },
           "select2": {
@@ -334,9 +329,9 @@
               "Appearance": "Bonus"
             },
             "values": {
-              "occasionally (8>)": 5,
-              "frequently (11>)": 10,
-              "often (14>)": 15
+              "5":  "occasionally (8>)" ,
+              "10": "frequently (11>)",
+              "15": "often (14>)"
             }
           },
           "select3": {
@@ -344,11 +339,11 @@
               "Response": "Bonus"
             },
             "values": {
-              "Punish": -5,
-              "Imprison/Kill": 0
+              "-5": "Punish",
+              "0": "Imprison/Kill"
             }
           },
-          "select4": {
+          "multiplier": {
             "label": {
               "Motivation": "Multiplier"
             },
@@ -360,15 +355,14 @@
         },
         "Physical Limitation": {
           "desc": "A character with this disadvantage has a physical problem which hampers him, such as lack of hands, blindness, etc. The amount of points given for a physical limitation is determined by how often the limitation gets in the way and by how damaging the limitation is.",
-          "value": 0,
           "select1": {
             "label": {
               "Occurs": "Points"
             },
             "values": {
-              "occasionally": 5,
-              "frequently": 10,
-              "often": 15
+              "5":  "occasionally (8>)" ,
+              "10": "frequently (11>)",
+              "15": "often (14>)"
             }
           },
           "select2": {
@@ -376,23 +370,22 @@
               "Impairs": "Bonus"
             },
             "values": {
-              "slightly": 0,
-              "greatly": 5,
-              "fully": 10
+              "0": "slightly",
+              "5": "greatly",
+              "10": "fully"
             }
           }
         },
         "Psychological Limitations": {
           "desc": "A character with this disadvantage has a psychological quirk about a given thing or situation. The character reacts unusually to this thing or situation, usually with fear or hatred. The character defines how often his limitation occurs and how damaging it is. The character gets points according to the following chart.",
-          "value": 0,
           "select1": {
             "label": {
               "situation is": "Points"
             },
             "values": {
-              "uncommon": 5,
-              "common": 10,
-              "very common": 15
+              "5": "uncommon",
+              "10": "common",
+              "15": "very common"
             }
           },
           "select2": {
@@ -400,9 +393,9 @@
               "Intensity": "Bonus"
             },
             "values": {
-              "moderate reaction": 0,
-              "strong reaction": 5,
-              "total collapse": 10
+              "0": "moderate reaction",
+              "5": "strong reaction",
+              "10": "total collapse"
             }
           }
         },
@@ -412,15 +405,14 @@
         },
         "Susceptibility": {
           "desc": "A character with this disadvantage takes damage from objects or effects that are harmless to most people. The character defines how often the damaging object or effect is encountered, and how much damage the character will take from it.",
-          "value": 0,
           "select1": {
             "label": {
               "Condition is": "Points"
             },
             "values": {
-              "uncommon": 5,
-              "common": 10,
-              "very common": 15
+              "5": "uncommon",
+              "10": "common",
+              "15": "very common"
             }
           },
           "select2": {
@@ -428,13 +420,13 @@
               "Damage every": "Bonus"
             },
             "values": {
-              "segment": 15,
-              "phase": 10,
-              "turn": 5,
-              "minute": 0,
-              "5 minutes": -5,
-              "1 hour": -10,
-              "5 hours": -15
+              "15": "segment",
+              "10": "phase",
+              "5": "turn",
+              "0": "minute",
+              "-5": "5 minutes",
+              "-10": "1 hour",
+              "-15": "5 hours"
             }
           },
           "select3": {
@@ -442,45 +434,43 @@
               "# of Dice": "Bonus"
             },
             "values": {
-              "1d6": 0,
-              "2d6": 5,
-              "3d6": 10
+              "0": "1d6",
+              "5": "2d6",
+              "10": "3d6"
             }
           }
         },
         "Unluck": {
           "desc": "A character with this disadvantage has improbable, unlucky things happen to him. The GM should ask the character to make an Unluck Roll when the character is winning easily in a fight, depending on a sure thing, taking a simple task for grant~d, etc. The GM should be careful not to overemphas7ze this disadvantage, as Unluck can be most frustrating and annoying. The character rolls 1D6 for every. 5 pts. of Unluck. Each \"l\" that appears on the dice counts as one level of Unluck. The more levels of Unluck, the more intense the effects should be. The following chart gives some suggested effects for Unluck.",
-          "value": 0,
           "select1": {
             "label": {
               "Levels": "Points"
             },
             "values": {
-              "one level": 5,
-              "two levels": 10,
-              "three levels": 15,
-              "four levels": 20
+              "5": "one level",
+              "10": "two levels",
+              "15": "three levels",
+              "20": "four levels"
             }
           }
         },
         "Vulnerability": {
           "desc": "A character who takes a vulnerability takes additional damage from certain attack types. For example, a character who takes 1.5 damage from telekinesis would multiply the attack damage by 1.5. ",
-          "value": 0,
           "select1": {
             "label": {
               "Attack is": "Points"
             },
-            "uncommon": 5,
-            "common": 10,
-            "very common": 15
+            "5": "uncommon",
+            "10": "common",
+            "15": "very common"
           },
-          "select2": {
+          "multiplier": {
             "label": {
               "Description": "Multiplier"
             },
             "values": {
-              "target takes 1.5x damage": 1,
-              "target takes 2x damage": 2
+              "1": "target takes 1.5x damage",
+              "2": "target takes 2x damage"
             }
           }
         }
