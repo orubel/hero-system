@@ -178,7 +178,8 @@ Handlebars.registerHelper('calcCharTotal', function(abilities) {
     return out;
 });
 
-Handlebars.registerHelper('compSelect', function(values,comp_key) {
+Handlebars.registerHelper('compSelectKey', function(values,comp_key) {
+console.log(values);
     var output = ``
     for (let key in values) {
         if(key==comp_key){
@@ -190,6 +191,18 @@ Handlebars.registerHelper('compSelect', function(values,comp_key) {
     return output;
 });
 
+Handlebars.registerHelper('compSelectKeyVal', function(values,comp_key) {
+console.log(values);
+    var output = ``
+    for (let key in values) {
+        if(key==comp_key){
+            output += `<option name='name' type='text' value='`+key+`' placeholder='Name' selected>`+values[key]+`</option>`;
+        }else{
+            output += `<option name='name' type='text' value='`+key+`' placeholder='Name'>`+values[key]+`</option>`;
+        }
+    };
+    return output;
+});
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */

@@ -22,7 +22,7 @@
                       <section style="text-align: left;">
                           <label class='resource-label' style="display:inline-block;;width:100px;">{{localize "Complication"}}</label>
                           <select style="width:250px;" name="system.key" value="{{system.key}}">
-                              {{{ compSelect system.values system.key }}}
+                              {{{ compSelectKey system.values system.key }}}
                           </select>
                       </section>
                     </div>
@@ -41,10 +41,14 @@
                 <li class='item flexrow'>
                     <div class="flexcol" style="flex: 1;">
                         {{#if (lookup (lookup system.values system.key) 'select1')}}
+
                           <section style="text-align: left;">
-                              <label class='resource-label' style="display: inline-block;width:100px;">{{localize "Name"}}</label>
-                              <input style="width:250px;" type="text" name="system.name" value="{{system.name}}"/>
+                              <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'select1') 'label' }}</label>
+                              <select style="width:250px;" name="system.select1" value="{{system.select1}}">
+{{{ compSelectKeyVal (lookup (lookup (lookup system.values system.key) 'select1') 'values') system.select1 }}}
+                              </select>
                           </section>
+
                         {{/if}}
 
 
