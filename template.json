@@ -154,6 +154,7 @@
       "select4": "",
       "values": {
         "Accidental Change": {
+          "desc": "A character with this disadvantage will accidentally change into his superhero identity. The character defines the circumstances under which they change and how often under those circumstances they will change.",
           "value": 0,
           "select1": {
             "label": {
@@ -177,6 +178,7 @@
           }
         },
         "Berserk/Enrage": {
+          "desc": "A character with this disadvantage tends to go berserk during periods of stress or in canbat. Berserk characters do not know friend fran foe, and autanatically attack whoever is in front of them, until the target is knocked out or killed (whichever canes first). The Berserk character will then attack the nearest moving character in his sight. Berserk characters will use their most effective offensive power at full damage while Berserk.",
           "value": 0,
           "select1": {
             "label": {
@@ -218,7 +220,8 @@
             }
           }
         },
-        "Dependence": {
+        "Dependency": {
+          "desc": "A character with this disadvantage must have a certain substance/item or they will die. The character may need water every hour or a serum every day to stay alive. ",
           "value": 0,
           "select1": {
             "label": {
@@ -256,6 +259,7 @@
           }
         },
         "Dependent NPC": {
+          "desc": "A character with this disadvantage has a non-player character friend or loved one who gets in the way and gets into trouble a lot, requiring the character to protect or save them. The character should define how competent the NPC is and hCM often the NPC gets involved in scenarios. The points for a Dependent NPC are given by the following chart.",
           "value": 0,
           "select1": {
             "label": {
@@ -289,6 +293,7 @@
           }
         },
         "Distinctive Features": {
+          "desc": "Distinct features can cause a negative reaction from those who view the character and make it hard for them to conceal their identity",
           "value": 0,
           "select1": {
             "label": {
@@ -312,6 +317,7 @@
           }
         },
         "Hunted/Watched": {
+          "desc": "A character with this disadvantage is hunted by some person or group in the campaign. The character may or may not know he is Hunted, at the player's discretion.",
           "value": 0,
           "select1": {
             "label": {
@@ -352,28 +358,8 @@
             }
           }
         },
-        "Normal Characteristic Max": {
-          "value": 0,
-          "select1": {
-            "label": {
-              "Characteristics": "Points"
-            },
-            "values": {
-              "normal": 20
-            }
-          },
-          "select2": {
-            "label": {
-              "Age": "Bonus"
-            },
-            "values": {
-              "40>": 0,
-              "40+": 5,
-              "60+": 10
-            }
-          }
-        },
         "Physical Limitation": {
+          "desc": "A character with this disadvantage has a physical problem which hampers him, such as lack of hands, blindness, etc. The amount of points given for a physical limitation is determined by how often the limitation gets in the way and by how damaging the limitation is.",
           "value": 0,
           "select1": {
             "label": {
@@ -397,6 +383,7 @@
           }
         },
         "Psychological Limitations": {
+          "desc": "A character with this disadvantage has a psychological quirk about a given thing or situation. The character reacts unusually to this thing or situation, usually with fear or hatred. The character defines how often his limitation occurs and how damaging it is. The character gets points according to the following chart.",
           "value": 0,
           "select1": {
             "label": {
@@ -419,48 +406,12 @@
             }
           }
         },
-        "Public Identity": {
-          "value": 10
-        },
-        "Reputation": {
-          "value": 0,
-          "select1": {
-            "label": {
-              "Recognized": "Points"
-            },
-            "values": {
-              "occasionally (8>)": 5,
-              "frequently (11>)": 10,
-              "often (14>)": 15
-            }
-          },
-          "select2": {
-            "label": {
-              "Reputation": "Points"
-            },
-            "values": {
-              "normal": 0,
-              "extreme": 5
-            }
-          }
-        },
-        "Rivalry": {
-          "value": 0,
-          "select1": {
-            "label": {
-              "Situation": "Points"
-            },
-            "values": {
-              "professional/romantic": 5,
-              "professional AND romantic": 10,
-              "rival in superior position": 15
-            }
-          }
-        },
         "Secret Identity": {
+          "desc": "A character with this disadvantage has a well kept identity as a normal person. He leads a life as a normal person, with a job, friends, house, etc. until he changes into his superhero form. A character with this disadvantage will go to great lengths to protect his secre~. The character feels (often, quite correctly) that if .he was known to be.a superhero, his family and f!iends would be .in constant danger from supervillains. A Secret Identity is worth a bonus of 15 pts.",
           "value": 15
         },
         "Susceptibility": {
+          "desc": "A character with this disadvantage takes damage from objects or effects that are harmless to most people. The character defines how often the damaging object or effect is encountered, and how much damage the character will take from it.",
           "value": 0,
           "select1": {
             "label": {
@@ -498,6 +449,7 @@
           }
         },
         "Unluck": {
+          "desc": "A character with this disadvantage has improbable, unlucky things happen to him. The GM should ask the character to make an Unluck Roll when the character is winning easily in a fight, depending on a sure thing, taking a simple task for grant~d, etc. The GM should be careful not to overemphas7ze this disadvantage, as Unluck can be most frustrating and annoying. The character rolls 1D6 for every. 5 pts. of Unluck. Each \"l\" that appears on the dice counts as one level of Unluck. The more levels of Unluck, the more intense the effects should be. The following chart gives some suggested effects for Unluck.",
           "value": 0,
           "select1": {
             "label": {
@@ -512,6 +464,7 @@
           }
         },
         "Vulnerability": {
+          "desc": "A character who takes a vulnerability takes additional damage from certain attack types. For example, a character who takes 1.5 damage from telekinesis would multiply the attack damage by 1.5. ",
           "value": 0,
           "select1": {
             "label": {
