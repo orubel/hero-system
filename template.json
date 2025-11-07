@@ -330,9 +330,9 @@
           "select2": {
             "label": "Impairs",
             "values": {
-              "0": "slightly",
-              "5": "greatly",
-              "10": "fully"
+              "0": "slightly impairs",
+              "5": "greatly impairs",
+              "10": "fully impairs"
             }
           }
         },
@@ -377,13 +377,13 @@
           "select2": {
             "label": "Damage every",
             "values": {
-              "15": "segment",
-              "10": "phase",
-              "5": "turn",
-              "0": "minute",
+              "15": "dmg per segment",
+              "10": "dmg per phase",
+              "5": "dmg per turn",
+              "0": "dmg per minute",
               "-5": "5 minutes",
-              "-10": "1 hour",
-              "-15": "5 hours"
+              "-10": "dmg per 1 hour",
+              "-15": "dmg per 5 hours"
             }
           },
           "select3": {
@@ -418,8 +418,8 @@
           "multiplier": {
             "label": "Multiplier",
             "values": {
-              "1": "target takes 1.5x damage (1x)",
-              "2": "target takes 2x damage (2x)"
+              "1": "1.5x damage (1x)",
+              "2": "2x damage (2x)"
             }
           }
         }

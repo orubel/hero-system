@@ -14,6 +14,26 @@
           <h4>
             <div class='resource-label' style="display: inline-block;">{{ item.system.key }} :</div>
             <div style="display: inline-block;">{{ item.system.name }}</div>
+            <div style="display: inline-block;">(
+
+            {{#if (lookup (lookup system.values system.key) 'select1') }}
+                {{ lookup (lookup (lookup (lookup system.values system.key) 'select1') 'values') system.select1}}
+            {{/if}}
+
+            {{#if (lookup (lookup system.values system.key) 'select2') }}
+                ,{{ lookup (lookup (lookup (lookup system.values system.key) 'select2') 'values') system.select2}}
+            {{/if}}
+
+            {{#if (lookup (lookup system.values system.key) 'select3') }}
+                ,{{ lookup (lookup (lookup (lookup system.values system.key) 'select3') 'values') system.select3}}
+            {{/if}}
+
+            {{#if (lookup (lookup system.values system.key) 'select4') }}
+                ,{{ lookup (lookup (lookup (lookup system.values system.key) 'select4') 'values') system.select4}}
+            {{/if}}
+
+            )
+            </div>
           </h4>
         </div>
         <div class='item-formula item-prop'>{{item.system.formula}}</div>

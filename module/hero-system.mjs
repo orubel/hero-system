@@ -178,8 +178,7 @@ Handlebars.registerHelper('calcCharTotal', function(abilities) {
     return out;
 });
 
-Handlebars.registerHelper('compSelectKey', function(values,comp_key) {
-console.log(values);
+Handlebars.registerHelper('selectKey', function(values,comp_key) {
     var output = ``
     for (let key in values) {
         if(key==comp_key){
@@ -191,8 +190,7 @@ console.log(values);
     return output;
 });
 
-Handlebars.registerHelper('compSelectKeyVal', function(values,comp_key) {
-console.log(values);
+Handlebars.registerHelper('selectKeyVal', function(values,comp_key) {
     var output = ``
     for (let key in values) {
         if(key==comp_key){
