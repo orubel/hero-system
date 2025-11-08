@@ -207,6 +207,14 @@ Handlebars.registerHelper('calcCompPts', function(values) {
     return output;
 });
 
+Handlebars.registerHelper('calcCompPtsTotal', function(values) {
+    var output = 0;
+    for (let key in values) {
+        output += (Number(values[key].system.select1) + Number(values[key].system.select2) + Number(values[key].system.select3) + Number(values[key].system.select4))*Number(values[key].system.multiplier);
+    }
+    return output;
+});
+
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */

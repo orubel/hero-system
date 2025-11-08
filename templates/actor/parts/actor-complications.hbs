@@ -1,7 +1,7 @@
 <ol class='items-list'>
   <li class='item flexrow items-header'>
-    <div>Points</div>
-    <div>Complication</div>
+    <div style="flex:0 0 50px;">Pts</div>
+    <div style="text-align:left;">Complication</div>
     <div style="text-align:right;">
       <a class='item-control complication-create' title='{{localize "DOCUMENT.Create" type='Complication'}}' data-type='complication'>
         <i class='fas fa-plus'></i>{{localize 'DOCUMENT.New' type='complication'}}
@@ -10,29 +10,27 @@
   </li>
     {{#each complications as |item id|}}
       <li class='item flexrow' data-item-id='{{item._id}}'>
-        <div class='item-name'>
-            {{ calcCompPts item.system }}
-        </div>
+        <div class='item-name' style="display:block;flex:0 0 50px; text-align: center;">{{ calcCompPts item.system }}</div>
         <div class='item-name' style="padding:3px;">
           <h4>
             <div class='resource-label' style="display: inline-block;">{{ item.system.key }} :</div>
             <div style="display: inline-block;">{{ item.system.name }}</div>
             <div style="display: inline-block;">(
 
-            {{#if (lookup (lookup system.values system.key) 'select1') }}
-                {{ lookup (lookup (lookup (lookup system.values system.key) 'select1') 'values') system.select1}}
+            {{#if (lookup (lookup item.system.values item.system.key) 'select1') }}
+                {{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'select1') 'values') item.system.select1}}
             {{/if}}
 
-            {{#if (lookup (lookup system.values system.key) 'select2') }}
-                ,{{ lookup (lookup (lookup (lookup system.values system.key) 'select2') 'values') system.select2}}
+            {{#if (lookup (lookup item.system.values item.system.key) 'select2') }}
+                ,{{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'select2') 'values') item.system.select2}}
             {{/if}}
 
-            {{#if (lookup (lookup system.values system.key) 'select3') }}
-                ,{{ lookup (lookup (lookup (lookup system.values system.key) 'select3') 'values') system.select3}}
+            {{#if (lookup (lookup item.system.values item.system.key) 'select3') }}
+                ,{{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'select3') 'values') item.system.select3}}
             {{/if}}
 
-            {{#if (lookup (lookup system.values system.key) 'select4') }}
-                ,{{ lookup (lookup (lookup (lookup system.values system.key) 'select4') 'values') system.select4}}
+            {{#if (lookup (lookup item.system.values item.system.key) 'select4') }}
+                ,{{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'select4') 'values') item.system.select4}}
             {{/if}}
 
             )
@@ -49,4 +47,11 @@
         </div>
       </li>
     {{/each}}
+  <li class='item flexrow items-header'>
+    <div style="flex:0 0 50px;">
+        {{ calcCompPtsTotal complications }}
+    </div>
+    <div style="text-align:left;">Total</div>
+    <div style="text-align:right;"></div>
+  </li>
 </ol>
