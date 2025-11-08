@@ -152,7 +152,7 @@
       "select2": 0,
       "select3": 0,
       "select4": 0,
-      "multiplier": 0,
+      "multiplier": 1,
       "values": {
         "Accidental Change": {
           "desc": "A character with this disadvantage will accidentally change into his superhero identity. The character defines the circumstances under which they change and how often under those circumstances they will change.",

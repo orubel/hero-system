@@ -202,6 +202,11 @@ Handlebars.registerHelper('selectKeyVal', function(values,comp_key) {
     return output;
 });
 
+Handlebars.registerHelper('calcCompPts', function(values) {
+    var output = (Number(values.select1) + Number(values.select2) + Number(values.select3) + Number(values.select4))*Number(values.multiplier);
+    return output;
+});
+
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */

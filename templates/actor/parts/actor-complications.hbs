@@ -1,5 +1,6 @@
 <ol class='items-list'>
   <li class='item flexrow items-header'>
+    <div>Points</div>
     <div>Complication</div>
     <div style="text-align:right;">
       <a class='item-control complication-create' title='{{localize "DOCUMENT.Create" type='Complication'}}' data-type='complication'>
@@ -9,6 +10,9 @@
   </li>
     {{#each complications as |item id|}}
       <li class='item flexrow' data-item-id='{{item._id}}'>
+        <div class='item-name'>
+            {{ calcCompPts item.system }}
+        </div>
         <div class='item-name' style="padding:3px;">
           <h4>
             <div class='resource-label' style="display: inline-block;">{{ item.system.key }} :</div>
