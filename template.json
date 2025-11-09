@@ -125,7 +125,7 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "power","complication"],
+    "types": ["item", "skill", "power","complication"],
     "templates": {
       "base": {
         "description": ""
@@ -137,15 +137,381 @@
       "weight": 0,
       "formula": "d20 + @str.mod + ceil(@lvl / 2)"
     },
-    "feature": {
-      "templates": ["base"]
+    "skill": {
+      "name": "New Skill",
+      "key": "",
+      "type": "",
+      "cost": 0,
+      "bonus": 0,
+      "values": {
+        "Acrobatics": {
+          "desc": "",
+          "type": "DEX",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Acting": {
+          "desc": "",
+          "type": "PRE",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Animal Handler": {
+          "desc": "",
+          "type": "GENERAL",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Breakfall": {
+          "desc": "",
+          "type": "DEX",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Bribery": {
+          "desc": "",
+          "type": "PRE",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Bugging": {
+          "desc": "",
+          "type": "INT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Bureaucratics": {
+          "desc": "",
+          "type": "PRE",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Climbing": {
+          "desc": "",
+          "type": "DEX",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Combat Driving": {
+          "desc": "",
+          "type": "DEX",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Combat Skill Levels": {
+          "desc": "",
+          "type": "COMBAT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Combat Piloting": {
+          "desc": "",
+          "type": "DEX",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Computer Programming": {
+          "desc": "",
+          "type": "INT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Concealment": {
+          "desc": "",
+          "type": "PER",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Contortionist": {
+          "desc": "",
+          "type": "DEX",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Conversation / Social": {
+          "desc": "",
+          "type": "PRE",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Criminology": {
+          "desc": "",
+          "type": "INT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Cryptography": {
+          "desc": "",
+          "type": "INT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Deduction": {
+          "desc": "",
+          "type": "INT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Demolitions": {
+          "desc": "",
+          "type": "GENERAL",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Disguise": {
+          "desc": "",
+          "type": "GENERAL",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Electrical Engineer": {
+          "desc": "",
+          "type": "GENERAL",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Electronic Engineer": {
+          "desc": "",
+          "type": "INT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Engineering": {
+          "desc": "",
+          "type": "INT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Familiarity": {
+          "desc": "",
+          "type": "BACKGROUND",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Forensics": {
+          "desc": "",
+          "type": "INT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Forensic Medicine": {
+          "desc": "",
+          "type": "INT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Forgery": {
+          "desc": "",
+          "type": "GENERAL",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Gambling": {
+          "desc": "",
+          "type": "GENERAL",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "High Society": {
+          "desc": "",
+          "type": "PRE",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Interrogation": {
+          "desc": "",
+          "type": "PRE",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Knowledge": {
+          "desc": "",
+          "type": "BACKGROUND",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Languages": {
+          "desc": "",
+          "type": "BACKGROUND",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "LipReading": {
+          "desc": "",
+          "type": "GENERAL",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Lockpicking": {
+          "desc": "",
+          "type": "DEX",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Martial Arts": {
+          "desc": "",
+          "type": "COMBAT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Mimicry": {
+          "desc": "",
+          "type": "GENERAL",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Navigation": {
+          "desc": "",
+          "type": "GENERAL",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Oratory": {
+          "desc": "",
+          "type": "PRE",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Paramedic": {
+          "desc": "",
+          "type": "INT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Persuasion": {
+          "desc": "",
+          "type": "PRE",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Professional Skills": {
+          "desc": "",
+          "type": "BACKGROUND",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Range Skills": {
+          "desc": "",
+          "type": "COMBAT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Riding": {
+          "desc": "",
+          "type": "DEX",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Science": {
+          "desc": "",
+          "type": "BACKGROUND",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Security Systems": {
+          "desc": "",
+          "type": "INT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Seduction": {
+          "desc": "",
+          "type": "PRE",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Shadowing": {
+          "desc": "",
+          "type": "GENERAL",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Skill Levels": {
+          "desc": "",
+          "type": "BACKGROUND",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Sleight of Hand": {
+          "desc": "",
+          "type": "DEX",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Software Engineer": {
+          "desc": "",
+          "type": "INT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Stealth": {
+          "desc": "",
+          "type": "DEX",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Streetwise": {
+          "desc": "",
+          "type": "PRE",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Survival": {
+          "desc": "",
+          "type": "GENERAL",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Systems Operation": {
+          "desc": "",
+          "type": "INT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Tactics": {
+          "desc": "",
+          "type": "INT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Tracking": {
+          "desc": "",
+          "type": "INT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Trading": {
+          "desc": "",
+          "type": "PRE",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Ventriloquism": {
+          "desc": "",
+          "type": "GENERAL",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Weapon Familiarity": {
+          "desc": "",
+          "type": "COMBAT",
+          "baseCost": 2,
+          "bonusCost": 1
+        },
+        "Weaponsmith": {
+          "desc": "",
+          "type": "COMBAT",
+          "baseCost": 2,
+          "bonusCost": 1
+        }
+      }
     },
     "power": {
       "templates": ["base"],
       "spellLevel": 1
     },
     "complication": {
-      "name": "New Complication (test)",
+      "name": "New Complication",
       "key": "",
       "points": 0,
       "select1": 0,
