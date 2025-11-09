@@ -104,6 +104,7 @@ export class HeroSystemActorSheet extends ActorSheet {
   _prepareItems(context) {
     // Initialize containers.
     const complications = [];
+    const skills = [];
 
     const gear = [];
     const features = [];
@@ -140,9 +141,14 @@ export class HeroSystemActorSheet extends ActorSheet {
       else if (i.type === 'complication') {
         complications.push(i);
       }
+      // Append to complications
+      else if (i.type === 'skill') {
+        skills.push(i);
+      }
     }
     // Assign and return
     context.complications = complications;
+    context.skills = skills;
     context.gear = gear;
     context.features = features;
     context.spells = spells;
@@ -154,6 +160,8 @@ export class HeroSystemActorSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
+    // Add Inventory Item
+    html.on('click', '.complication-create', this._onItemCreate.bind(this));
 
     html.on('click', '.complication-edit', (ev) => {
       const li = $(ev.currentTarget).parents('.item');
@@ -162,7 +170,15 @@ export class HeroSystemActorSheet extends ActorSheet {
     });
 
     // Add Inventory Item
-    html.on('click', '.complication-create', this._onItemCreate.bind(this));
+    html.on('click', '.skill-create', this._onItemCreate.bind(this));
+
+    html.on('click', '.skill-edit', (ev) => {
+      const li = $(ev.currentTarget).parents('.item');
+      const skills = this.actor.items.get(li.data('itemId'));
+      skills.sheet.render(true);
+    });
+
+
 
     // Render the item sheet for viewing/editing prior to the editable check.
     html.on('click', '.item-edit', (ev) => {

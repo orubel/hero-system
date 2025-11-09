@@ -84,7 +84,7 @@ Handlebars.registerHelper('upperFirst', function (text) {
 
 // sum
 Handlebars.registerHelper('sum', function (value1, value2) {
-  let sum = value1 + value2;
+  let sum = Number(value1) + Number(value2);
   return sum;
 });
 
@@ -194,11 +194,23 @@ Handlebars.registerHelper('selectKeyVal', function(values,comp_key) {
     var output = ``
     for (let key in values) {
         if(key==comp_key){
-            output += `<option name='name' type='text' value='`+key+`' placeholder='Name' selected>`+values[key]+`</option>`;
+            output += `<option name='name' type='text' value='`+key+`' selected>`+values[key]+`</option>`;
         }else{
-            output += `<option name='name' type='text' value='`+key+`' placeholder='Name'>`+values[key]+`</option>`;
+            output += `<option name='name' type='text' value='`+key+`'>`+values[key]+`</option>`;
         }
     };
+    return output;
+});
+
+Handlebars.registerHelper('selectLevels', function(skill_key) {
+    var output = ``
+    for (let i = 1; i <= 10; i++) {
+        if(i==Number(skill_key)){
+            output += `<option name='name' type='text' value='`+i+`' selected>`+i+` Level(s)</option>`;
+        }else{
+            output += `<option name='name' type='text' value='`+i+`'>`+i+` Level(s)</option>`;
+        }
+    }
     return output;
 });
 
