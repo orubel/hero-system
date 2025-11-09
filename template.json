@@ -198,12 +198,6 @@
           "baseCost": 2,
           "bonusCost": 1
         },
-        "Combat Skill Levels": {
-          "desc": "",
-          "type": "COMBAT",
-          "baseCost": 2,
-          "bonusCost": 1
-        },
         "Combat Piloting": {
           "desc": "",
           "type": "DEX",
@@ -777,9 +771,11 @@
           "desc": "A character who takes a vulnerability takes additional damage from certain attack types. For example, a character who takes 1.5 damage from telekinesis would multiply the attack damage by 1.5. ",
           "select1": {
             "label": "Attack is",
-            "5": "uncommon",
-            "10": "common",
-            "15": "very common"
+            "values": {
+              "5": "uncommon",
+              "10": "common",
+              "15": "very common"
+            }
           },
           "multiplier": {
             "label": "Multiplier",

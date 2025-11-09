@@ -53,7 +53,7 @@
                           <section style="text-align: left;">
                               <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'select2') 'label' }}</label>
                               <select style="width:250px;" name="system.select2" value="{{system.select2}}">
-{{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select2') 'values') system.select2 }}}
+                                {{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select2') 'values') system.select2 }}}
                               </select>
                           </section>
                         {{/if}}
@@ -62,7 +62,7 @@
                           <section style="text-align: left;">
                               <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'select3') 'label' }}</label>
                               <select style="width:250px;" name="system.select3" value="{{system.select3}}">
-{{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select3') 'values') system.select3 }}}
+                                {{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select3') 'values') system.select3 }}}
                               </select>
                           </section>
                         {{/if}}
@@ -71,7 +71,16 @@
                           <section style="text-align: left;">
                               <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'select4') 'label' }}</label>
                               <select style="width:250px;" name="system.select4" value="{{system.select4}}">
-{{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select4') 'values') system.select4 }}}
+                                {{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select4') 'values') system.select4 }}}
+                              </select>
+                          </section>
+                        {{/if}}
+
+                        {{#if (lookup (lookup system.values system.key) 'multiplier')}}
+                          <section style="text-align: left;">
+                              <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'multiplier') 'label' }}</label>
+                              <select style="width:250px;" name="system.multiplier" value="{{system.multiplier}}">
+                                {{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'multiplier') 'values') system.multiplier }}}
                               </select>
                           </section>
                         {{/if}}

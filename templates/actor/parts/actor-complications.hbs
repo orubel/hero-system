@@ -22,15 +22,19 @@
             {{/if}}
 
             {{#if (lookup (lookup item.system.values item.system.key) 'select2') }}
-                ,{{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'select2') 'values') item.system.select2}}
+                , {{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'select2') 'values') item.system.select2}}
             {{/if}}
 
             {{#if (lookup (lookup item.system.values item.system.key) 'select3') }}
-                ,{{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'select3') 'values') item.system.select3}}
+                , {{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'select3') 'values') item.system.select3}}
             {{/if}}
 
             {{#if (lookup (lookup item.system.values item.system.key) 'select4') }}
-                ,{{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'select4') 'values') item.system.select4}}
+                , {{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'select4') 'values') item.system.select4}}
+            {{/if}}
+
+            {{#if (lookup (lookup item.system.values item.system.key) 'multiplier') }}
+                , {{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'multiplier') 'values') item.system.multiplier}}
             {{/if}}
 
             )
