@@ -103,7 +103,7 @@ export class HeroSystemActorSheet extends ActorSheet {
    */
   _prepareItems(context) {
     // Initialize containers.
-    console.log(this.object.system.abilities);
+
     const abilities = [];
     const complications = [];
     const skills = [];

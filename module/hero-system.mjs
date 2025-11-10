@@ -231,19 +231,40 @@ Handlebars.registerHelper('showSkills', function(abilities, skills) {
     var output = ``;
     for (let key in skills) {
 
+        var skill = skills[key];
+        var itemData = skills[key].system.values[skills[key].system.key];
+        console.log("itemData:"+itemData);
+
+        var itemType = '';
+        if(itemData !== undefined){
+            itemType = itemData.type;
+        }
 
         output += `
           <li class='item flexrow' data-item-id=${skills[key]._id}>
-            <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>${Number(skills[key].system.baseCost)+Number(skills[key].system.levels)}</div>
+            <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>${Number(skill.system.baseCost)+Number(skill.system.levels)}</div>
             <div class='item-name' style='display:block;flex: 0 0 300px;padding:3px;'>
-              <h4>
-                <div class='resource-label' style='display: inline-block;'>${skills[key].system.key}</div>
+              <h4>`;
+
+            if(itemType!=''){
+              output += `<div class='resource-label' style='display: inline-block;'>${skill.system.key}</div>`;
+            }else{
+              output += `<div class='resource-label' style='display: inline-block;'>Undefined Skill</div>`;
+            }
+
+        output += `
               </h4>
             </div>
-            <div class='item-name' style='text-align: left;'>
-                <span class="ability-mod rollable" data-roll="3d6" data-label='${skills[key].system.values[skills[key].system.key].type}'>
-                <i class='fas fa-dice'></i>${Number(abilities[skills[key].system.values[skills[key].system.key].type].mod)+Number(skills[key].system.levels)}>
-                </span>
+            <div class='item-name' style='text-align: left;'>`;
+
+            if(itemType!=''){
+                output += `
+                            <span class="ability-mod rollable" data-roll="3d6" data-label='${itemType}'>
+                            <i class='fas fa-dice'></i>${Number(abilities[skill.system.values[skill.system.key].type].mod)+Number(skill.system.levels)}>
+                            </span>`;
+            }
+
+          output += `
             </div>
             <div class='item-controls'>
               <a class='item-control skill-edit' title='Edit Item'>
