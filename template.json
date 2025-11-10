@@ -275,12 +275,6 @@
           "baseCost": 2,
           "levelCost": 1
         },
-        "Familiarity": {
-          "desc": "",
-          "type": "BACKGROUND",
-          "baseCost": 2,
-          "levelCost": 1
-        },
         "Forensics": {
           "desc": "",
           "type": "INT",
@@ -419,12 +413,6 @@
           "baseCost": 2,
           "levelCost": 1
         },
-        "Skill Levels": {
-          "desc": "",
-          "type": "BACKGROUND",
-          "baseCost": 2,
-          "levelCost": 1
-        },
         "Sleight of Hand": {
           "desc": "",
           "type": "DEX",
@@ -482,12 +470,6 @@
         "Ventriloquism": {
           "desc": "",
           "type": "GENERAL",
-          "baseCost": 2,
-          "levelCost": 1
-        },
-        "Weapon Familiarity": {
-          "desc": "",
-          "type": "COMBAT",
           "baseCost": 2,
           "levelCost": 1
         },

@@ -103,9 +103,10 @@ export class HeroSystemActorSheet extends ActorSheet {
    */
   _prepareItems(context) {
     // Initialize containers.
+    console.log(this.object.system.abilities);
+    const abilities = [];
     const complications = [];
     const skills = [];
-
     const gear = [];
     const features = [];
     const spells = {
@@ -117,41 +118,34 @@ export class HeroSystemActorSheet extends ActorSheet {
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
-        console.log(i.type);
       i.img = i.img || Item.DEFAULT_ICON;
       // Append to gear.
       if (i.type === 'item') {
         gear.push(i);
-      }
-      // Append to features.
-      else if (i.type === 'feature') {
+      }else if (i.type === 'feature') {
         features.push(i);
-      }
-      // Append to spells.
-      else if (i.type === 'spell') {
+      }else if (i.type === 'spell') {
         if (i.system.spellLevel != undefined) {
           spells[i.system.spellLevel].push(i);
         }
-      }
-      // Append to powers.
-      else if (i.type === 'power') {
+      }else if (i.type === 'power') {
         powers.push(i);
-      }
-      // Append to complications
-      else if (i.type === 'complication') {
+      }else if (i.type === 'complication') {
         complications.push(i);
-      }
-      // Append to complications
-      else if (i.type === 'skill') {
+      }else if (i.type === 'skill') {
         skills.push(i);
       }
     }
+
+    context.abilities = context.abilities;
     // Assign and return
     context.complications = complications;
     context.skills = skills;
     context.gear = gear;
     context.features = features;
     context.spells = spells;
+
+
   }
 
   /* -------------------------------------------- */

@@ -227,6 +227,38 @@ Handlebars.registerHelper('calcCompPtsTotal', function(values) {
     return output;
 });
 
+Handlebars.registerHelper('showSkills', function(abilities, skills) {
+    var output = ``;
+    for (let key in skills) {
+
+
+        output += `
+          <li class='item flexrow' data-item-id=${key}>
+            <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>${Number(skills[key].system.baseCost)+Number(skills[key].system.levels)}</div>
+            <div class='item-name' style='display:block;flex: 0 0 300px;padding:3px;'>
+              <h4>
+                <div class='resource-label' style='display: inline-block;'>${skills[key].system.key}</div>
+              </h4>
+            </div>
+            <div class='item-name' style='text-align: left;'>
+                <span class="ability-mod rollable" data-roll="3d6" data-label='PRE'>
+                <i class='fas fa-dice'></i>${skills[key].system.values[skills[key].system.key].type+' / '+abilities[skills[key].system.values[skills[key].system.key].type].mod}
+                </span>
+            </div>
+            <div class='item-controls'>
+              <a class='item-control skill-edit' title='Edit Item'>
+                <i class='fas fa-edit'></i>
+              </a>
+              <a class='item-control item-delete' title='Delete Item'>
+                <i class='fas fa-trash'></i>
+              </a>
+            </div>
+          </li>
+          `;
+    }
+    return output;
+});
+
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */
