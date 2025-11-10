@@ -233,7 +233,7 @@ Handlebars.registerHelper('showSkills', function(abilities, skills) {
 
 
         output += `
-          <li class='item flexrow' data-item-id=${key}>
+          <li class='item flexrow' data-item-id=${skills[key]._id}>
             <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>${Number(skills[key].system.baseCost)+Number(skills[key].system.levels)}</div>
             <div class='item-name' style='display:block;flex: 0 0 300px;padding:3px;'>
               <h4>
@@ -241,8 +241,8 @@ Handlebars.registerHelper('showSkills', function(abilities, skills) {
               </h4>
             </div>
             <div class='item-name' style='text-align: left;'>
-                <span class="ability-mod rollable" data-roll="3d6" data-label='PRE'>
-                <i class='fas fa-dice'></i>${skills[key].system.values[skills[key].system.key].type+' / '+abilities[skills[key].system.values[skills[key].system.key].type].mod}
+                <span class="ability-mod rollable" data-roll="3d6" data-label='${skills[key].system.values[skills[key].system.key].type}'>
+                <i class='fas fa-dice'></i>${Number(abilities[skills[key].system.values[skills[key].system.key].type].mod)+Number(skills[key].system.levels)}>
                 </span>
             </div>
             <div class='item-controls'>
