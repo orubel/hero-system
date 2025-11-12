@@ -482,8 +482,769 @@
       }
     },
     "power": {
-      "templates": ["base"],
-      "spellLevel": 1
+      "key": "",
+      "type": 0,
+      "input1": 0,
+      "input2": 0,
+      "advantage1": false,
+      "advantages": [],
+      "disadvantages": [],
+      "values": {
+        "Absorption": {
+          "desc": "",
+          "type": "ADJUSTMENT",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "ranged": false,
+          "input1": {
+            "label": "d6",
+            "baseCost": 15,
+            "levelCost": 5,
+            "costMod": 0
+          },
+          "input2": {
+            "label": "addtnl pool pnts",
+            "levelCost": 0.5,
+            "baseCost": 0,
+            "costMod": 0.5
+          }
+        },
+        "Aid": {
+          "desc": "",
+          "type": "ADJUSTMENT",
+          "duration": "INSTANT",
+          "target": "DCV",
+          "ranged": false,
+          "input1": {
+            "label": "d6",
+            "basePts": 10,
+            "levelCost": 5,
+            "costMod": 0
+          },
+          "input2": {
+            "label": "addtnl pool pnts",
+            "levelCost": 1,
+            "basePts": 0,
+            "costMod": 0.5
+          }
+        },
+        "Armor": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "PERSISTENT",
+          "target": "SELF",
+          "ranged": false,
+          "input1": {
+            "label": "PD or ED",
+            "levelCost": 1.5,
+            "basePts": 6,
+            "costMod": 0
+          }
+        },
+        "Change Environment": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "HEX",
+          "ranged": true,
+          "input1": {
+            "label": "hex radius",
+            "levelCost": 5,
+            "basePts": 10,
+            "costMod": 0
+          },
+          "advantage1": {
+            "label": "Vary Environment",
+            "costMod": 1
+          }
+        },
+        "Clinging": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "ranged": false,
+          "input1": {
+            "label": "clinging (base STR)",
+            "levelCost": 0,
+            "basePts": 10,
+            "costMod": 0
+          },
+          "input2": {
+            "label": "additional STR",
+            "levelCost": 0.33,
+            "basePts": 10,
+            "costMod": 0
+          },
+          "Damage Reduction": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "PERSISTENT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "levels (x25%)",
+              "levelCost": 10,
+              "basePts": 10,
+              "costMod": 0
+            },
+            "advantage1": {
+              "label": "Resistant",
+              "costMod": 1.5
+            }
+          },
+          "Damage Resistance": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "PERSISTENT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Darkness": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "CONSTANT",
+            "target": "HEX",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Density Increase": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "CONSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Dispel": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "INSTANT",
+            "target": "DCV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Drain": {
+            "desc": "",
+            "type": "ADJUSTMENT",
+            "duration": "INSTANT",
+            "target": "DCV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Duplication": {
+            "desc": "",
+            "type": "SPECIAL",
+            "duration": "PERSISTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "EGO Attack": {
+            "desc": "",
+            "type": "MENTAL",
+            "duration": "INSTANT",
+            "target": "ECV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "END Reserve": {
+            "desc": "",
+            "type": "SPECIAL",
+            "duration": "PERSISTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Energy Blast": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "INSTANT",
+            "target": "DCV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Enhanced Senses": {
+            "desc": "",
+            "type": "SPECIAL",
+            "duration": "PERSISTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Entangle": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "INSTANT",
+            "target": "DCV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Extra Limbs": {
+            "desc": "",
+            "type": "SPECIAL",
+            "duration": "PERSISTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Flash": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "INSTANT",
+            "target": "DCV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Flash Defense": {
+            "desc": "",
+            "type": "SPECIAL",
+            "duration": "PERSISTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Flight": {
+            "desc": "",
+            "type": "MOVEMENT",
+            "duration": "CONSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Force Field": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "CONSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Force Wall": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "CONSTANT",
+            "target": "HEX",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Gliding": {
+            "desc": "",
+            "type": "MOVEMENT",
+            "duration": "CONSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Growth": {
+            "desc": "",
+            "type": "SIZE",
+            "duration": "CONSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Hand To Hand Attack": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "INSTANT",
+            "target": "DCV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Images": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "CONSTANT",
+            "target": "HEX",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Instant Change": {
+            "desc": "",
+            "type": "SPECIAL",
+            "duration": "PERSISTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Invisibility": {
+            "desc": "",
+            "type": "SPECIAL",
+            "duration": "CONSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Killing Attack (Melee)": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "INSTANT",
+            "target": "DCV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Killing Attack (Ranged)": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "INSTANT",
+            "target": "DCV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Knockback Resistance": {
+            "desc": "",
+            "type": "SPECIAL",
+            "duration": "PERSISTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Lack Of Weakness": {
+            "desc": "",
+            "type": "SPECIAL",
+            "duration": "PERSISTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Life Support": {
+            "desc": "",
+            "type": "SPECIAL",
+            "duration": "PERSISTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Mental Defense": {
+            "desc": "",
+            "type": "SPECIAL",
+            "duration": "PERSISTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Mental Illusions": {
+            "desc": "",
+            "type": "MENTAL",
+            "duration": "INSTANT",
+            "target": "ECV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Mind Control": {
+            "desc": "",
+            "type": "MENTAL",
+            "duration": "INSTANT",
+            "target": "ECV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Mind Link": {
+            "desc": "",
+            "type": "SPECIAL",
+            "duration": "PERSISTANT",
+            "target": "ECV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Mind Scan": {
+            "desc": "",
+            "type": "MENTAL",
+            "duration": "INSTANT",
+            "target": "ECV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Missile Deflection/Reflection": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "CONSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Multiform": {
+            "desc": "",
+            "type": "SPECIAL",
+            "duration": "PERSISTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Power Defense": {
+            "desc": "",
+            "type": "SPECIAL",
+            "duration": "PERSISTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Regeneration": {
+            "desc": "",
+            "type": "SPECIAL",
+            "duration": "PERSISTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Running": {
+            "desc": "",
+            "type": "MOVEMENT",
+            "duration": "CONSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Shapeshifter": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "CONSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Shrinking": {
+            "desc": "",
+            "type": "SIZE",
+            "duration": "CONSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Stretching": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "CONSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Superleap": {
+            "desc": "",
+            "type": "MOVEMENT",
+            "duration": "CONSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Suppress": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "CONSTANT",
+            "target": "DCV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Swimming": {
+            "desc": "",
+            "type": "MOVEMENT",
+            "duration": "CONSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Swinging": {
+            "desc": "",
+            "type": "MOVEMENT",
+            "duration": "CONSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Telekinesis": {
+            "desc": "",
+            "type": "STANDARD",
+            "duration": "CONSTANT",
+            "target": "DCV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Telepathy": {
+            "desc": "",
+            "type": "MENTAL",
+            "duration": "INSTANT",
+            "target": "ECV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Teleportation": {
+            "desc": "",
+            "type": "MOVEMENT",
+            "duration": "INSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Transfer": {
+            "desc": "",
+            "type": "ADJUSTMENT",
+            "duration": "INSTANT",
+            "target": "DCV",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          },
+          "Tunnelling": {
+            "desc": "",
+            "type": "MOVEMENT",
+            "duration": "CONSTANT",
+            "target": "SELF",
+            "ranged": true,
+            "input1": {
+              "label": "pts of resistant defense",
+              "levelCost": 0.5,
+              "basePts": 5,
+              "costMod": 0
+            }
+          }
+        }
+      }
     },
     "complication": {
       "name": "New Complication",

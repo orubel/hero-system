@@ -259,7 +259,7 @@ Handlebars.registerHelper('showSkills', function(abilities, skills) {
 
             if(itemType!=''){
                 output += `
-                            <span class="ability-mod rollable" data-roll="3d6" data-label='${itemType}'>
+                            <span class="ability-mod rollable" data-roll="3d6" data-label='${skill.system.key} Skill Check'>
                             <i class='fas fa-dice'></i>${Number(abilities[skill.system.values[skill.system.key].type].mod)+Number(skill.system.levels)}>
                             </span>`;
             }
