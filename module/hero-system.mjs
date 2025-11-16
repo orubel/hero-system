@@ -233,7 +233,6 @@ Handlebars.registerHelper('showSkills', function(abilities, skills) {
 
         var skill = skills[key];
         var itemData = skills[key].system.values[skills[key].system.key];
-        console.log("itemData:"+itemData);
 
         var itemType = '';
         if(itemData !== undefined){
@@ -267,6 +266,62 @@ Handlebars.registerHelper('showSkills', function(abilities, skills) {
           output += `
             </div>
             <div class='item-controls'>
+              <a class='item-control skill-edit' title='Edit Item'>
+                <i class='fas fa-edit'></i>
+              </a>
+              <a class='item-control item-delete' title='Delete Item'>
+                <i class='fas fa-trash'></i>
+              </a>
+            </div>
+          </li>
+          `;
+    }
+    return output;
+});
+
+Handlebars.registerHelper('showPowers', function(powers, powerlist) {
+    var output = ``;
+    for (let key in powers) {
+
+
+        var power = powers[key];
+
+        console.log(power);
+
+        var itemData = powerlist[power.system.key];
+        var input1Cost = 0;
+        var input2Cost = 0;
+        var input3Cost = 0;
+
+        //console.log(itemData);
+
+        var itemType = '';
+        if(itemData !== undefined){
+            itemType = itemData.type;
+        }
+
+        if(itemData){
+            input1Cost = (itemData.levelCost == 0)?Number(itemData.baseLevels):Number(itemData.levelCost)*Number(power.system.input1);
+            input2Cost = (itemData.levelCost == 0)?Number(itemData.baseLevels):Number(itemData.levelCost)*Number(power.system.input2);
+            input3Cost = (itemData.levelCost == 0)?Number(itemData.baseLevels):Number(itemData.levelCost)*Number(power.system.input3);
+        }
+
+        output += `
+          <li class='item flexrow' data-item-id=${power._id}>
+            <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>${input1Cost+input2Cost+input3Cost}</div>
+            <div class='item-name' style='display:block;padding:3px;'>
+              <h4>`;
+
+            if(itemType!=''){
+              output += `<div class='resource-label' style='display: inline-block;'>${power.system.key}</div>`;
+            }else{
+              output += `<div class='resource-label' style='display: inline-block;'>Undefined Power</div>`;
+            }
+
+        output += `
+              </h4>
+            </div>
+            <div class='item-controls' style='display:block;flex: 0 0 50px;''>
               <a class='item-control skill-edit' title='Edit Item'>
                 <i class='fas fa-edit'></i>
               </a>

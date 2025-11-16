@@ -104,17 +104,11 @@ export class HeroSystemActorSheet extends ActorSheet {
   _prepareItems(context) {
     // Initialize containers.
 
-    const abilities = [];
     const complications = [];
     const skills = [];
+    const powers = [];
     const gear = [];
-    const features = [];
-    const spells = {
-      0: []
-    };
-    const powers = {
-      0: []
-    };
+
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -122,28 +116,26 @@ export class HeroSystemActorSheet extends ActorSheet {
       // Append to gear.
       if (i.type === 'item') {
         gear.push(i);
-      }else if (i.type === 'feature') {
-        features.push(i);
-      }else if (i.type === 'spell') {
-        if (i.system.spellLevel != undefined) {
-          spells[i.system.spellLevel].push(i);
-        }
       }else if (i.type === 'power') {
+        console.log("power : "+i);
         powers.push(i);
       }else if (i.type === 'complication') {
         complications.push(i);
       }else if (i.type === 'skill') {
         skills.push(i);
+      }else if (i.type){
+        console.log(i.type);
       }
     }
 
+
     context.abilities = context.abilities;
+    context.powerlist = context.powerlist;
     // Assign and return
     context.complications = complications;
     context.skills = skills;
+    context.powers = powers;
     context.gear = gear;
-    context.features = features;
-    context.spells = spells;
 
 
   }

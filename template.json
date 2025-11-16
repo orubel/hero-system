@@ -117,6 +117,1089 @@
           "base": 0,
           "cost_multiplier": 2
         }
+      },
+      "powerlist": {
+        "360 Degree Sensing (one sense)": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "one sense",
+            "levelCost": 0,
+            "baseLevels": 10
+          }
+        },
+        "360 Degree Sensing (all senses)": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "all senses",
+            "levelCost": 0,
+            "baseLevels": 25
+          }
+        },
+        "Absorption": {
+          "desc": "",
+          "type": "ADJUSTMENT",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "d6",
+            "levelCost": 5,
+            "baseLevels": 3
+          },
+          "input2": {
+            "label": "addtnl pool pnts",
+            "levelCost": 0.5,
+            "baseLevels": 0
+          },
+          "advantage": {
+            "None": 0,
+            "return pts/minute": 0.25,
+            "return pts/5 minutes": 0.5,
+            "return pts/hour": 0.75,
+            "return pts/5 hours": 1,
+            "return pts/day": 1.25,
+            "return pts/5 days": 1.5,
+            "return pts/week": 1.75,
+            "return pts/5 weeks": 2
+          }
+        },
+        "Active Sonar": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 0,
+            "baseLevels": 15
+          }
+        },
+        "Aid": {
+          "desc": "",
+          "type": "ADJUSTMENT",
+          "duration": "INSTANT",
+          "target": "DCV",
+          "input1": {
+            "label": "d6",
+            "levelCost": 5,
+            "baseLevels": 2
+          },
+          "input2": {
+            "label": "addtnl pool pnts",
+            "levelCost": 0.5,
+            "baseLevels": 0
+          }
+        },
+        "Armor": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "PERSISTENT",
+          "target": "SELF",
+          "input1": {
+            "label": "PD or ED",
+            "levelCost": 0.66,
+            "baseLevels": 3
+          }
+        },
+        "Change Environment": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "HEX",
+          "input1": {
+            "label": "hex radius",
+            "levelCost": 5,
+            "baseLevels": 2
+          },
+          "advantage": {
+            "None": 0,
+            "Vary Environment": 1
+          }
+        },
+        "Clinging": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "clinging (base STR)",
+            "levelCost": 0,
+            "baseLevels": 10
+          },
+          "input2": {
+            "label": "additional STR",
+            "levelCost": 0.33,
+            "baseLevels": 0
+          }
+        },
+        "Damage Reduction": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "PERSISTENT",
+          "target": "SELF",
+          "input1": {
+            "label": "levels (x25%)",
+            "levelCost": 10,
+            "baseLevels": 1
+          },
+          "advantage": {
+            "None": 0,
+            "Resistant": 1.5
+          }
+        },
+        "Damage Resistance": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "PERSISTENT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts of resistant defense",
+            "levelCost": 0.5,
+            "baseLevels": 6
+          }
+        },
+        "Darkness": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "HEX",
+          "input1": {
+            "label": "hex radius",
+            "levelCost": 10,
+            "baseLevels": 1
+          },
+          "input2": {
+            "label": "addtnl sense(s)",
+            "levelCost": 5,
+            "baseLevels": 0
+          },
+          "input3": {
+            "label": "addtnl sense group(s)",
+            "levelCost": 10,
+            "baseLevels": 0
+          }
+        },
+        "Density Increase": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "levels",
+            "levelCost": 0,
+            "baseLevels": 3
+          },
+          "input2": {
+            "label": " modifier to PER Rolls",
+            "levelCost": 2,
+            "baseLevels": 0
+          }
+        },
+        "Detect": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "one sense",
+            "levelCost": 0,
+            "baseLevels": 10
+          }
+        },
+        "Discriminatory Sense": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 0,
+            "baseLevels": 5
+          }
+        },
+        "Dispel": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "INSTANT",
+          "target": "DCV",
+          "input1": {
+            "label": "d6",
+            "levelCost": 3,
+            "baseLevels": 3
+          },
+          "advantage": {
+            "None": 0,
+            "any single power": 0.25,
+            "any group": 2
+          }
+        },
+        "Drain": {
+          "desc": "",
+          "type": "ADJUSTMENT",
+          "duration": "INSTANT",
+          "target": "DCV",
+          "input1": {
+            "label": "d6",
+            "levelCost": 10,
+            "baseLevels": 2
+          },
+          "advantage": {
+            "None": 0,
+            "return pts/minute": 0.25,
+            "return pts/5 minutes": 0.5,
+            "return pts/hour": 0.75,
+            "return pts/5 hours": 1,
+            "return pts/day": 1.25,
+            "return pts/5 days": 1.5,
+            "return pts/week": 1.75,
+            "return pts/5 weeks": 2
+          }
+        },
+        "Duplication": {
+          "desc": "",
+          "type": "SPECIAL",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "character pts/duplicate",
+            "levelCost": 0.4,
+            "baseLevels": 100
+          },
+          "input2": {
+            "label": "additional duplicate cost",
+            "levelCost": 0.2,
+            "baseLevels": 50
+          }
+        },
+        "EGO Attack": {
+          "desc": "",
+          "type": "MENTAL",
+          "duration": "INSTANT",
+          "target": "ECV",
+          "input1": {
+            "label": "d6",
+            "levelCost": 10,
+            "baseLevels": 1
+          }
+        },
+        "END Reserve": {
+          "desc": "",
+          "type": "SPECIAL",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "END pool",
+            "levelCost": 0.1,
+            "baseLevels": 10
+          },
+          "input2": {
+            "label": "addtnl REC",
+            "levelCost": 1,
+            "baseLevels": 0
+          }
+        },
+        "Energy Blast": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "INSTANT",
+          "target": "DCV",
+          "input1": {
+            "label": "d6",
+            "levelCost": 5,
+            "baseLevels": 2
+          }
+        },
+        "Enhanced Perception": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 0,
+            "baseLevels": 3
+          },
+          "input2": {
+            "label": "levels",
+            "levelCost": 2,
+            "baseLevels": 0
+          }
+        },
+        "Entangle": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "INSTANT",
+          "target": "DCV",
+          "input1": {
+            "label": "d6",
+            "levelCost": 10,
+            "baseLevels": 1
+          },
+          "input2": {
+            "label": "stops a given sense",
+            "levelCost": 5,
+            "baseLevels": 0
+          },
+          "advantage": {
+            "None": 0,
+            "entangle takes no damage": 0.5,
+            "entangle/character take damage": 0.25,
+            "backlash": 0.5
+          },
+          "disadvantage": {
+            "None": 0,
+            "no defense": 1.5,
+            "1 BODY": 0.5
+          }
+        },
+        "Extra Limbs": {
+          "desc": "",
+          "type": "SPECIAL",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts of resistant defense",
+            "levelCost": 0,
+            "baseLevels": 5
+          }
+        },
+        "Flash": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "INSTANT",
+          "target": "DCV",
+          "input1": {
+            "label": "d6",
+            "levelCost": 10,
+            "baseLevels": 2
+          },
+          "input2": {
+            "label": "addtnl senses",
+            "levelCost": 5,
+            "baseLevels": 0
+          }
+        },
+        "Flash Defense": {
+          "desc": "",
+          "type": "SPECIAL",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts of defense",
+            "levelCost": 1,
+            "baseLevels": 5
+          }
+        },
+        "Flight": {
+          "desc": "",
+          "type": "MOVEMENT",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "hexes",
+            "levelCost": 2,
+            "baseLevels": 10
+          }
+        },
+        "Force Field": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts of resistant defense (PD or ED)",
+            "levelCost": 1,
+            "baseLevels": 10
+          },
+          "input2": {
+            "label": "senses blocked",
+            "levelCost": 5,
+            "baseLevels": 0
+          }
+        },
+        "Force Wall": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "HEX",
+          "input1": {
+            "label": "pts of resistant defense",
+            "levelCost": 0.5,
+            "baseLevels": 5
+          },
+          "advantage": {
+            "None": 0,
+            "friendly fire penetrates (energy/physical)": 0.5
+          },
+          "disadvantage": {
+            "None": 0,
+            "feedback": 1
+          }
+        },
+        "Gliding": {
+          "desc": "",
+          "type": "MOVEMENT",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "hexes",
+            "levelCost": 1,
+            "baseLevels": 5
+          }
+        },
+        "Growth": {
+          "desc": "",
+          "type": "SIZE",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "levels of growth",
+            "levelCost": 5,
+            "baseLevels": 3
+          }
+        },
+        "Hand To Hand Attack": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "INSTANT",
+          "target": "DCV",
+          "input1": {
+            "label": "d6",
+            "levelCost": 3,
+            "baseLevels": 2
+          }
+        },
+        "High-Range Radio Hearing": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 0,
+            "baseLevels": 10
+          }
+        },
+        "Images": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "HEX",
+          "input1": {
+            "label": "senses affected",
+            "levelCost": 10,
+            "baseLevels": 5
+          },
+          "input2": {
+            "label": "pts subtracted from PER checks",
+            "levelCost": 3,
+            "baseLevels": 0
+          },
+          "advantage": {
+            "None": 0,
+            "double radius": 0.25
+          }
+        },
+        "Infrared Vision": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 0,
+            "baseLevels": 5
+          }
+        },
+        "Instant Change": {
+          "desc": "",
+          "type": "SPECIAL",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts of resistant defense",
+            "levelCost": 0,
+            "baseLevels": 10
+          }
+        },
+        "Invisibility": {
+          "desc": "",
+          "type": "SPECIAL",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts of invisibility",
+            "levelCost": 0,
+            "baseLevels": 20
+          },
+          "input2": {
+            "label": "addtnl senses",
+            "levelCost": 5,
+            "baseLevels": 0
+          },
+          "input3": {
+            "label": "no fringe",
+            "levelCost": 10,
+            "baseLevels": 0
+          }
+        },
+        "Killing Attack (Melee)": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "INSTANT",
+          "target": "DCV",
+          "input1": {
+            "label": "d6",
+            "levelCost": 15,
+            "baseLevels": 1
+          }
+        },
+        "Killing Attack (Ranged)": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "INSTANT",
+          "target": "DCV",
+          "input1": {
+            "label": "d6",
+            "levelCost": 15,
+            "baseLevels": 1
+          }
+        },
+        "Knockback Resistance": {
+          "desc": "",
+          "type": "SPECIAL",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "levels",
+            "levelCost": 2,
+            "baseLevels": 2
+          }
+        },
+        "Lack Of Weakness": {
+          "desc": "",
+          "type": "SPECIAL",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "levels",
+            "levelCost": 1,
+            "baseLevels": 2
+          }
+        },
+        "Life Support": {
+          "desc": "",
+          "type": "SPECIAL",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "levels",
+            "levelCost": 5,
+            "baseLevels": 1
+          },
+          "input2": {
+            "label": "environments",
+            "levelCost": 3,
+            "baseLevels": 0
+          },
+          "input2": {
+            "label": "immunities",
+            "levelCost": 3,
+            "baseLevels": 0
+          }
+        },
+        "Mental Awareness": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 0,
+            "baseLevels": 3
+          }
+        },
+        "Mental Defense": {
+          "desc": "",
+          "type": "SPECIAL",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts of mental defense",
+            "levelCost": 1,
+            "baseLevels": 5
+          }
+        },
+        "Mental Illusions": {
+          "desc": "",
+          "type": "MENTAL",
+          "duration": "INSTANT",
+          "target": "ECV",
+          "input1": {
+            "label": "d6",
+            "levelCost": 5,
+            "baseLevels": 2
+          }
+        },
+        "Microscopic Vision": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 0,
+            "baseLevels": 3
+          }
+        },
+        "Mind Control": {
+          "desc": "",
+          "type": "MENTAL",
+          "duration": "INSTANT",
+          "target": "ECV",
+          "input1": {
+            "label": "character pts per form",
+            "levelCost": 0.2,
+            "baseLevels": 100
+          },
+          "advantage": {
+            "None": 0,
+            "2 duplicate": 1,
+            "3 duplicate": 2,
+            "4 duplicate": 3,
+            "5 duplicate": 4
+          }
+        },
+        "Mind Link": {
+          "desc": "",
+          "type": "SPECIAL",
+          "duration": "PERSISTANT",
+          "target": "ECV",
+          "input1": {
+            "label": "minds",
+            "levelCost": 3,
+            "baseLevels": 1
+          },
+          "input2": {
+            "label": "any distance",
+            "levelCost": 5,
+            "baseLevels": 0
+          },
+          "disadvantage": {
+            "None": 0,
+            "only with others w/ mind link": 1
+          }
+        },
+        "Mind Scan": {
+          "desc": "",
+          "type": "MENTAL",
+          "duration": "INSTANT",
+          "target": "ECV",
+          "input1": {
+            "label": "d6",
+            "levelCost": 5,
+            "baseLevels": 2
+          },
+          "input2": {
+            "label": "modifier to att roll",
+            "levelCost": 2,
+            "baseLevels": 0
+          }
+        },
+        "Missile Deflection/Reflection": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "levels",
+            "levelCost": 5,
+            "baseLevels": 1
+          },
+          "input2": {
+            "label": "reflect attacks",
+            "levelCost": 10,
+            "baseLevels": 0
+          },
+          "advantage": {
+            "None": 0,
+            "deflect adjacent attacks": 0.5,
+            "deflect at range": 1
+          }
+        },
+        "Multiform": {
+          "desc": "",
+          "type": "SPECIAL",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "character pts per form",
+            "levelCost": 0.2,
+            "baseLevels": 100
+          },
+          "input2": {
+            "label": "additional forms",
+            "levelCost": 0.1,
+            "baseLevels": 100
+          }
+        },
+        "Power Defense": {
+          "desc": "",
+          "type": "SPECIAL",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts of defense",
+            "levelCost": 1,
+            "baseLevels": 5
+          }
+        },
+        "Radar Sense": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 0,
+            "baseLevels": 15
+          }
+        },
+        "Radio Hearing": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 0,
+            "baseLevels": 3
+          }
+        },
+        "Radio Transmission": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 0,
+            "baseLevels": 2
+          }
+        },
+        "Ranged Sense": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts for one sense",
+            "levelCost": 0,
+            "baseLevels": 5
+          }
+        },
+        "Regeneration": {
+          "desc": "",
+          "type": "SPECIAL",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "body/turn",
+            "levelCost": 10,
+            "baseLevels": 2
+          },
+          "disadvantage": {
+            "None": 0,
+            "body/minute": 0.25,
+            "body/5 minutes": 0.5,
+            "body/hour": 0.75,
+            "body/5 hours": 1,
+            "body/day": 1.25,
+            "body/5 days": 1.5,
+            "body/week": 1.75,
+            "body/5 weeks": 2
+          }
+        },
+        "Running": {
+          "desc": "",
+          "type": "MOVEMENT",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "addtnl hexes",
+            "levelCost": 2,
+            "baseLevels": 1
+          },
+          "input2": {
+            "label": "2x non-combat speed",
+            "levelCost": 5,
+            "baseLevels": 0
+          }
+        },
+        "Shape Shift": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "levels",
+            "levelCost": 10,
+            "baseLevels": 1
+          }
+        },
+        "Shrinking": {
+          "desc": "",
+          "type": "SIZE",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "levels",
+            "levelCost": 10,
+            "baseLevels": 1
+          }
+        },
+        "Spatial Awareness": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 0,
+            "baseLevels": 25
+          }
+        },
+        "Stretching": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "hexes",
+            "levelCost": 5,
+            "baseLevels": 2
+          }
+        },
+        "Superleap": {
+          "desc": "",
+          "type": "MOVEMENT",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "hexes",
+            "levelCost": 1,
+            "baseLevels": 5
+          },
+          "input2": {
+            "label": "2x non-combat distance",
+            "levelCost": 5,
+            "baseLevels": 0
+          }
+        },
+        "Suppress": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "DCV",
+          "input1": {
+            "label": "d6",
+            "levelCost": 5,
+            "baseLevels": 2
+          },
+          "advantage": {
+            "None": 0,
+            "one power": 0.25,
+            "one group": 2
+          }
+        },
+        "Swimming": {
+          "desc": "",
+          "type": "MOVEMENT",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "hexes",
+            "levelCost": 1,
+            "baseLevels": 5
+          },
+          "input2": {
+            "label": "2x non-combat distance",
+            "levelCost": 5,
+            "baseLevels": 0
+          }
+        },
+        "Swinging": {
+          "desc": "",
+          "type": "MOVEMENT",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "hexes",
+            "levelCost": 1,
+            "baseLevels": 5
+          },
+          "input2": {
+            "label": "2x non-combat distance",
+            "levelCost": 5,
+            "baseLevels": 0
+          }
+        },
+        "Targeting Sense": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 0,
+            "baseLevels": 20
+          }
+        },
+        "Telekinesis": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "DCV",
+          "input1": {
+            "label": "10pts STR",
+            "levelCost": 0,
+            "baseLevels": 15
+          },
+          "input2": {
+            "label": "x 2pts addtnl STR",
+            "levelCost": 3,
+            "baseLevels": 0
+          },
+          "input3": {
+            "label": "fine motor control",
+            "levelCost": 10,
+            "baseLevels": 0
+          }
+        },
+        "Telepathy": {
+          "desc": "",
+          "type": "MENTAL",
+          "duration": "INSTANT",
+          "target": "ECV",
+          "input1": {
+            "label": "d6",
+            "levelCost": 5,
+            "baseLevels": 2
+          }
+        },
+        "Teleportation": {
+          "desc": "",
+          "type": "MOVEMENT",
+          "duration": "INSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "10 hexes",
+            "levelCost": 0,
+            "baseLevels": 20
+          },
+          "input2": {
+            "label": " x 1 addtnl hex",
+            "levelCost": 2,
+            "baseLevels": 0
+          },
+          "input3": {
+            "label": " addtnl locations",
+            "levelCost": 3,
+            "baseLevels": 0
+          }
+        },
+        "Telescopic Sense": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 3,
+            "baseLevels": 1
+          }
+        },
+        "Tracking Sense": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 0,
+            "baseLevels": 10
+          }
+        },
+        "Transfer": {
+          "desc": "",
+          "type": "ADJUSTMENT",
+          "duration": "INSTANT",
+          "target": "DCV",
+          "input1": {
+            "label": "d6",
+            "levelCost": 15,
+            "baseLevels": 1
+          },
+          "input2": {
+            "label": " x 2 addtnl transfer pts",
+            "levelCost": 1,
+            "baseLevels": 0
+          },
+          "advantage": {
+            "None": 0,
+            "return pts/minute": 0.25,
+            "return pts/5 minutes": 0.5,
+            "return pts/hour": 0.75,
+            "return pts/5 hours": 1,
+            "return pts/day": 1.25,
+            "return pts/5 days": 1.5,
+            "return pts/week": 1.75,
+            "return pts/5 weeks": 2
+          }
+        },
+        "Tunnelling": {
+          "desc": "",
+          "type": "MOVEMENT",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "hexes",
+            "levelCost": 5,
+            "baseLevels": 2
+          },
+          "input2": {
+            "label": "X 1 DEF tunneled through",
+            "levelCost": 3,
+            "baseLevels": 0
+          }
+        },
+        "Ultrasonic Hearing": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 0,
+            "baseLevels": 3
+          }
+        },
+        "Ultraviolet Vision": {
+          "desc": "",
+          "type": "SENSE",
+          "duration": "PERSISTANT",
+          "target": "SELF",
+          "input1": {
+            "label": "pts",
+            "levelCost": 0,
+            "baseLevels": 5
+          }
+        }
       }
     },
     "npc": {
@@ -483,1095 +1566,11 @@
     },
     "power": {
       "key": "",
-      "type": 0,
       "input1": 0,
       "input2": 0,
       "input3": 0,
       "advantages": [],
-      "disadvantages": [],
-      "values": {
-        "360 Degree Sensing (one sense)": {
-          "desc": "",
-          "type": "SENSE",
-          "duration": "PERSISTANT",
-          "target": "SELF",
-          "input1": {
-            "label": "one sense",
-            "levelCost": 0,
-            "baseLevels": 10
-          }
-        },
-        "360 Degree Sensing (all senses)": {
-          "desc": "",
-          "type": "SENSE",
-          "duration": "PERSISTANT",
-          "target": "SELF",
-          "input1": {
-            "label": "all senses",
-            "levelCost": 0,
-            "baseLevels": 25
-          }
-        },
-        "Absorption": {
-          "desc": "",
-          "type": "ADJUSTMENT",
-          "duration": "CONSTANT",
-          "target": "SELF",
-          "input1": {
-            "label": "d6",
-            "levelCost": 5,
-            "baseLevels": 3
-          },
-          "input2": {
-            "label": "addtnl pool pnts",
-            "levelCost": 0.5,
-            "baseLevels": 0
-          },
-          "advantage": {
-            "None": 0,
-            "return pts/minute": 0.25,
-            "return pts/5 minutes": 0.5,
-            "return pts/hour": 0.75,
-            "return pts/5 hours": 1,
-            "return pts/day": 1.25,
-            "return pts/5 days": 1.5,
-            "return pts/week": 1.75,
-            "return pts/5 weeks": 2
-          }
-        },
-        "Active Sonar": {
-          "desc": "",
-          "type": "SENSE",
-          "duration": "PERSISTANT",
-          "target": "SELF",
-          "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 15
-          }
-        },
-        "Aid": {
-          "desc": "",
-          "type": "ADJUSTMENT",
-          "duration": "INSTANT",
-          "target": "DCV",
-          "input1": {
-            "label": "d6",
-            "levelCost": 5,
-            "baseLevels": 2
-          },
-          "input2": {
-            "label": "addtnl pool pnts",
-            "levelCost": 0.5,
-            "baseLevels": 0
-          }
-        },
-        "Armor": {
-          "desc": "",
-          "type": "STANDARD",
-          "duration": "PERSISTENT",
-          "target": "SELF",
-          "input1": {
-            "label": "PD or ED",
-            "levelCost": 0.66,
-            "baseLevels": 3
-          }
-        },
-        "Change Environment": {
-          "desc": "",
-          "type": "STANDARD",
-          "duration": "CONSTANT",
-          "target": "HEX",
-          "input1": {
-            "label": "hex radius",
-            "levelCost": 5,
-            "baseLevels": 2
-          },
-          "advantage": {
-            "None": 0,
-            "Vary Environment": 1
-          }
-        },
-        "Clinging": {
-          "desc": "",
-          "type": "STANDARD",
-          "duration": "CONSTANT",
-          "target": "SELF",
-          "input1": {
-            "label": "clinging (base STR)",
-            "levelCost": 0,
-            "baseLevels": 10
-          },
-          "input2": {
-            "label": "additional STR",
-            "levelCost": 0.33,
-            "baseLevels": 0
-          },
-          "Damage Reduction": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "PERSISTENT",
-            "target": "SELF",
-            "input1": {
-              "label": "levels (x25%)",
-              "levelCost": 10,
-              "baseLevels": 1
-            },
-            "advantage": {
-              "None": 0,
-              "Resistant": 1.5
-            }
-          },
-          "Damage Resistance": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "PERSISTENT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts of resistant defense",
-              "levelCost": 0.5,
-              "baseLevels": 6
-            }
-          },
-          "Darkness": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "CONSTANT",
-            "target": "HEX",
-            "input1": {
-              "label": "hex radius",
-              "levelCost": 10,
-              "baseLevels": 1
-            },
-            "input2": {
-              "label": "addtnl sense(s)",
-              "levelCost": 5,
-              "baseLevels": 0
-            },
-            "input3": {
-              "label": "addtnl sense group(s)",
-              "levelCost": 10,
-              "baseLevels": 0
-            }
-          },
-          "Density Increase": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "CONSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "levels",
-              "levelCost": 0,
-              "baseLevels": 3
-            },
-            "input2": {
-              "label": " modifier to PER Rolls",
-              "levelCost": 2,
-              "baseLevels": 0
-            }
-          },
-          "Detect": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "one sense",
-              "levelCost": 0,
-              "baseLevels": 10
-            }
-          },
-          "Discriminatory Sense": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts",
-              "levelCost": 0,
-              "baseLevels": 5
-            }
-          },
-          "Dispel": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "INSTANT",
-            "target": "DCV",
-            "input1": {
-              "label": "d6",
-              "levelCost": 3,
-              "baseLevels": 3
-            },
-            "advantage": {
-              "None": 0,
-              "any single power": 0.25,
-              "any group": 2
-            }
-          },
-          "Drain": {
-            "desc": "",
-            "type": "ADJUSTMENT",
-            "duration": "INSTANT",
-            "target": "DCV",
-            "input1": {
-              "label": "d6",
-              "levelCost": 10,
-              "baseLevels": 2
-            },
-            "advantage": {
-              "None": 0,
-              "return pts/minute": 0.25,
-              "return pts/5 minutes": 0.5,
-              "return pts/hour": 0.75,
-              "return pts/5 hours": 1,
-              "return pts/day": 1.25,
-              "return pts/5 days": 1.5,
-              "return pts/week": 1.75,
-              "return pts/5 weeks": 2
-            }
-          },
-          "Duplication": {
-            "desc": "",
-            "type": "SPECIAL",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "character pts/duplicate",
-              "levelCost": 0.4,
-              "baseLevels": 100
-            },
-            "input2": {
-              "label": "additional duplicate cost",
-              "levelCost": 0.2,
-              "baseLevels": 50
-            }
-          },
-          "EGO Attack": {
-            "desc": "",
-            "type": "MENTAL",
-            "duration": "INSTANT",
-            "target": "ECV",
-            "input1": {
-              "label": "d6",
-              "levelCost": 10,
-              "baseLevels": 1
-            }
-          },
-          "END Reserve": {
-            "desc": "",
-            "type": "SPECIAL",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "END pool",
-              "levelCost": 0.1,
-              "baseLevels": 10
-            },
-            "input2": {
-              "label": "addtnl REC",
-              "levelCost": 1,
-              "baseLevels": 0
-            }
-          },
-          "Energy Blast": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "INSTANT",
-            "target": "DCV",
-            "input1": {
-              "label": "d6",
-              "levelCost": 5,
-              "baseLevels": 2
-            }
-          },
-          "Enhanced Perception": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts",
-              "levelCost": 0,
-              "baseLevels": 3
-            },
-            "input2": {
-              "label": "levels",
-              "levelCost": 2,
-              "baseLevels": 0
-            }
-          },
-          "Entangle": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "INSTANT",
-            "target": "DCV",
-            "input1": {
-              "label": "d6",
-              "levelCost": 10,
-              "baseLevels": 1
-            },
-            "input2": {
-              "label": "stops a given sense",
-              "levelCost": 5,
-              "baseLevels": 0
-            },
-            "advantage": {
-              "None": 0,
-              "entangle takes no damage": 0.5,
-              "entangle/character take damage": 0.25,
-              "backlash": 0.5
-            },
-            "disadvantage": {
-              "None": 0,
-              "no defense": 1.5,
-              "1 BODY": 0.5
-            }
-          },
-          "Extra Limbs": {
-            "desc": "",
-            "type": "SPECIAL",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts of resistant defense",
-              "levelCost": 0,
-              "baseLevels": 5
-            }
-          },
-          "Flash": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "INSTANT",
-            "target": "DCV",
-            "input1": {
-              "label": "d6",
-              "levelCost": 10,
-              "baseLevels": 2
-            },
-            "input2": {
-              "label": "addtnl senses",
-              "levelCost": 5,
-              "baseLevels": 0
-            }
-          },
-          "Flash Defense": {
-            "desc": "",
-            "type": "SPECIAL",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts of defense",
-              "levelCost": 1,
-              "baseLevels": 5
-            }
-          },
-          "Flight": {
-            "desc": "",
-            "type": "MOVEMENT",
-            "duration": "CONSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "hexes",
-              "levelCost": 2,
-              "baseLevels": 10
-            }
-          },
-          "Force Field": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "CONSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts of resistant defense (PD or ED)",
-              "levelCost": 1,
-              "baseLevels": 10
-            },
-            "input2": {
-              "label": "senses blocked",
-              "levelCost": 5,
-              "baseLevels": 0
-            }
-          },
-          "Force Wall": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "CONSTANT",
-            "target": "HEX",
-            "input1": {
-              "label": "pts of resistant defense",
-              "levelCost": 0.5,
-              "baseLevels": 5
-            },
-            "advantage": {
-              "None": 0,
-              "friendly fire penetrates (energy/physical)": 0.5
-            },
-            "disadvantage": {
-              "None": 0,
-              "feedback": 1
-            }
-          },
-          "Gliding": {
-            "desc": "",
-            "type": "MOVEMENT",
-            "duration": "CONSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "hexes",
-              "levelCost": 1,
-              "baseLevels": 5
-            }
-          },
-          "Growth": {
-            "desc": "",
-            "type": "SIZE",
-            "duration": "CONSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "levels of growth",
-              "levelCost": 5,
-              "baseLevels": 3
-            }
-          },
-          "Hand To Hand Attack": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "INSTANT",
-            "target": "DCV",
-            "input1": {
-              "label": "d6",
-              "levelCost": 3,
-              "baseLevels": 2
-            }
-          },
-          "High-Range Radio Hearing": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts",
-              "levelCost": 0,
-              "baseLevels": 10
-            }
-          },
-          "Images": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "CONSTANT",
-            "target": "HEX",
-            "input1": {
-              "label": "senses affected",
-              "levelCost": 10,
-              "baseLevels": 5
-            },
-            "input2": {
-              "label": "pts subtracted from PER checks",
-              "levelCost": 3,
-              "baseLevels": 0
-            },
-            "advantage": {
-              "None": 0,
-              "double radius": 0.25
-            }
-          },
-          "Infrared Vision": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts",
-              "levelCost": 0,
-              "baseLevels": 5
-            }
-          },
-          "Instant Change": {
-            "desc": "",
-            "type": "SPECIAL",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts of resistant defense",
-              "levelCost": 0,
-              "baseLevels": 10
-            }
-          },
-          "Invisibility": {
-            "desc": "",
-            "type": "SPECIAL",
-            "duration": "CONSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts of invisibility",
-              "levelCost": 0,
-              "baseLevels": 20
-            },
-            "input2": {
-              "label": "addtnl senses",
-              "levelCost": 5,
-              "baseLevels": 0
-            },
-            "input3": {
-              "label": "no fringe",
-              "levelCost": 10,
-              "baseLevels": 0
-            }
-          },
-          "Killing Attack (Melee)": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "INSTANT",
-            "target": "DCV",
-            "input1": {
-              "label": "d6",
-              "levelCost": 15,
-              "baseLevels": 1
-            }
-          },
-          "Killing Attack (Ranged)": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "INSTANT",
-            "target": "DCV",
-            "input1": {
-              "label": "d6",
-              "levelCost": 15,
-              "baseLevels": 1
-            }
-          },
-          "Knockback Resistance": {
-            "desc": "",
-            "type": "SPECIAL",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "levels",
-              "levelCost": 2,
-              "baseLevels": 2
-            }
-          },
-          "Lack Of Weakness": {
-            "desc": "",
-            "type": "SPECIAL",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "levels",
-              "levelCost": 1,
-              "baseLevels": 2
-            }
-          },
-          "Life Support": {
-            "desc": "",
-            "type": "SPECIAL",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "levels",
-              "levelCost": 5,
-              "baseLevels": 1
-            },
-            "input2": {
-              "label": "environments",
-              "levelCost": 3,
-              "baseLevels": 0
-            },
-            "input2": {
-              "label": "immunities",
-              "levelCost": 3,
-              "baseLevels": 0
-            }
-          },
-          "Mental Awareness": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts",
-              "levelCost": 0,
-              "baseLevels": 3
-            }
-          },
-          "Mental Defense": {
-            "desc": "",
-            "type": "SPECIAL",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts of mental defense",
-              "levelCost": 1,
-              "baseLevels": 5
-            }
-          },
-          "Mental Illusions": {
-            "desc": "",
-            "type": "MENTAL",
-            "duration": "INSTANT",
-            "target": "ECV",
-            "input1": {
-              "label": "d6",
-              "levelCost": 5,
-              "baseLevels": 2
-            }
-          },
-          "Microscopic Vision": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts",
-              "levelCost": 0,
-              "baseLevels": 3
-            }
-          },
-          "Mind Control": {
-            "desc": "",
-            "type": "MENTAL",
-            "duration": "INSTANT",
-            "target": "ECV",
-            "input1": {
-              "label": "character pts per form",
-              "levelCost": 0.2,
-              "baseLevels": 100
-            },
-            "advantage": {
-              "None": 0,
-              "2 duplicate": 1,
-              "3 duplicate": 2,
-              "4 duplicate": 3,
-              "5 duplicate": 4
-            }
-          },
-          "Mind Link": {
-            "desc": "",
-            "type": "SPECIAL",
-            "duration": "PERSISTANT",
-            "target": "ECV",
-            "input1": {
-              "label": "minds",
-              "levelCost": 3,
-              "baseLevels": 1
-            },
-            "input2": {
-              "label": "any distance",
-              "levelCost": 5,
-              "baseLevels": 0
-            },
-            "disadvantage": {
-              "None": 0,
-              "only with others w/ mind link": 1
-            }
-          },
-          "Mind Scan": {
-            "desc": "",
-            "type": "MENTAL",
-            "duration": "INSTANT",
-            "target": "ECV",
-            "input1": {
-              "label": "d6",
-              "levelCost": 5,
-              "baseLevels": 2
-            },
-            "input2": {
-              "label": "modifier to att roll",
-              "levelCost": 2,
-              "baseLevels": 0
-            }
-          },
-          "Missile Deflection/Reflection": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "CONSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "levels",
-              "levelCost": 5,
-              "baseLevels": 1
-            },
-            "input2": {
-              "label": "reflect attacks",
-              "levelCost": 10,
-              "baseLevels": 0
-            },
-            "advantage": {
-              "None": 0,
-              "deflect adjacent attacks": 0.5,
-              "deflect at range": 1
-            }
-          },
-          "Multiform": {
-            "desc": "",
-            "type": "SPECIAL",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "character pts per form",
-              "levelCost": 0.2,
-              "baseLevels": 100
-            },
-            "input2": {
-              "label": "additional forms",
-              "levelCost": 0.1,
-              "baseLevels": 100
-            }
-          },
-          "Power Defense": {
-            "desc": "",
-            "type": "SPECIAL",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts of defense",
-              "levelCost": 1,
-              "baseLevels": 5
-            }
-          },
-          "Radar Sense": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts",
-              "levelCost": 0,
-              "baseLevels": 15
-            }
-          },
-          "Radio Hearing": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts",
-              "levelCost": 0,
-              "baseLevels": 3
-            }
-          },
-          "Radio Transmission": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts",
-              "levelCost": 0,
-              "baseLevels": 2
-            }
-          },
-          "Ranged Sense": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts for one sense",
-              "levelCost": 0,
-              "baseLevels": 5
-            }
-          },
-          "Regeneration": {
-            "desc": "",
-            "type": "SPECIAL",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "body/turn",
-              "levelCost": 10,
-              "baseLevels": 2
-            },
-            "disadvantage": {
-              "None": 0,
-              "body/minute": 0.25,
-              "body/5 minutes": 0.5,
-              "body/hour": 0.75,
-              "body/5 hours": 1,
-              "body/day": 1.25,
-              "body/5 days": 1.5,
-              "body/week": 1.75,
-              "body/5 weeks": 2
-            }
-          },
-          "Running": {
-            "desc": "",
-            "type": "MOVEMENT",
-            "duration": "CONSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "addtnl hexes",
-              "levelCost": 2,
-              "baseLevels": 1
-            },
-            "input2": {
-              "label": "2x non-combat speed",
-              "levelCost": 5,
-              "baseLevels": 0
-            }
-          },
-          "Shape Shift": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "CONSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "levels",
-              "levelCost": 10,
-              "baseLevels": 1
-            }
-          },
-          "Shrinking": {
-            "desc": "",
-            "type": "SIZE",
-            "duration": "CONSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "levels",
-              "levelCost": 10,
-              "baseLevels": 1
-            }
-          },
-          "Spatial Awareness": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts",
-              "levelCost": 0,
-              "baseLevels": 25
-            }
-          },
-          "Stretching": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "CONSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "hexes",
-              "levelCost": 5,
-              "baseLevels": 2
-            }
-          },
-          "Superleap": {
-            "desc": "",
-            "type": "MOVEMENT",
-            "duration": "CONSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "hexes",
-              "levelCost": 1,
-              "baseLevels": 5
-            },
-            "input2": {
-              "label": "2x non-combat distance",
-              "levelCost": 5,
-              "baseLevels": 0
-            }
-          },
-          "Suppress": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "CONSTANT",
-            "target": "DCV",
-            "input1": {
-              "label": "d6",
-              "levelCost": 5,
-              "baseLevels": 2
-            },
-            "advantage": {
-              "None": 0,
-              "one power": 0.25,
-              "one group": 2
-            }
-          },
-          "Swimming": {
-            "desc": "",
-            "type": "MOVEMENT",
-            "duration": "CONSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "hexes",
-              "levelCost": 1,
-              "baseLevels": 5
-            },
-            "input2": {
-              "label": "2x non-combat distance",
-              "levelCost": 5,
-              "baseLevels": 0
-            }
-          },
-          "Swinging": {
-            "desc": "",
-            "type": "MOVEMENT",
-            "duration": "CONSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "hexes",
-              "levelCost": 1,
-              "baseLevels": 5
-            },
-            "input2": {
-              "label": "2x non-combat distance",
-              "levelCost": 5,
-              "baseLevels": 0
-            }
-          },
-          "Targeting Sense": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts",
-              "levelCost": 0,
-              "baseLevels": 20
-            }
-          },
-          "Telekinesis": {
-            "desc": "",
-            "type": "STANDARD",
-            "duration": "CONSTANT",
-            "target": "DCV",
-            "input1": {
-              "label": "10pts STR",
-              "levelCost": 0,
-              "baseLevels": 15
-            },
-            "input2": {
-              "label": "x 2pts addtnl STR",
-              "levelCost": 3,
-              "baseLevels": 0
-            },
-            "input3": {
-              "label": "fine motor control",
-              "levelCost": 10,
-              "baseLevels": 0
-            }
-          },
-          "Telepathy": {
-            "desc": "",
-            "type": "MENTAL",
-            "duration": "INSTANT",
-            "target": "ECV",
-            "input1": {
-              "label": "d6",
-              "levelCost": 5,
-              "baseLevels": 2
-            }
-          },
-          "Teleportation": {
-            "desc": "",
-            "type": "MOVEMENT",
-            "duration": "INSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "10 hexes",
-              "levelCost": 0,
-              "baseLevels": 20
-            },
-            "input2": {
-              "label": " x 1 addtnl hex",
-              "levelCost": 2,
-              "baseLevels": 0
-            },
-            "input3": {
-              "label": " addtnl locations",
-              "levelCost": 3,
-              "baseLevels": 0
-            }
-          },
-          "Telescopic Sense": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts",
-              "levelCost": 3,
-              "baseLevels": 1
-            }
-          },
-          "Tracking Sense": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts",
-              "levelCost": 0,
-              "baseLevels": 10
-            }
-          },
-          "Transfer": {
-            "desc": "",
-            "type": "ADJUSTMENT",
-            "duration": "INSTANT",
-            "target": "DCV",
-            "input1": {
-              "label": "d6",
-              "levelCost": 15,
-              "baseLevels": 1
-            },
-            "input2": {
-              "label": " x 2 addtnl transfer pts",
-              "levelCost": 1,
-              "baseLevels": 0
-            },
-            "advantage": {
-              "None": 0,
-              "return pts/minute": 0.25,
-              "return pts/5 minutes": 0.5,
-              "return pts/hour": 0.75,
-              "return pts/5 hours": 1,
-              "return pts/day": 1.25,
-              "return pts/5 days": 1.5,
-              "return pts/week": 1.75,
-              "return pts/5 weeks": 2
-            }
-          },
-          "Tunnelling": {
-            "desc": "",
-            "type": "MOVEMENT",
-            "duration": "CONSTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "hexes",
-              "levelCost": 5,
-              "baseLevels": 2
-            },
-            "input2": {
-              "label": "X 1 DEF tunneled through",
-              "levelCost": 3,
-              "baseLevels": 0
-            }
-          },
-          "Ultrasonic Hearing": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts",
-              "levelCost": 0,
-              "baseLevels": 3
-            }
-          },
-          "Ultraviolet Vision": {
-            "desc": "",
-            "type": "SENSE",
-            "duration": "PERSISTANT",
-            "target": "SELF",
-            "input1": {
-              "label": "pts",
-              "levelCost": 0,
-              "baseLevels": 5
-            }
-          }
-        }
-      }
+      "disadvantages": []
     },
     "complication": {
       "name": "New Complication",

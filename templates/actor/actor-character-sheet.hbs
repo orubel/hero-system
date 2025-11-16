@@ -315,6 +315,12 @@
       {{> "systems/hero-system/templates/actor/parts/actor-skills.hbs"}}
     </div>
 
+    {{!-- Powers Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="powers">
+      {{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
+      {{> "systems/hero-system/templates/actor/parts/actor-powers.hbs"}}
+    </div>
+
     {{!-- Perks Tab --}}
     <div class="tab biography" data-group="primary" data-tab="perks">
       {{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
@@ -331,11 +337,6 @@
     <div class="tab items" data-group="primary" data-tab="complications">
       {{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
       {{> "systems/hero-system/templates/actor/parts/actor-complications.hbs"}}
-    </div>
-
-    {{!-- Owned Items Tab --}}
-    <div class="tab items" data-group="primary" data-tab="powers">
-       {{> "systems/hero-system/templates/actor/parts/actor-powers.hbs"}}
     </div>
 
     {{!-- Owned Spells Tab --}}
