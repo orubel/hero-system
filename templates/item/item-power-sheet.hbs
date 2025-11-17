@@ -76,6 +76,25 @@
         </li>
         {{/if}}
 
+        {{#if (lookup (lookup this.powerlist system.key) 'input3')}}
+          <li class='item flexrow'>
+            <div class="flexcol" style="flex: 0 0 50px;">
+                <section style="text-align: left;">
+                    <input type="text" name="system.input3" value="{{system.input3}}"/>
+                </section>
+
+            </div>
+            <div class='resource-label align-left' >
+                <section style="text-align: left;">
+                  {{ lookup (lookup (lookup this.powerlist system.key) 'input3') 'label'}}
+                </section>
+            </div>
+            <div class="align-center">
+              {{ calcPowerPtsTotal (lookup (lookup this.powerlist system.key) 'input3') system.input3 }}
+            </div>
+        </li>
+        {{/if}}
+
         </ol>
 
 </form>
