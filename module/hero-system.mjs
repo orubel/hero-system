@@ -279,14 +279,16 @@ Handlebars.registerHelper('showSkills', function(abilities, skills) {
     return output;
 });
 
+Handlebars.registerHelper('calcPowerPtsTotal', function(powerListInput, input) {
+    var output = Math.floor(Number(input) * Number(powerListInput.levelCost));
+    return output;
+});
+
 Handlebars.registerHelper('showPowers', function(powers, powerlist) {
     var output = ``;
     for (let key in powers) {
 
-
         var power = powers[key];
-
-        console.log(power);
 
         var itemData = powerlist[power.system.key];
         var input1Cost = 0;
@@ -301,15 +303,23 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
         }
 
         if(itemData){
-            input1Cost = (itemData.levelCost == 0)?Number(itemData.baseLevels):Number(itemData.levelCost)*Number(power.system.input1);
-            input2Cost = (itemData.levelCost == 0)?Number(itemData.baseLevels):Number(itemData.levelCost)*Number(power.system.input2);
-            input3Cost = (itemData.levelCost == 0)?Number(itemData.baseLevels):Number(itemData.levelCost)*Number(power.system.input3);
+            input1Cost = (itemData.input1.levelCost == 0)?Number(itemData.baseLevels):Number(itemData.input1.levelCost)*Number(power.system.input1);
+
+            if(itemData.input2){
+                input2Cost = (itemData.input2.levelCost == 0)?Number(itemData.baseLevels):Number(itemData.input2.levelCost)*Number(power.system.input2);
+            }
+
+            if(itemData.input3){
+                input3Cost = (itemData.input3.levelCost == 0)?Number(itemData.baseLevels):Number(itemData.input3.levelCost)*Number(power.system.input3);
+            }
         }
 
         output += `
           <li class='item flexrow' data-item-id=${power._id}>
-            <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>${input1Cost+input2Cost+input3Cost}</div>
-            <div class='item-name' style='display:block;padding:3px;'>
+            <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>
+                ${input1Cost+input2Cost+input3Cost}
+            </div>
+            <div class='item-name' style='display:block;flex: 0 0 300px;padding:3px;'>
               <h4>`;
 
             if(itemType!=''){

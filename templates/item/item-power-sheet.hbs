@@ -1,11 +1,13 @@
 {{! This template is a fallback for when items don't have more specific templates. }}
 {{! Generally, you'll want to make more specific templates when possible. }}
+
+{{log this.powerlist }}
+
 <form class='{{cssClass}}' autocomplete='off'>
   <header class='sheet-header'>
         {{! Editors must receive enriched text data from getData to properly handle rolls }}
         {{editor (lookup (lookup system.values system.key) 'desc') target='system.desc' engine='prosemirror' button=true editable=editable}}
   </header>
-
       <div class="flexrow" style="gap: 0.5em;">
         <!-- LEFT COLUMN -->
         <div class="flexcol" style="flex: 1;">
@@ -20,9 +22,9 @@
                           <input style="width:250px;" type="text" name="system.name" value="{{system.name}}"/>
                       </section>
                       <section style="text-align: left;">
-                          <label class='resource-label' style="display:inline-block;;width:100px;">{{localize "Complication"}}</label>
+                          <label class='resource-label' style="display:inline-block;;width:100px;">{{localize "Power"}}</label>
                           <select style="width:250px;" name="system.key" value="{{system.key}}">
-                              {{{ selectKey system.values system.key }}}
+                              {{{ selectKey this.powerlist system.key }}}
                           </select>
                       </section>
                     </div>
@@ -31,63 +33,32 @@
         </div>
       </div>
 
-      <div class="flexrow" style="gap: 0.5em;">
-        <!-- LEFT COLUMN -->
-        <div class="flexcol" style="flex: 1;">
-            <ol class='items-list'>
-              <li class='item flexrow items-header'>
-                <div>Config</div>
-              </li>
-                <li class='item flexrow'>
-                    <div class="flexcol" style="flex: 1;">
-                        {{#if (lookup (lookup system.values system.key) 'select1')}}
-                          <section style="text-align: left;">
-                              <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'select1') 'label' }}</label>
-                              <select style="width:250px;" name="system.select1" value="{{system.select1}}">
-{{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select1') 'values') system.select1 }}}
-                              </select>
-                          </section>
-                        {{/if}}
+        <ol class='items-list'>
+          <li class='item flexrow items-header'>
+            <div style="flex:0 0 50px;">Lvls</div>
+            <div style="text-align: left;">Name</div>
+            <div>Cost</div>
+          </li>
+          {{#if (lookup (lookup this.powerlist system.key) 'input1')}}
+            <li class='item flexrow'>
+              <div class="flexcol" style="flex: 0 0 50px;">
+                  <section style="text-align: left;">
+                      <input type="text" name="system.input1" value="{{system.input1}}"/>
+                  </section>
 
-                        {{#if (lookup (lookup system.values system.key) 'select2')}}
-                          <section style="text-align: left;">
-                              <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'select2') 'label' }}</label>
-                              <select style="width:250px;" name="system.select2" value="{{system.select2}}">
-                                {{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select2') 'values') system.select2 }}}
-                              </select>
-                          </section>
-                        {{/if}}
-
-                        {{#if (lookup (lookup system.values system.key) 'select3')}}
-                          <section style="text-align: left;">
-                              <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'select3') 'label' }}</label>
-                              <select style="width:250px;" name="system.select3" value="{{system.select3}}">
-                                {{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select3') 'values') system.select3 }}}
-                              </select>
-                          </section>
-                        {{/if}}
-
-                        {{#if (lookup (lookup system.values system.key) 'select4')}}
-                          <section style="text-align: left;">
-                              <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'select4') 'label' }}</label>
-                              <select style="width:250px;" name="system.select4" value="{{system.select4}}">
-                                {{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select4') 'values') system.select4 }}}
-                              </select>
-                          </section>
-                        {{/if}}
-
-                        {{#if (lookup (lookup system.values system.key) 'multiplier')}}
-                          <section style="text-align: left;">
-                              <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'multiplier') 'label' }}</label>
-                              <select style="width:250px;" name="system.multiplier" value="{{system.multiplier}}">
-                                {{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'multiplier') 'values') system.multiplier }}}
-                              </select>
-                          </section>
-                        {{/if}}
-                    </div>
-                </li>
-            </ol>
-        </div>
-      </div>
+              </div>
+              <div class='resource-label align-left' >
+                {{#if (lookup (lookup this.powerlist system.key) 'input1')}}
+                  <section style="text-align: left;">
+                    {{ lookup (lookup (lookup this.powerlist system.key) 'input1') 'label'}}
+                  </section>
+                {{/if}}
+              </div>
+              <div class="align-center">
+                {{ calcPowerPtsTotal (lookup (lookup this.powerlist system.key) 'input1') system.input1 }}
+              </div>
+          </li>
+          {{/if}}
+        </ol>
 
 </form>

@@ -201,8 +201,8 @@
           "duration": "PERSISTENT",
           "target": "SELF",
           "input1": {
-            "label": "PD or ED",
-            "levelCost": 0.66,
+            "label": "x 2 pts of resistant PD/ED",
+            "levelCost": 3,
             "baseLevels": 3
           }
         },

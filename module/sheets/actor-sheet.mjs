@@ -117,7 +117,6 @@ export class HeroSystemActorSheet extends ActorSheet {
       if (i.type === 'item') {
         gear.push(i);
       }else if (i.type === 'power') {
-        console.log("power : "+i);
         powers.push(i);
       }else if (i.type === 'complication') {
         complications.push(i);

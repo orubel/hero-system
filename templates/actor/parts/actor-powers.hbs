@@ -3,12 +3,12 @@
     <div style="flex:0 0 50px;">Pts</div>
     <div style="flex: 0 0 300px;text-align:left;">Powers</div>
     <div style="text-align:right;">
-      <a class='item-control skill-create' title='{{localize "DOCUMENT.Create" type='Power'}}' data-type='power'>
+      <a class='item-control item-create' title='{{localize "DOCUMENT.Create" type='Power'}}' data-type='power'>
         <i class='fas fa-plus'></i>{{localize 'DOCUMENT.New' type='power'}}
       </a>
     </div>
   </li>
-
+    {{ log powers }}
   {{{ showPowers powers system.powerlist }}}
 
 </ol>
