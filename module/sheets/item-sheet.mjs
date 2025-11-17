@@ -61,9 +61,6 @@ export class HeroSystemItemSheet extends ItemSheet {
       }
     );
 
-
-console.log(this.actor);
-
     context.abilities = this.actor.system.abilities;
     context.powerlist = this.actor.system.powerlist;
 

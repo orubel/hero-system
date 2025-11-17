@@ -124,28 +124,21 @@
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "one sense",
-            "levelCost": 0,
-            "baseLevels": 10
-          }
+          "baseCost": 10
         },
         "360 Degree Sensing (all senses)": {
           "desc": "",
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "all senses",
-            "levelCost": 0,
-            "baseLevels": 25
-          }
+          "baseCost": 25
         },
         "Absorption": {
           "desc": "",
           "type": "ADJUSTMENT",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 5,
@@ -173,17 +166,14 @@
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 15
-          }
+          "baseCost": 15
         },
         "Aid": {
           "desc": "",
           "type": "ADJUSTMENT",
           "duration": "INSTANT",
           "target": "DCV",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 5,
@@ -200,6 +190,7 @@
           "type": "STANDARD",
           "duration": "PERSISTENT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "x 2 pts of resistant PD/ED",
             "levelCost": 3,
@@ -211,6 +202,7 @@
           "type": "STANDARD",
           "duration": "CONSTANT",
           "target": "HEX",
+          "baseCost": 0,
           "input1": {
             "label": "hex radius",
             "levelCost": 5,
@@ -226,12 +218,8 @@
           "type": "STANDARD",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 10,
           "input1": {
-            "label": "clinging (base STR)",
-            "levelCost": 0,
-            "baseLevels": 10
-          },
-          "input2": {
             "label": "additional STR",
             "levelCost": 0.33,
             "baseLevels": 0
@@ -242,6 +230,7 @@
           "type": "STANDARD",
           "duration": "PERSISTENT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "levels (x25%)",
             "levelCost": 10,
@@ -257,6 +246,7 @@
           "type": "STANDARD",
           "duration": "PERSISTENT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "pts of resistant defense",
             "levelCost": 0.5,
@@ -268,6 +258,7 @@
           "type": "STANDARD",
           "duration": "CONSTANT",
           "target": "HEX",
+          "baseCost": 0,
           "input1": {
             "label": "hex radius",
             "levelCost": 10,
@@ -277,11 +268,6 @@
             "label": "addtnl sense(s)",
             "levelCost": 5,
             "baseLevels": 0
-          },
-          "input3": {
-            "label": "addtnl sense group(s)",
-            "levelCost": 10,
-            "baseLevels": 0
           }
         },
         "Density Increase": {
@@ -289,6 +275,7 @@
           "type": "STANDARD",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "levels",
             "levelCost": 5,
@@ -305,28 +292,21 @@
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "one sense",
-            "levelCost": 0,
-            "baseLevels": 10
-          }
+          "baseCost": 10
         },
         "Discriminatory Sense": {
           "desc": "",
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 5
-          }
+          "baseCost": 5
         },
         "Dispel": {
           "desc": "",
           "type": "STANDARD",
           "duration": "INSTANT",
           "target": "DCV",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 3,
@@ -343,6 +323,7 @@
           "type": "ADJUSTMENT",
           "duration": "INSTANT",
           "target": "DCV",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 10,
@@ -365,6 +346,7 @@
           "type": "SPECIAL",
           "duration": "PERSISTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "character pts/duplicate",
             "levelCost": 0.4,
@@ -381,6 +363,7 @@
           "type": "MENTAL",
           "duration": "INSTANT",
           "target": "ECV",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 10,
@@ -392,6 +375,7 @@
           "type": "SPECIAL",
           "duration": "PERSISTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "END pool",
             "levelCost": 0.1,
@@ -408,6 +392,7 @@
           "type": "STANDARD",
           "duration": "INSTANT",
           "target": "DCV",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 5,
@@ -419,12 +404,8 @@
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
+          "baseCost": 3,
           "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 3
-          },
-          "input2": {
             "label": "levels",
             "levelCost": 2,
             "baseLevels": 0
@@ -435,6 +416,7 @@
           "type": "STANDARD",
           "duration": "INSTANT",
           "target": "DCV",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 10,
@@ -462,17 +444,14 @@
           "type": "SPECIAL",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts of resistant defense",
-            "levelCost": 0,
-            "baseLevels": 5
-          }
+          "baseCost": 5
         },
         "Flash": {
           "desc": "",
           "type": "STANDARD",
           "duration": "INSTANT",
           "target": "DCV",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 10,
@@ -489,6 +468,7 @@
           "type": "SPECIAL",
           "duration": "PERSISTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "pts of defense",
             "levelCost": 1,
@@ -500,6 +480,7 @@
           "type": "MOVEMENT",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "hexes",
             "levelCost": 2,
@@ -511,6 +492,7 @@
           "type": "STANDARD",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "pts of resistant defense (PD or ED)",
             "levelCost": 1,
@@ -527,6 +509,7 @@
           "type": "STANDARD",
           "duration": "CONSTANT",
           "target": "HEX",
+          "baseCost": 0,
           "input1": {
             "label": "pts of resistant defense",
             "levelCost": 0.5,
@@ -546,6 +529,7 @@
           "type": "MOVEMENT",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "hexes",
             "levelCost": 1,
@@ -557,6 +541,7 @@
           "type": "SIZE",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "levels of growth",
             "levelCost": 5,
@@ -568,6 +553,7 @@
           "type": "STANDARD",
           "duration": "INSTANT",
           "target": "DCV",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 3,
@@ -579,17 +565,14 @@
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 10
-          }
+          "baseCost": 10
         },
         "Images": {
           "desc": "",
           "type": "STANDARD",
           "duration": "CONSTANT",
           "target": "HEX",
+          "baseCost": 0,
           "input1": {
             "label": "senses affected",
             "levelCost": 10,
@@ -610,39 +593,27 @@
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 5
-          }
+          "baseCost": 5
         },
         "Instant Change": {
           "desc": "",
           "type": "SPECIAL",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts of resistant defense",
-            "levelCost": 0,
-            "baseLevels": 10
-          }
+          "baseCost": 10
         },
         "Invisibility": {
           "desc": "",
           "type": "SPECIAL",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 20,
           "input1": {
-            "label": "pts of invisibility",
-            "levelCost": 0,
-            "baseLevels": 20
-          },
-          "input2": {
             "label": "addtnl senses",
             "levelCost": 5,
             "baseLevels": 0
           },
-          "input3": {
+          "input2": {
             "label": "no fringe",
             "levelCost": 10,
             "baseLevels": 0
@@ -653,6 +624,7 @@
           "type": "STANDARD",
           "duration": "INSTANT",
           "target": "DCV",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 15,
@@ -664,6 +636,7 @@
           "type": "STANDARD",
           "duration": "INSTANT",
           "target": "DCV",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 15,
@@ -675,6 +648,7 @@
           "type": "SPECIAL",
           "duration": "PERSISTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "levels",
             "levelCost": 2,
@@ -686,6 +660,7 @@
           "type": "SPECIAL",
           "duration": "PERSISTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "levels",
             "levelCost": 1,
@@ -697,6 +672,7 @@
           "type": "SPECIAL",
           "duration": "PERSISTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "levels",
             "levelCost": 5,
@@ -718,17 +694,14 @@
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 3
-          }
+          "baseCost": 3
         },
         "Mental Defense": {
           "desc": "",
           "type": "SPECIAL",
           "duration": "PERSISTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "pts of mental defense",
             "levelCost": 1,
@@ -740,6 +713,7 @@
           "type": "MENTAL",
           "duration": "INSTANT",
           "target": "ECV",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 5,
@@ -751,17 +725,14 @@
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 3
-          }
+          "baseCost": 3
         },
         "Mind Control": {
           "desc": "",
           "type": "MENTAL",
           "duration": "INSTANT",
           "target": "ECV",
+          "baseCost": 0,
           "input1": {
             "label": "character pts per form",
             "levelCost": 0.2,
@@ -780,8 +751,9 @@
           "type": "SPECIAL",
           "duration": "PERSISTANT",
           "target": "ECV",
+          "baseCost": 0,
           "input1": {
-            "label": "minds",
+            "label": "# of minds",
             "levelCost": 3,
             "baseLevels": 1
           },
@@ -800,6 +772,7 @@
           "type": "MENTAL",
           "duration": "INSTANT",
           "target": "ECV",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 5,
@@ -816,6 +789,7 @@
           "type": "STANDARD",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "levels",
             "levelCost": 5,
@@ -837,6 +811,7 @@
           "type": "SPECIAL",
           "duration": "PERSISTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "character pts per form",
             "levelCost": 0.2,
@@ -853,6 +828,7 @@
           "type": "SPECIAL",
           "duration": "PERSISTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "pts of defense",
             "levelCost": 1,
@@ -864,50 +840,35 @@
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 15
-          }
+          "baseCost": 15
         },
         "Radio Hearing": {
           "desc": "",
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 3
-          }
+          "baseCost": 3
         },
         "Radio Transmission": {
           "desc": "",
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 2
-          }
+          "baseCost": 2
         },
         "Ranged Sense": {
           "desc": "",
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts for one sense",
-            "levelCost": 0,
-            "baseLevels": 5
-          }
+          "baseCost": 5
         },
         "Regeneration": {
           "desc": "",
           "type": "SPECIAL",
           "duration": "PERSISTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "body/turn",
             "levelCost": 10,
@@ -930,6 +891,7 @@
           "type": "MOVEMENT",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "addtnl hexes",
             "levelCost": 2,
@@ -946,6 +908,7 @@
           "type": "STANDARD",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "levels",
             "levelCost": 10,
@@ -957,6 +920,7 @@
           "type": "SIZE",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "levels",
             "levelCost": 10,
@@ -968,17 +932,14 @@
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 25
-          }
+          "baseCost": 25
         },
         "Stretching": {
           "desc": "",
           "type": "STANDARD",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "hexes",
             "levelCost": 5,
@@ -990,6 +951,7 @@
           "type": "MOVEMENT",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "hexes",
             "levelCost": 1,
@@ -1006,6 +968,7 @@
           "type": "STANDARD",
           "duration": "CONSTANT",
           "target": "DCV",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 5,
@@ -1022,6 +985,7 @@
           "type": "MOVEMENT",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "hexes",
             "levelCost": 1,
@@ -1038,6 +1002,7 @@
           "type": "MOVEMENT",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "hexes",
             "levelCost": 1,
@@ -1054,28 +1019,20 @@
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 20
-          }
+          "baseCost": 20
         },
         "Telekinesis": {
           "desc": "",
           "type": "STANDARD",
           "duration": "CONSTANT",
           "target": "DCV",
+          "baseCost": 15,
           "input1": {
-            "label": "10pts STR",
-            "levelCost": 0,
-            "baseLevels": 15
-          },
-          "input2": {
             "label": "x 2pts addtnl STR",
             "levelCost": 3,
             "baseLevels": 0
           },
-          "input3": {
+          "input2": {
             "label": "fine motor control",
             "levelCost": 10,
             "baseLevels": 0
@@ -1086,6 +1043,7 @@
           "type": "MENTAL",
           "duration": "INSTANT",
           "target": "ECV",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 5,
@@ -1097,17 +1055,13 @@
           "type": "MOVEMENT",
           "duration": "INSTANT",
           "target": "SELF",
+          "baseCost": 20,
           "input1": {
-            "label": "10 hexes",
-            "levelCost": 0,
-            "baseLevels": 20
-          },
-          "input2": {
             "label": " x 1 addtnl hex",
             "levelCost": 2,
             "baseLevels": 0
           },
-          "input3": {
+          "input2": {
             "label": " addtnl locations",
             "levelCost": 3,
             "baseLevels": 0
@@ -1118,8 +1072,9 @@
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
-            "label": "pts",
+            "label": "levels",
             "levelCost": 3,
             "baseLevels": 1
           }
@@ -1129,17 +1084,14 @@
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 10
-          }
+          "baseCost": 10
         },
         "Transfer": {
           "desc": "",
           "type": "ADJUSTMENT",
           "duration": "INSTANT",
           "target": "DCV",
+          "baseCost": 0,
           "input1": {
             "label": "d6",
             "levelCost": 15,
@@ -1167,6 +1119,7 @@
           "type": "MOVEMENT",
           "duration": "CONSTANT",
           "target": "SELF",
+          "baseCost": 0,
           "input1": {
             "label": "hexes",
             "levelCost": 5,
@@ -1183,22 +1136,14 @@
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 3
-          }
+          "baseCost": 3
         },
         "Ultraviolet Vision": {
           "desc": "",
           "type": "SENSE",
           "duration": "PERSISTANT",
           "target": "SELF",
-          "input1": {
-            "label": "pts",
-            "levelCost": 0,
-            "baseLevels": 5
-          }
+          "baseCost": 5
         }
       }
     },
@@ -1568,7 +1513,6 @@
       "key": "",
       "input1": 0,
       "input2": 0,
-      "input3": 0,
       "advantages": [],
       "disadvantages": []
     },

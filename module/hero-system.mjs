@@ -282,9 +282,9 @@ Handlebars.registerHelper('showSkills', function(abilities, skills) {
 Handlebars.registerHelper('calcPowerPtsTotal', function(powerListInput, input) {
     var output = 0;
     if(powerListInput.levelCost == 0){
-        output = Number(powerListInput.baseLevels);
+        output = Number(powerListInput.baseCost);
     }else{
-        output = Math.floor(Number(input) * Number(powerListInput.levelCost));
+        output = Number(powerListInput.baseCost)+Math.floor(Number(input) * Number(powerListInput.levelCost));
     }
     return output;
 });
@@ -298,7 +298,6 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
         var itemData = powerlist[power.system.key];
         var input1Cost = 0;
         var input2Cost = 0;
-        var input3Cost = 0;
 
         //console.log(itemData);
 
@@ -308,21 +307,17 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
         }
 
         if(itemData){
-            input1Cost = (itemData.input1.levelCost == 0)?Number(itemData.input1.baseLevels):Number(itemData.input1.levelCost)*Number(power.system.input1);
+            input1Cost = (itemData.input1)?Number(itemData.input1.levelCost)*Number(power.system.input1):0;
 
             if(itemData.input2){
-                input2Cost = (itemData.input2.levelCost == 0)?Number(itemData.input2.baseLevels):Number(itemData.input2.levelCost)*Number(power.system.input2);
-            }
-
-            if(itemData.input3){
-                input3Cost = (itemData.input3.levelCost == 0)?Number(itemData.input3.baseLevels):Number(itemData.input3.levelCost)*Number(power.system.input3);
+                input2Cost = (itemData.input2)?Number(itemData.input2.levelCost)*Number(power.system.input2):0;
             }
         }
 
         output += `
           <li class='item flexrow' data-item-id=${power._id}>
             <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>
-                ${input1Cost+input2Cost+input3Cost}
+                ${Math.floor(input1Cost+input2Cost+itemData.baseCost)}
             </div>
             <div class='item-name' style='display:block;flex: 0 0 300px;padding:3px;'>
               <h4>`;

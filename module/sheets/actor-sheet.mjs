@@ -122,8 +122,6 @@ export class HeroSystemActorSheet extends ActorSheet {
         complications.push(i);
       }else if (i.type === 'skill') {
         skills.push(i);
-      }else if (i.type){
-        console.log(i.type);
       }
     }
 
