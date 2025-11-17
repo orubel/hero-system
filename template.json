@@ -291,7 +291,7 @@
           "target": "SELF",
           "input1": {
             "label": "levels",
-            "levelCost": 0,
+            "levelCost": 5,
             "baseLevels": 3
           },
           "input2": {

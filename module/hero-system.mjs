@@ -280,7 +280,12 @@ Handlebars.registerHelper('showSkills', function(abilities, skills) {
 });
 
 Handlebars.registerHelper('calcPowerPtsTotal', function(powerListInput, input) {
-    var output = Math.floor(Number(input) * Number(powerListInput.levelCost));
+    var output = 0;
+    if(powerListInput.levelCost == 0){
+        output = Number(powerListInput.baseLevels);
+    }else{
+        output = Math.floor(Number(input) * Number(powerListInput.levelCost));
+    }
     return output;
 });
 
@@ -303,14 +308,14 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
         }
 
         if(itemData){
-            input1Cost = (itemData.input1.levelCost == 0)?Number(itemData.baseLevels):Number(itemData.input1.levelCost)*Number(power.system.input1);
+            input1Cost = (itemData.input1.levelCost == 0)?Number(itemData.input1.baseLevels):Number(itemData.input1.levelCost)*Number(power.system.input1);
 
             if(itemData.input2){
-                input2Cost = (itemData.input2.levelCost == 0)?Number(itemData.baseLevels):Number(itemData.input2.levelCost)*Number(power.system.input2);
+                input2Cost = (itemData.input2.levelCost == 0)?Number(itemData.input2.baseLevels):Number(itemData.input2.levelCost)*Number(power.system.input2);
             }
 
             if(itemData.input3){
-                input3Cost = (itemData.input3.levelCost == 0)?Number(itemData.baseLevels):Number(itemData.input3.levelCost)*Number(power.system.input3);
+                input3Cost = (itemData.input3.levelCost == 0)?Number(itemData.input3.baseLevels):Number(itemData.input3.levelCost)*Number(power.system.input3);
             }
         }
 

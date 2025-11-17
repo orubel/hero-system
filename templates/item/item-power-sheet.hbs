@@ -1,8 +1,6 @@
 {{! This template is a fallback for when items don't have more specific templates. }}
 {{! Generally, you'll want to make more specific templates when possible. }}
 
-{{log this.powerlist }}
-
 <form class='{{cssClass}}' autocomplete='off'>
   <header class='sheet-header'>
         {{! Editors must receive enriched text data from getData to properly handle rolls }}
@@ -39,6 +37,7 @@
             <div style="text-align: left;">Name</div>
             <div>Cost</div>
           </li>
+
           {{#if (lookup (lookup this.powerlist system.key) 'input1')}}
             <li class='item flexrow'>
               <div class="flexcol" style="flex: 0 0 50px;">
@@ -48,17 +47,35 @@
 
               </div>
               <div class='resource-label align-left' >
-                {{#if (lookup (lookup this.powerlist system.key) 'input1')}}
                   <section style="text-align: left;">
                     {{ lookup (lookup (lookup this.powerlist system.key) 'input1') 'label'}}
                   </section>
-                {{/if}}
               </div>
               <div class="align-center">
                 {{ calcPowerPtsTotal (lookup (lookup this.powerlist system.key) 'input1') system.input1 }}
               </div>
           </li>
           {{/if}}
+
+        {{#if (lookup (lookup this.powerlist system.key) 'input2')}}
+          <li class='item flexrow'>
+            <div class="flexcol" style="flex: 0 0 50px;">
+                <section style="text-align: left;">
+                    <input type="text" name="system.input2" value="{{system.input2}}"/>
+                </section>
+
+            </div>
+            <div class='resource-label align-left' >
+                <section style="text-align: left;">
+                  {{ lookup (lookup (lookup this.powerlist system.key) 'input2') 'label'}}
+                </section>
+            </div>
+            <div class="align-center">
+              {{ calcPowerPtsTotal (lookup (lookup this.powerlist system.key) 'input2') system.input2 }}
+            </div>
+        </li>
+        {{/if}}
+
         </ol>
 
 </form>
