@@ -69,6 +69,46 @@
         </li>
         {{/if}}
 
+        {{#if (lookup (lookup this.powerlist system.key) 'input3')}}
+          <li class='item flexrow'>
+            <div class="flexcol" style="flex: 0 0 50px;">
+                <section style="text-align: left;">
+                    <input type="text" name="system.input3" value="{{system.input3}}"/>
+                </section>
+
+            </div>
+            <div class='resource-label align-left' >
+                <section style="text-align: left;">
+                  {{ lookup (lookup (lookup this.powerlist system.key) 'input3') 'label'}}
+                </section>
+            </div>
+        </li>
+        {{/if}}
+
+        {{#if (lookup (lookup this.powerlist system.key) 'select1')}}
+          <li class='item flexrow'>
+            <div class="flexcol" style="flex: 0 0 50px;">
+              <section style="text-align: left;">
+                  <select style="width:250px;" name="system.select1" value="{{system.select1}}">
+                    {{{ selectKeyVal (lookup (lookup this.powerlist system.key) 'select1') system.select1 }}}
+                  </select>
+              </section>
+            </div>
+        </li>
+        {{/if}}
+
+        {{#if (lookup (lookup this.powerlist system.key) 'select2')}}
+          <li class='item flexrow'>
+            <div class="flexcol" style="flex: 0 0 50px;">
+              <section style="text-align: left;">
+                  <select style="width:250px;" name="system.select2" value="{{system.select2}}">
+                    {{{ selectKeyVal (lookup (lookup this.powerlist system.key) 'select2') system.select2 }}}
+                  </select>
+              </section>
+            </div>
+        </li>
+        {{/if}}
+
         </ol>
 
 </form>

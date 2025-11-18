@@ -295,9 +295,15 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
 
         var power = powers[key];
 
+console.log(power);
+
         var itemData = powerlist[power.system.key];
+
         var input1Cost = 0;
         var input2Cost = 0;
+        var input3Cost = 0;
+        var select1Cost = 0;
+        var select2Cost = 0;
 
         var itemType = '';
         if(itemData !== undefined){
@@ -310,6 +316,18 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
             if(itemData.input2){
                 input2Cost = (itemData.input2)?Number(itemData.input2.levelCost)*Number(power.system.input2):0;
             }
+
+            if(itemData.input3){
+                input3Cost = (itemData.input3)?Number(itemData.input3.levelCost)*Number(power.system.input3):0;
+            }
+
+            if(itemData.select1){
+                select1Cost = Number(power.system.select1);
+            }
+
+            if(itemData.select2){
+                select2Cost = Number(power.system.select2);
+            }
         }
 
         output += `
@@ -317,7 +335,7 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
             <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>`;
 
             if(itemData){
-                output += `${Math.floor(input1Cost+input2Cost+Number(itemData.baseCost))}`;
+                output += `${Math.floor(input1Cost+input2Cost+input3Cost+select1Cost+select2Cost+Number(itemData.baseCost))}`;
             }else{
                 output += `0`;
             }
@@ -328,7 +346,21 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
               <h4>`;
 
             if(itemType!=''){
-              output += `<div class='resource-label' style='display: inline-block;'>${power.system.key} - ${power.system.name} ()</div>`;
+              output += `<div class='resource-label' style='display: inline-block;'>${power.system.key}-${power.system.name} (`;
+
+              if (power.system.input1){
+                output += `${power.system.input1} ${itemData.input1.label}, `;
+              }
+
+              if (power.system.input2){
+                output += `${power.system.input2} ${itemData.input2.label}`;
+              }
+
+              if (power.system.input3){
+                output += `${power.system.input3} ${itemData.input3.label}`;
+              }
+
+              output += `)</div>`;
             }else{
               output += `<div class='resource-label' style='display: inline-block;'>Undefined Power</div>`;
             }

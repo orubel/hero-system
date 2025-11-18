@@ -238,7 +238,7 @@
           },
           "advantage": {
             "None": 0,
-            "Resistant": 1.5
+            "Resistant": 0.5
           }
         },
         "Damage Resistance": {
@@ -280,11 +280,6 @@
             "label": "levels",
             "levelCost": 5,
             "baseLevels": 3
-          },
-          "input2": {
-            "label": " modifier to PER Rolls",
-            "levelCost": 2,
-            "baseLevels": 0
           }
         },
         "Detect": {
@@ -613,10 +608,9 @@
             "levelCost": 5,
             "baseLevels": 0
           },
-          "input2": {
-            "label": "no fringe",
-            "levelCost": 10,
-            "baseLevels": 0
+          "select1": {
+            "0": "None",
+            "10": "no fringe"
           }
         },
         "Killing Attack (Melee)": {
@@ -674,11 +668,6 @@
           "target": "SELF",
           "baseCost": 0,
           "input1": {
-            "label": "levels",
-            "levelCost": 5,
-            "baseLevels": 1
-          },
-          "input2": {
             "label": "environments",
             "levelCost": 3,
             "baseLevels": 0
@@ -687,6 +676,14 @@
             "label": "immunities",
             "levelCost": 3,
             "baseLevels": 0
+          },
+          "select1": {
+            "5": "can breathe in unusual environment",
+            "10": "doesn't need to breathe"
+          },
+          "select2": {
+            "0": "None",
+            "5": "doesn't need to eat/sleep/excrete"
           }
         },
         "Mental Awareness": {
@@ -757,10 +754,9 @@
             "levelCost": 3,
             "baseLevels": 1
           },
-          "input2": {
-            "label": "any distance",
-            "levelCost": 5,
-            "baseLevels": 0
+          "select1": {
+            "0": "None",
+            "5": "any distance"
           },
           "disadvantage": {
             "None": 0,
@@ -795,10 +791,9 @@
             "levelCost": 5,
             "baseLevels": 1
           },
-          "input2": {
-            "label": "reflect attacks",
-            "levelCost": 10,
-            "baseLevels": 0
+          "select1": {
+            "0": "None",
+            "10": "reflect attacks"
           },
           "advantage": {
             "None": 0,
@@ -1032,10 +1027,9 @@
             "levelCost": 3,
             "baseLevels": 0
           },
-          "input2": {
-            "label": "fine motor control",
-            "levelCost": 10,
-            "baseLevels": 0
+          "select1": {
+            "0": "None",
+            "10": "fine motor control"
           }
         },
         "Telepathy": {
@@ -1514,6 +1508,9 @@
       "name": "",
       "input1": 0,
       "input2": 0,
+      "input3": 0,
+      "select1": 0,
+      "select2": 0,
       "advantages": [],
       "disadvantages": []
     },
