@@ -299,8 +299,6 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
         var input1Cost = 0;
         var input2Cost = 0;
 
-        //console.log(itemData);
-
         var itemType = '';
         if(itemData !== undefined){
             itemType = itemData.type;
@@ -316,14 +314,21 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
 
         output += `
           <li class='item flexrow' data-item-id=${power._id}>
-            <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>
-                ${Math.floor(input1Cost+input2Cost+itemData.baseCost)}
+            <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>`;
+
+            if(itemData){
+                output += `${Math.floor(input1Cost+input2Cost+Number(itemData.baseCost))}`;
+            }else{
+                output += `0`;
+            }
+
+        output += `
             </div>
-            <div class='item-name' style='display:block;flex: 0 0 300px;padding:3px;'>
+            <div class='item-name' style='display:block;padding:3px;'>
               <h4>`;
 
             if(itemType!=''){
-              output += `<div class='resource-label' style='display: inline-block;'>${power.system.key}</div>`;
+              output += `<div class='resource-label' style='display: inline-block;'>${power.system.key} - ${power.system.name} ()</div>`;
             }else{
               output += `<div class='resource-label' style='display: inline-block;'>Undefined Power</div>`;
             }

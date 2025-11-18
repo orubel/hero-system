@@ -1511,6 +1511,7 @@
     },
     "power": {
       "key": "",
+      "name": "",
       "input1": 0,
       "input2": 0,
       "advantages": [],
