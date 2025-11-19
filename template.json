@@ -118,7 +118,7 @@
           "cost_multiplier": 2
         }
       },
-      "advantages": {
+      "advantagelist": {
         "Affects Desolidified": {
           "baseCost": 0.5
         },
@@ -1329,7 +1329,7 @@
     }
   },
   "Item": {
-    "types": ["item", "skill", "power","complication"],
+    "types": ["item", "skill", "power","advantage","disadvantage","complication"],
     "templates": {
       "base": {
         "description": ""
@@ -1687,7 +1687,7 @@
     },
     "power": {
       "key": "",
-      "name": "",
+      "powername": "",
       "input1": 0,
       "input2": 0,
       "input3": 0,
@@ -1695,7 +1695,15 @@
       "select2": 0
     },
     "advantage": {
-      "power": "",
+      "powerFK": "",
+      "key": "",
+      "baseCost": "",
+      "select1": 0,
+      "select2": 0,
+      "select3": 0
+    },
+    "disadvantage": {
+      "powerFK": "",
       "key": "",
       "baseCost": "",
       "select1": 0,

@@ -295,8 +295,6 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
 
         var power = powers[key];
 
-console.log(power);
-
         var itemData = powerlist[power.system.key];
 
         var input1Cost = 0;
@@ -348,19 +346,81 @@ console.log(power);
             if(itemType!=''){
               output += `<div class='resource-label' style='display: inline-block;'>${power.system.key}-${power.system.name} (`;
 
-              if (power.system.input1){
-                output += `${power.system.input1} ${itemData.input1.label}, `;
-              }
+              if (power.system.input1){ output += `${power.system.input1} ${itemData.input1.label}`;}
 
-              if (power.system.input2){
-                output += `${power.system.input2} ${itemData.input2.label}`;
-              }
+              if (power.system.input2){ output += `,${power.system.input2} ${itemData.input2.label}`;}
 
-              if (power.system.input3){
-                output += `${power.system.input3} ${itemData.input3.label}`;
-              }
+              if (power.system.input3){ output += `,${power.system.input3} ${itemData.input3.label}`;}
 
               output += `)</div>`;
+            }else{
+              output += `<div class='resource-label' style='display: inline-block;'>Undefined Power</div>`;
+            }
+
+console.log("ID:"+power._id);
+
+        output += `
+              </h4>
+            </div>
+
+            <div class='item-controls' style='display:block;flex: 0 0 50px;''>
+                  <a class='item-control adv-create' title='Create Advantage' data-type='advantage'>
+                    <input type="hidden" name="power_id" value="`+power._id+`">
+                    <i class='fas fa-plus'></i>New Advantage
+                  </a>
+            </div>
+
+            <div class='item-controls' style='display:block;flex: 0 0 50px;''>
+                <a class='item-control item-create' title='Create Advantage' data-type='disadvantage'>
+                  <i class='fas fa-plus'></i>New Disadvantage
+                </a>
+            </div>
+
+            <div class='item-controls' style='display:block;flex: 0 0 50px;''>
+              <a class='item-control item-edit' title='Edit Power'>
+                <i class='fas fa-edit'></i>
+              </a>
+              <a class='item-control item-delete' title='Delete Power'>
+                <i class='fas fa-trash'></i>
+              </a>
+            </div>
+          </li>
+          `;
+    }
+    return output;
+});
+
+
+Handlebars.registerHelper('showAdvantages', function(advantages, advantagelist) {
+    var output = ``;
+    for (let key in advantages) {
+
+        var adv = advantages[key];
+
+        var itemData = advantagelist[adv.system.key];
+
+        var baseCost = 0;
+        var select1Cost = 0;
+        var select2Cost = 0;
+        var select3Cost = 0;
+
+        var itemType = '';
+        if(itemData !== undefined){
+            itemType = itemData.type;
+        }
+
+
+
+        output += `
+          <li class='item flexrow' data-item-id=${adv._id}>
+            <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>
+                cost
+            </div>
+            <div class='item-name' style='display:block;padding:3px;'>
+              <h4>`;
+
+            if(itemType!=''){
+              output += `<div class='resource-label' style='display: inline-block;'>${adv.system.key}</div>`;
             }else{
               output += `<div class='resource-label' style='display: inline-block;'>Undefined Power</div>`;
             }
@@ -368,11 +428,12 @@ console.log(power);
         output += `
               </h4>
             </div>
+
             <div class='item-controls' style='display:block;flex: 0 0 50px;''>
-              <a class='item-control skill-edit' title='Edit Item'>
+              <a class='item-control item-edit' title='Edit Power'>
                 <i class='fas fa-edit'></i>
               </a>
-              <a class='item-control item-delete' title='Delete Item'>
+              <a class='item-control item-delete' title='Delete Power'>
                 <i class='fas fa-trash'></i>
               </a>
             </div>

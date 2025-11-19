@@ -104,11 +104,12 @@ export class HeroSystemActorSheet extends ActorSheet {
   _prepareItems(context) {
     // Initialize containers.
 
+    const advantages = [];
+    const disadvantages = [];
     const complications = [];
     const skills = [];
     const powers = [];
     const gear = [];
-
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -122,13 +123,21 @@ export class HeroSystemActorSheet extends ActorSheet {
         complications.push(i);
       }else if (i.type === 'skill') {
         skills.push(i);
+      }else if (i.type === 'advantage') {
+        advantages.push(i);
+      }else if (i.type === 'disadvantage') {
+        disadvantages.push(i);
       }
     }
 
+console.log(context);
 
     context.abilities = context.abilities;
     context.powerlist = context.powerlist;
-    // Assign and return
+    context.advantagelist = context.advantagelist;
+
+    context.advantages = advantages;
+    context.disadvantages = disadvantages;
     context.complications = complications;
     context.skills = skills;
     context.powers = powers;
@@ -163,10 +172,12 @@ export class HeroSystemActorSheet extends ActorSheet {
 
 
 
+
     // Render the item sheet for viewing/editing prior to the editable check.
     html.on('click', '.item-edit', (ev) => {
       const li = $(ev.currentTarget).parents('.item');
       const item = this.actor.items.get(li.data('itemId'));
+      var id = li.data('itemId')
       item.sheet.render(true);
     });
 
@@ -176,6 +187,7 @@ export class HeroSystemActorSheet extends ActorSheet {
 
     // Add Inventory Item
     html.on('click', '.item-create', this._onItemCreate.bind(this));
+    html.on('click', '.adv-create', this._onAdvantageCreate.bind(this));
 
     // Delete Inventory Item
     html.on('click', '.item-delete', (ev) => {
@@ -215,6 +227,7 @@ export class HeroSystemActorSheet extends ActorSheet {
    * @private
    */
   async _onItemCreate(event) {
+
     event.preventDefault();
     const header = event.currentTarget;
     // Get the type of item to create.
@@ -228,6 +241,40 @@ export class HeroSystemActorSheet extends ActorSheet {
       name: name,
       type: type,
       system: data,
+    };
+    // Remove the type from the dataset since it's in the itemData.type prop.
+    delete itemData.system['type'];
+
+    // Finally, create the item!
+    return await Item.create(itemData, { parent: this.actor });
+  }
+
+  async _onAdvantageCreate(event) {
+
+    console.log('adv create called...');
+
+    event.preventDefault();
+    const header = event.currentTarget;
+    // Get the type of item to create.
+    const type = header.dataset.type;
+    // Grab any data associated with this control.
+    const data = duplicate(header.dataset);
+    // Initialize a default name.
+    const name = `${type.capitalize()}`;
+    const parent = `${type.capitalize()}`;
+    const powerId = `${type.capitalize()}`;
+    // Prepare the item object.
+
+    const formElement = event.currentTarget.closest('form');
+    const hiddenInput = formElement.querySelector('input[name="power_id"]');
+    const item = this.actor.items.get(hiddenInput.value);
+
+    const itemData = {
+      name: name,
+      type: type,
+      system: data,
+      parent: item.system,
+      powerId : hiddenInput.value
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.system['type'];
