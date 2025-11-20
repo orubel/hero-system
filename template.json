@@ -1696,7 +1696,6 @@
       "select2": 0
     },
     "advantage": {
-      "powerFK": "",
       "key": "",
       "baseCost": "",
       "select1": 0,
@@ -1704,7 +1703,6 @@
       "select3": 0
     },
     "disadvantage": {
-      "powerFK": "",
       "key": "",
       "baseCost": "",
       "select1": 0,

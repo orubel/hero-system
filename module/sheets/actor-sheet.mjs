@@ -114,7 +114,7 @@ export class HeroSystemActorSheet extends ActorSheet {
     // Iterate through items, allocating to containers
     for (let i of context.items) {
       i.img = i.img || Item.DEFAULT_ICON;
-      // Append to gear.
+
       if (i.type === 'item') {
         gear.push(i);
       }else if (i.type === 'power') {
@@ -124,13 +124,12 @@ export class HeroSystemActorSheet extends ActorSheet {
       }else if (i.type === 'skill') {
         skills.push(i);
       }else if (i.type === 'advantage') {
+        console.log("adv:"+JSON.stringify(i));
         advantages.push(i);
       }else if (i.type === 'disadvantage') {
         disadvantages.push(i);
       }
     }
-
-console.log(context);
 
     context.abilities = context.abilities;
     context.powerlist = context.powerlist;
@@ -241,6 +240,7 @@ console.log(context);
       name: name,
       type: type,
       system: data,
+      powerId : '',
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.system['type'];
@@ -250,10 +250,13 @@ console.log(context);
   }
 
   async _onAdvantageCreate(event) {
-
-    console.log('adv create called...');
-
+    console.log("onAdvantageCreate called...");
     event.preventDefault();
+
+    const formElement = event.currentTarget.closest('form');
+    const hiddenInput = formElement.querySelector('input[name="power_id"]');
+    //const item = this.actor.items.get(hiddenInput.value);
+
     const header = event.currentTarget;
     // Get the type of item to create.
     const type = header.dataset.type;
@@ -261,21 +264,17 @@ console.log(context);
     const data = duplicate(header.dataset);
     // Initialize a default name.
     const name = `${type.capitalize()}`;
-    const parent = `${type.capitalize()}`;
-    const powerId = `${type.capitalize()}`;
     // Prepare the item object.
 
-    const formElement = event.currentTarget.closest('form');
-    const hiddenInput = formElement.querySelector('input[name="power_id"]');
-    const item = this.actor.items.get(hiddenInput.value);
-
+data.powerId = hiddenInput.value;
     const itemData = {
       name: name,
       type: type,
-      system: data,
-      parent: item.system,
-      powerId : hiddenInput.value
+      system: data
     };
+
+itemData.system.powerId = hiddenInput.value;
+
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.system['type'];
 

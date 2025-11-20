@@ -204,7 +204,6 @@ Handlebars.registerHelper('selectKeyVal', function(values,comp_key) {
 
 Handlebars.registerHelper('selectValKey', function(values,comp_key) {
     var output = ``
-    console.log(comp_key);
 
     for (let key in values) {
         if(values[key]==comp_key){
@@ -371,7 +370,7 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
               output += `<div class='resource-label' style='display: inline-block;'>Undefined Power</div>`;
             }
 
-console.log("ID:"+power._id);
+
 
         output += `
               </h4>
@@ -439,7 +438,7 @@ Handlebars.registerHelper('showAdvantages', function(advantages, advantagelist) 
               <h4>`;
 
             if(itemType!=''){
-              output += `<div class='resource-label' style='display: inline-block;'>${adv.system.key}</div>`;
+              output += `<div class='resource-label' style='display: inline-block;'>${adv.system.key} (${adv.powerFK})</div>`;
             }else{
               output += `<div class='resource-label' style='display: inline-block;'>Undefined Power</div>`;
             }

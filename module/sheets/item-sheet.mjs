@@ -39,6 +39,7 @@ export class HeroSystemItemSheet extends ItemSheet {
 
   /** @override */
   async getData() {
+  console.log("ietm > getData called...");
     // Retrieve base data structure.
     const context = super.getData();
 
@@ -68,6 +69,8 @@ export class HeroSystemItemSheet extends ItemSheet {
 
     // Add the item's data to context.data for easier access, as well as flags.
     context.system = itemData.system;
+    console.log("parent:"+itemData.parent);
+    console.log("powerFK:"+itemData.powerFK);
     context.flags = itemData.flags;
 
     // Adding a pointer to CONFIG.HERO_SYSTEM
