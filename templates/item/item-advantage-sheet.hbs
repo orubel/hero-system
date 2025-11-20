@@ -1,10 +1,6 @@
 {{! This template is a fallback for when items don't have more specific templates. }}
 {{! Generally, you'll want to make more specific templates when possible. }}
 
-{{log system}}
-{{ log actor}}
-{{log this }}
-
 
 <form class='{{cssClass}}' autocomplete='off'>
   <header class='sheet-header'>
@@ -32,9 +28,55 @@
                       </section>
                     </div>
                 </li>
+            </ol>
+        </div>
+      </div>
+
+
+      <div class="flexrow" style="gap: 0.5em;">
+        <!-- LEFT COLUMN -->
+        <div class="flexcol" style="flex: 1;">
+            <ol class='items-list'>
               <li class='item flexrow items-header'>
                 <div>Config</div>
               </li>
+
+              {{#if (lookup (lookup this.advantagelist system.key) 'select1')}}
+                <li class='item flexrow'>
+                    <div class="flexcol" style="flex: 1;">
+                      <section style="text-align: left;">
+                          <select style="width:250px;" name="system.select1" value="{{system.select1}}">
+                               {{{ selectValKey (lookup (lookup this.advantagelist system.key) 'select1') system.select1 }}}
+                          </select>
+                      </section>
+                    </div>
+                </li>
+                {{/if}}
+
+              {{#if (lookup (lookup this.advantagelist system.key) 'select2')}}
+                <li class='item flexrow'>
+                    <div class="flexcol" style="flex: 1;">
+                      <section style="text-align: left;">
+                          <select style="width:250px;" name="system.select2" value="{{system.select2}}">
+                               {{{ selectValKey (lookup (lookup this.advantagelist system.key) 'select2') system.select2 }}}
+                          </select>
+                      </section>
+                    </div>
+                </li>
+                {{/if}}
+
+              {{#if (lookup (lookup this.advantagelist system.key) 'select3')}}
+                <li class='item flexrow'>
+                    <div class="flexcol" style="flex: 1;">
+                      <section style="text-align: left;">
+                          <select style="width:250px;" name="system.select3" value="{{system.select3}}">
+                               {{{ selectValKey (lookup (lookup this.advantagelist system.key) 'select3') system.select3 }}}
+                          </select>
+                      </section>
+                    </div>
+                </li>
+                {{/if}}
+
             </ol>
         </div>
       </div>

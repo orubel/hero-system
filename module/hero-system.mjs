@@ -202,6 +202,20 @@ Handlebars.registerHelper('selectKeyVal', function(values,comp_key) {
     return output;
 });
 
+Handlebars.registerHelper('selectValKey', function(values,comp_key) {
+    var output = ``
+    console.log(comp_key);
+
+    for (let key in values) {
+        if(values[key]==comp_key){
+            output += `<option name='name' type='text' value='`+values[key]+`' selected>`+key+`</option>`;
+        }else{
+            output += `<option name='name' type='text' value='`+values[key]+`'>`+key+`</option>`;
+        }
+    };
+    return output;
+});
+
 Handlebars.registerHelper('selectLevels', function(skill_key) {
     var output = ``
     for (let i = 1; i <= 10; i++) {
@@ -399,10 +413,10 @@ Handlebars.registerHelper('showAdvantages', function(advantages, advantagelist) 
 
         var itemData = advantagelist[adv.system.key];
 
-        var baseCost = 0;
-        var select1Cost = 0;
-        var select2Cost = 0;
-        var select3Cost = 0;
+        var baseCost = Number(adv.system.baseCost);
+        var select1Cost = Number(adv.system.select1);
+        var select2Cost = Number(adv.system.select2);
+        var select3Cost = Number(adv.system.select3);
 
         var itemType = '';
         if(itemData !== undefined){
@@ -413,8 +427,13 @@ Handlebars.registerHelper('showAdvantages', function(advantages, advantagelist) 
 
         output += `
           <li class='item flexrow' data-item-id=${adv._id}>
-            <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>
-                cost
+            <div class='item-name' style='display:block;flex:0 0 75px; text-align: center;'>`;
+            if(itemData){
+                output += `${select1Cost+select2Cost+select3Cost+baseCost}`;
+            }else{
+                output += `0`;
+            }
+        output += `
             </div>
             <div class='item-name' style='display:block;padding:3px;'>
               <h4>`;

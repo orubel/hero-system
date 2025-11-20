@@ -44,7 +44,7 @@
                           <section style="text-align: left;">
                               <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'select1') 'label' }}</label>
                               <select style="width:250px;" name="system.select1" value="{{system.select1}}">
-{{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select1') 'values') system.select1 }}}
+                                {{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select1') 'values') system.select1 }}}
                               </select>
                           </section>
                         {{/if}}

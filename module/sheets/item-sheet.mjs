@@ -64,6 +64,7 @@ export class HeroSystemItemSheet extends ItemSheet {
     context.abilities = this.actor.system.abilities;
     context.powerlist = this.actor.system.powerlist;
     context.advantagelist = this.actor.system.advantagelist;
+    context.disadvantagelist = this.actor.system.disadvantagelist;
 
     // Add the item's data to context.data for easier access, as well as flags.
     context.system = itemData.system;
