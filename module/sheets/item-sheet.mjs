@@ -62,10 +62,24 @@ export class HeroSystemItemSheet extends ItemSheet {
       }
     );
 
+
     context.abilities = this.actor.system.abilities;
     context.powerlist = this.actor.system.powerlist;
     context.advantagelist = this.actor.system.advantagelist;
     context.disadvantagelist = this.actor.system.disadvantagelist;
+
+    if(this.actor.system.advantagelist[itemData.system.key]){
+        itemData.system.baseCost = 0;
+        if(!this.actor.system.advantagelist[itemData.system.key].select1){
+            itemData.system.select1 = 0;
+        }
+        if(!this.actor.system.advantagelist[itemData.system.key].select2){
+            itemData.system.select2 = 0;
+        }
+        if(!this.actor.system.advantagelist[itemData.system.key].select3){
+            itemData.system.select3 = 0;
+        }
+    }
 
     // Add the item's data to context.data for easier access, as well as flags.
     context.system = itemData.system;

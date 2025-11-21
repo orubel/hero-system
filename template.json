@@ -130,12 +130,12 @@
             "100": "radius/cone/line"
           },
           "select2": {
-            "none": 0,
+            "0": "none",
             "25": "selective target",
             "-25": "non-selective target"
           },
           "select3": {
-            "none": 0,
+            "0": "none",
             "25": "2 x distance",
             "50": "4 x distance",
             "75": "6 x distance",
@@ -209,7 +209,6 @@
         "Increased Max Range": {
           "baseCost": 0,
           "select1": {
-            "0": "none",
             "25": "5x max range",
             "50": "10x max range",
             "75": "15x max range",
@@ -226,11 +225,17 @@
           }
         },
         "Indirect": {
-          "baseCost": 0
+          "baseCost": 0,
+          "select1": {
+            "25": "att comes from same location/fires away",
+            "50": "att comes from any location/fires away",
+            "75": "att comes from any location/any direction"
+          }
         },
         "Invisible Powers Effect": {
           "baseCost": 50,
           "select1": {
+            "0": "none",
             "25": "+1 addtnl sense group",
             "50": "+2 addtnl sense groups",
             "75": "+3 addtnl sense groups",
@@ -1697,17 +1702,17 @@
     },
     "advantage": {
       "key": "",
-      "baseCost": "",
-      "select1": "0",
-      "select2": "0",
-      "select3": "0"
+      "baseCost": 0,
+      "select1": 0,
+      "select2": 0,
+      "select3": 0
     },
     "disadvantage": {
       "key": "",
-      "baseCost": "",
-      "select1": "0",
-      "select2": "0",
-      "select3": "0"
+      "baseCost": 0,
+      "select1": 0,
+      "select2": 0,
+      "select3": 0
     },
     "complication": {
       "name": "New Complication",

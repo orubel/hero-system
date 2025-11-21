@@ -204,11 +204,7 @@ Handlebars.registerHelper('selectKeyVal', function(values,comp_key) {
 
 Handlebars.registerHelper('selectValKey', function(values,comp_key) {
     var output = ``
-
     for (let key in values) {
-
-    console.log(values[key]+"=="+comp_key);
-
         if(values[key]==comp_key){
 
             output += `<option name='name' type='text' value='`+values[key]+`' selected>`+key+`</option>`;
@@ -416,15 +412,14 @@ Handlebars.registerHelper('showAdvantages', function(advantages, advantagelist, 
 
         var itemData = advantagelist[adv.system.key];
 
-        console.log("test: "+JSON.stringify(adv.system));
         var baseCost = Number(adv.system.baseCost);
-        console.log("baseCost:"+adv.system.baseCost);
+        console.log("baseCost:"+baseCost);
         var select1Cost = Number(adv.system.select1);
-        console.log("select1:"+adv.system.select1Cost);
+        console.log("select1:"+select1Cost);
         var select2Cost = Number(adv.system.select2);
-        console.log("select2:"+adv.system.select2Cost);
+        console.log("select2:"+select2Cost);
         var select3Cost = Number(adv.system.select3);
-        console.log("select3:"+adv.system.select3Cost);
+        console.log("select3:"+select3Cost);
 
         var itemType = '';
         if(itemData !== undefined){
@@ -477,26 +472,6 @@ Handlebars.registerHelper('showAdvantages', function(advantages, advantagelist, 
     }
     return output;
 });
-
-
-Handlebars.registerHelper('getMapFirstPos', function(obj, defaultVal) {
-
-    console.log("getMapFirstPos :"+JSON.stringify(obj));
-    if(defaultVal != '0'){
-        console.log("### DEFAULT ###")
-        return defaultVal
-    }else if(obj){
-        console.log("### OBJ ###")
-        const keys = Array.from(Object.keys(obj));
-        console.log("key: "+keys[0])
-        return keys[0];
-    }else{
-        return '0';
-    }
-
-});
-
-
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */

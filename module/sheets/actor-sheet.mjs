@@ -111,6 +111,8 @@ export class HeroSystemActorSheet extends ActorSheet {
     const powers = [];
     const gear = [];
 
+
+
     // Iterate through items, allocating to containers
     for (let i of context.items) {
       i.img = i.img || Item.DEFAULT_ICON;
@@ -124,16 +126,28 @@ export class HeroSystemActorSheet extends ActorSheet {
       }else if (i.type === 'skill') {
         skills.push(i);
       }else if (i.type === 'advantage') {
-        console.log("adv:"+JSON.stringify(i));
+        if(context.system.advantagelist[i.system.key]){
+            i.system.baseCost = context.system.advantagelist[i.system.key].baseCost;
+            if(!context.system.advantagelist[i.system.key].select1){
+                i.system.select1 = 0;
+            }
+            if(!context.system.advantagelist[i.system.key].select2){
+                i.system.select2 = 0;
+            }
+            if(!context.system.advantagelist[i.system.key].select3){
+                i.system.select3 = 0;
+            }
+        }
         advantages.push(i);
       }else if (i.type === 'disadvantage') {
         disadvantages.push(i);
       }
     }
 
-    context.abilities = context.abilities;
-    context.powerlist = context.powerlist;
-    context.advantagelist = context.advantagelist;
+
+    context.abilities = context.system.abilities;
+    context.powerlist = context.system.powerlist;
+    context.advantagelist = context.system.advantagelist;
 
     context.advantages = advantages;
     context.disadvantages = disadvantages;
