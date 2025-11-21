@@ -121,183 +121,183 @@
       "disadvantagelist": {},
       "advantagelist": {
         "Affects Desolidified": {
-          "baseCost": 0.5
+          "baseCost": 50
         },
         "Area Effect": {
           "baseCost": 0,
           "select1": {
-            "one hex": 0.5,
-            "radius/cone/line": 1
+            "50": "one hex",
+            "100": "radius/cone/line"
           },
           "select2": {
             "none": 0,
-            "selective target": 0.25,
-            "non-selective target": -0.25
+            "25": "selective target",
+            "-25": "non-selective target"
           },
           "select3": {
             "none": 0,
-            "2 x distance": 0.25,
-            "4 x distance": 0.5,
-            "6 x distance": 0.75,
-            "8 x distance": 1
+            "25": "2 x distance",
+            "50": "4 x distance",
+            "75": "6 x distance",
+            "100": "8 x distance"
           }
         },
         "Armor Piercing": {
-          "baseCost": 0.5
+          "baseCost": 50
         },
         "Attack Vs Limited Defense": {
-          "baseCost": 1.5
+          "baseCost": 150
         },
         "Autofire": {
-          "baseCost": 0.5,
+          "baseCost": 50,
           "select1": {
-            "none": 0,
-            "2 x MAX": 0.25
+            "0": "none",
+            "25": "2 x MAX"
           }
         },
         "Based on EGO CV": {
-          "baseCost": 1
+          "baseCost": 100
         },
         "Charges": {
           "baseCost": 0,
           "select1": {
-            "13-16 charges": 0,
-            "17-32 charges": 0.25,
-            "33-64 charges": 0.5,
-            "65-125 charges": 0.75,
-            "126-250 charges": 1
+            "0": "13-16 charges",
+            "25": "17-32 charges",
+            "50": "33-64 charges",
+            "75": "65-125 charges",
+            "100": "126-250 charges"
           }
         },
         "Continuous": {
-          "baseCost": 1
+          "baseCost": 100
         },
         "Damage Shield": {
-          "baseCost": 0.5
+          "baseCost": 50
         },
         "Delayed Effect": {
-          "baseCost": 0.25
+          "baseCost": 25
         },
         "Difficult to Dispel": {
-          "baseCost": 0.25
+          "baseCost": 25
         },
         "Does Knockback": {
-          "baseCost": 0.25
+          "baseCost": 25
         },
         "Double Knockback": {
-          "baseCost": 0.75
+          "baseCost": 75
         },
         "Explosion": {
-          "baseCost": 0.5,
+          "baseCost": 50,
           "select1": {
-            "none": 0,
-            "+1 HEX for DC": 0.25,
-            "+2 HEX for DC": 0.5,
-            "+3 HEX for DC": 0.75,
-            "+4 HEX for DC": 1
+            "0": "none",
+            "25": "+1 HEX for DC",
+            "50": "+2 HEX for DC",
+            "75": "+3 HEX for DC",
+            "100": "+4 HEX for DC"
           }
         },
         "Hardened": {
-          "baseCost": 0.25
+          "baseCost": 25
         },
         "Hole in the Middle": {
           "baseCost": 0,
           "select1": {
-            "fixed size": 0.25,
-            "variable size": 0.5
+            "25": "fixed size",
+            "50": "variable size"
           }
         },
         "Increased Max Range": {
           "baseCost": 0,
           "select1": {
-            "none": 0,
-            "5x max range": 0.25,
-            "10x max range": 0.5,
-            "15x max range": 0.75,
-            "20x max range": 1
+            "0": "none",
+            "25": "5x max range",
+            "50": "10x max range",
+            "75": "15x max range",
+            "100": "20x max range"
           }
         },
         "Increased STUN Multiplier": {
           "baseCost": 0,
           "select1": {
-            "+1 STUN per die": 0.5,
-            "+2 STUN per die": 0.1,
-            "+3 STUN per die": 1.5,
-            "+4 STUN per die": 2
+            "50": "+1 STUN per die",
+            "100": "+2 STUN per die",
+            "150": "+3 STUN per die",
+            "200": "+4 STUN per die"
           }
         },
         "Indirect": {
           "baseCost": 0
         },
         "Invisible Powers Effect": {
-          "baseCost": 0.5,
+          "baseCost": 50,
           "select1": {
-            "+1 addtnl sense group": 0.25,
-            "+2 addtnl sense groups": 0.5,
-            "+3 addtnl sense groups": 0.75,
-            "+4 addtnl sense groups": 1
+            "25": "+1 addtnl sense group",
+            "50": "+2 addtnl sense groups",
+            "75": "+3 addtnl sense groups",
+            "100": "+4 addtnl sense groups"
           }
         },
         "No Normal Defense": {
-          "baseCost": 1
+          "baseCost": 100
         },
         "No Range Penalty": {
-          "baseCost": 0.5
+          "baseCost": 50
         },
         "Penetrating": {
-          "baseCost": 0.5
+          "baseCost": 50
         },
         "Personal Immunity": {
-          "baseCost": 0.25
+          "baseCost": 25
         },
         "Reduced Endurance": {
           "baseCost": 0,
           "select1": {
-            "1/2 END": 0.25,
-            "0 END": 0.5,
-            "0 END Persistant": 1
+            "25": "1/2 END",
+            "50": "0 END",
+            "100": "0 END Persistant"
           }
         },
         "Sticky": {
-          "baseCost": 0.5
+          "baseCost": 50
         },
         "Time Delay": {
-          "baseCost": 0.25
+          "baseCost": 25
         },
         "Trigger": {
           "baseCost": 0,
           "select1": {
-            "preset trigger": 0.25,
-            "variable trigger": 0.5
+            "25": "preset trigger",
+            "50": "variable trigger"
           }
         },
         "Usable by Others": {
           "baseCost": 0,
           "select1": {
-            "+1 person": 0.25,
-            "+2 persons": 0.5,
-            "+3 persons": 0.75,
-            "+4 persons": 1
+            "25": "+1 person",
+            "50": "+2 persons",
+            "75": "+3 persons",
+            "100": "+4 persons"
           },
           "select2": {
-            "loses power while used": 0.25,
-            "all can use power": 0.5
+            "25": "loses power while used",
+            "50": "all can use power"
           }
         },
         "Variable Special Effects": {
           "baseCost": 0,
           "select1": {
-            "none": 0,
-            "1 effect": 0.25,
-            "2 effects": 0.5,
-            "3 effects": 0.75,
-            "4 effects": 1
+            "0": "none",
+            "25": "1 effect",
+            "50": "2 effects",
+            "75": "3 effects",
+            "100": "4 effects"
           },
           "select2": {
-            "none": 0,
-            "1 effect group": 0.5,
-            "2 effect groups": 1,
-            "3 effect groups": 1.5,
-            "4 effect groups": 2
+            "0": "none",
+            "50": "1 effect group",
+            "75": "2 effect groups",
+            "150": "3 effect groups",
+            "200": "4 effect groups"
           }
         }
       },
@@ -1698,16 +1698,16 @@
     "advantage": {
       "key": "",
       "baseCost": "",
-      "select1": 0,
-      "select2": 0,
-      "select3": 0
+      "select1": "0",
+      "select2": "0",
+      "select3": "0"
     },
     "disadvantage": {
       "key": "",
       "baseCost": "",
-      "select1": 0,
-      "select2": 0,
-      "select3": 0
+      "select1": "0",
+      "select2": "0",
+      "select3": "0"
     },
     "complication": {
       "name": "New Complication",

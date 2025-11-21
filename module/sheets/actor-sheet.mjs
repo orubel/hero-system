@@ -266,7 +266,7 @@ export class HeroSystemActorSheet extends ActorSheet {
     const name = `${type.capitalize()}`;
     // Prepare the item object.
 
-data.powerId = hiddenInput.value;
+
     const itemData = {
       name: name,
       type: type,

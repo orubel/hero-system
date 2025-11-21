@@ -1,6 +1,7 @@
 {{! This template is a fallback for when items don't have more specific templates. }}
 {{! Generally, you'll want to make more specific templates when possible. }}
 
+{{log system }}
 
 <form class='{{cssClass}}' autocomplete='off'>
   <header class='sheet-header'>
@@ -20,8 +21,14 @@
                           <label class='resource-label' style="display: inline-block;width:100px;">{{localize "Name"}}</label>
                           {{{ system.parent.key }}}
                       </section>
+
                       <section style="text-align: left;">
                           <label class='resource-label' style="display:inline-block;;width:100px;">{{localize "Advantage"}}</label>
+                          <input style="width:250px;" type="hidden" name="system.baseCost" value="0"/>
+                          <input style="width:250px;" type="hidden" name="system.select1" value="0"/>
+                          <input style="width:250px;" type="hidden" name="system.select2" value="0"/>
+                          <input style="width:250px;" type="hidden" name="system.select3" value="0"/>
+
                           <select style="width:250px;" name="system.key" value="{{system.key}}">
                               {{{ selectKey this.advantagelist system.key }}}
                           </select>
@@ -45,37 +52,43 @@
                 <li class='item flexrow'>
                     <div class="flexcol" style="flex: 1;">
                       <section style="text-align: left;">
-                          <select style="width:250px;" name="system.select1" value="{{system.select1}}">
+                          <select style="width:250px;" name="system.select1" >
                                {{{ selectValKey (lookup (lookup this.advantagelist system.key) 'select1') system.select1 }}}
                           </select>
                       </section>
                     </div>
                 </li>
-                {{/if}}
+              {{else}}
+                <input style="width:250px;" type="hidden" name="system.select1" value="0"/>
+              {{/if}}
 
               {{#if (lookup (lookup this.advantagelist system.key) 'select2')}}
                 <li class='item flexrow'>
                     <div class="flexcol" style="flex: 1;">
                       <section style="text-align: left;">
-                          <select style="width:250px;" name="system.select2" value="{{system.select2}}">
+                          <select style="width:250px;" name="system.select2">
                                {{{ selectValKey (lookup (lookup this.advantagelist system.key) 'select2') system.select2 }}}
                           </select>
                       </section>
                     </div>
                 </li>
-                {{/if}}
+              {{else}}
+                <input style="width:250px;" type="hidden" name="system.select2" value="0"/>
+              {{/if}}
 
               {{#if (lookup (lookup this.advantagelist system.key) 'select3')}}
                 <li class='item flexrow'>
                     <div class="flexcol" style="flex: 1;">
                       <section style="text-align: left;">
-                          <select style="width:250px;" name="system.select3" value="{{system.select3}}">
+                          <select style="width:250px;" name="system.select3">
                                {{{ selectValKey (lookup (lookup this.advantagelist system.key) 'select3') system.select3 }}}
                           </select>
                       </section>
                     </div>
                 </li>
-                {{/if}}
+              {{else}}
+                <input style="width:250px;" type="hidden" name="system.select3" value="0"/>
+              {{/if}}
 
             </ol>
         </div>
