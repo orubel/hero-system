@@ -232,10 +232,13 @@ Handlebars.registerHelper('calcCompPts', function(values) {
     return output;
 });
 
-Handlebars.registerHelper('calcCompPtsTotal', function(values) {
+Handlebars.registerHelper('calcCompPtsTotal', function(values,complist) {
     var output = 0;
+    console.log("list:"+JSON.stringify(complist));
+
     for (let key in values) {
-        output += (Number(values[key].system.select1) + Number(values[key].system.select2) + Number(values[key].system.select3) + Number(values[key].system.select4))*Number(values[key].system.multiplier);
+        console.log("key:"+JSON.stringify(values[key].system.key));
+        output += (Number(complist[values[key].system.key].select1) + Number(complist[values[key].system.key].select2) + Number(complist[values[key].system.key].select3) + Number(complist[values[key].system.key].select4))*Number(complist[values[key].system.key].multiplier);
     }
     return output;
 });

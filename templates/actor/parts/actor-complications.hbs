@@ -18,23 +18,23 @@
             <div style="display: inline-block;">(
 
             {{#if (lookup (lookup item.system.values item.system.key) 'select1') }}
-                {{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'select1') 'values') item.system.select1}}
+                {{ lookup (lookup (lookup (lookup system.complicationlist item.system.key) 'select1') 'values') item.system.select1}}
             {{/if}}
 
             {{#if (lookup (lookup item.system.values item.system.key) 'select2') }}
-                , {{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'select2') 'values') item.system.select2}}
+                , {{ lookup (lookup (lookup (lookup system.complicationlist item.system.key) 'select2') 'values') item.system.select2}}
             {{/if}}
 
             {{#if (lookup (lookup item.system.values item.system.key) 'select3') }}
-                , {{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'select3') 'values') item.system.select3}}
+                , {{ lookup (lookup (lookup (lookup system.complicationlist item.system.key) 'select3') 'values') item.system.select3}}
             {{/if}}
 
             {{#if (lookup (lookup item.system.values item.system.key) 'select4') }}
-                , {{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'select4') 'values') item.system.select4}}
+                , {{ lookup (lookup (lookup (lookup system.complicationlist item.system.key) 'select4') 'values') item.system.select4}}
             {{/if}}
 
             {{#if (lookup (lookup item.system.values item.system.key) 'multiplier') }}
-                , {{ lookup (lookup (lookup (lookup item.system.values item.system.key) 'multiplier') 'values') item.system.multiplier}}
+                , {{ lookup (lookup (lookup (lookup system.complicationlist item.system.key) 'multiplier') 'values') item.system.multiplier}}
             {{/if}}
 
             )
@@ -53,7 +53,7 @@
     {{/each}}
   <li class='item flexrow items-header'>
     <div style="flex:0 0 50px;">
-        {{ calcCompPtsTotal complications }}
+        {{ calcCompPtsTotal complications system.complicationlist }}
     </div>
     <div style="text-align:left;">Total</div>
     <div style="text-align:right;"></div>
