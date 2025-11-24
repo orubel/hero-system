@@ -8,49 +8,9 @@
       </a>
     </div>
   </li>
-    {{#each complications as |item id|}}
-      <li class='item flexrow' data-item-id='{{item._id}}'>
-        <div class='item-name' style="display:block;flex:0 0 50px; text-align: center;">{{ calcCompPts item.system }}</div>
-        <div class='item-name' style="padding:3px;">
-          <h4>
-            <div class='resource-label' style="display: inline-block;">{{ item.system.key }} :</div>
-            <div style="display: inline-block;">{{ item.system.name }}</div>
-            <div style="display: inline-block;">(
 
-            {{#if (lookup (lookup item.system.values item.system.key) 'select1') }}
-                {{ lookup (lookup (lookup (lookup system.complicationlist item.system.key) 'select1') 'values') item.system.select1}}
-            {{/if}}
+{{{ showComplications complications system.complicationlist }}}
 
-            {{#if (lookup (lookup item.system.values item.system.key) 'select2') }}
-                , {{ lookup (lookup (lookup (lookup system.complicationlist item.system.key) 'select2') 'values') item.system.select2}}
-            {{/if}}
-
-            {{#if (lookup (lookup item.system.values item.system.key) 'select3') }}
-                , {{ lookup (lookup (lookup (lookup system.complicationlist item.system.key) 'select3') 'values') item.system.select3}}
-            {{/if}}
-
-            {{#if (lookup (lookup item.system.values item.system.key) 'select4') }}
-                , {{ lookup (lookup (lookup (lookup system.complicationlist item.system.key) 'select4') 'values') item.system.select4}}
-            {{/if}}
-
-            {{#if (lookup (lookup item.system.values item.system.key) 'multiplier') }}
-                , {{ lookup (lookup (lookup (lookup system.complicationlist item.system.key) 'multiplier') 'values') item.system.multiplier}}
-            {{/if}}
-
-            )
-            </div>
-          </h4>
-        </div>
-        <div class='item-controls'>
-          <a class='item-control complication-edit' title='{{localize "DOCUMENT.Update" type='Item'}}'>
-            <i class='fas fa-edit'></i>
-          </a>
-          <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type='Item'}}'>
-            <i class='fas fa-trash'></i>
-          </a>
-        </div>
-      </li>
-    {{/each}}
   <li class='item flexrow items-header'>
     <div style="flex:0 0 50px;">
         {{ calcCompPtsTotal complications system.complicationlist }}

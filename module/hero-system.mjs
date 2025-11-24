@@ -234,11 +234,12 @@ Handlebars.registerHelper('calcCompPts', function(values) {
 
 Handlebars.registerHelper('calcCompPtsTotal', function(values,complist) {
     var output = 0;
-    console.log("list:"+JSON.stringify(complist));
+
 
     for (let key in values) {
-        console.log("key:"+JSON.stringify(values[key].system.key));
-        output += (Number(complist[values[key].system.key].select1) + Number(complist[values[key].system.key].select2) + Number(complist[values[key].system.key].select3) + Number(complist[values[key].system.key].select4))*Number(complist[values[key].system.key].multiplier);
+        if(values[key].system.key){
+            output += (Number(values[key].system.select1) + Number(values[key].system.select2) + Number(values[key].system.select3) + Number(values[key].system.select4))*Number(values[key].system.multiplier);
+        }
     }
     return output;
 });
@@ -416,13 +417,9 @@ Handlebars.registerHelper('showAdvantages', function(advantages, advantagelist, 
         var itemData = advantagelist[adv.system.key];
 
         var baseCost = Number(adv.system.baseCost);
-        console.log("baseCost:"+baseCost);
         var select1Cost = Number(adv.system.select1);
-        console.log("select1:"+select1Cost);
         var select2Cost = Number(adv.system.select2);
-        console.log("select2:"+select2Cost);
         var select3Cost = Number(adv.system.select3);
-        console.log("select3:"+select3Cost);
 
         var itemType = '';
         if(itemData !== undefined){
@@ -433,7 +430,6 @@ Handlebars.registerHelper('showAdvantages', function(advantages, advantagelist, 
         for (let key in powers) {
             if(powers[key]._id == adv.system.powerId){
                 powername = powers[key].system.key
-                console.log("### MATCH :"+JSON.stringify(powers[key].system.key)+"###")
             }
         }
 
@@ -472,6 +468,103 @@ Handlebars.registerHelper('showAdvantages', function(advantages, advantagelist, 
             </div>
           </li>
           `;
+    }
+    return output;
+});
+
+Handlebars.registerHelper('showComplications', function(comps, complist) {
+    var output = ``;
+    for (let key in comps) {
+
+        var comp = comps[key];
+
+        var itemData = complist[comp.system.key];
+
+        var select1Cost = 0;
+        var select2Cost = 0;
+        var select3Cost = 0;
+        var select4Cost = 0;
+        var multiplier = 1;
+
+
+        var itemType = '';
+        if(itemData !== undefined){
+            itemType = itemData.type;
+        }
+
+        if(itemData){
+            if(itemData.select1){
+                select1Cost = Number(comp.system.select1);
+            }
+
+            if(itemData.select2){
+                select2Cost = Number(comp.system.select2);
+            }
+
+            if(itemData.select3){
+                select3Cost = Number(comp.system.select3);
+            }
+
+            if(itemData.select4){
+                select4Cost = Number(comp.system.select4);
+            }
+        }
+
+        output += `
+      <li class='item flexrow' data-item-id='${comp._id}'>
+        <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>`;
+
+            if(itemData){
+                output += `${(Number(select1Cost) + Number(select2Cost) + Number(select3Cost) + Number(select4Cost))*Number(multiplier)}`;
+            }else{
+                output += `0`;
+            }
+
+        output += `
+        </div>
+        <div class='item-name' style='padding:3px;'>
+          <h4>
+            <div class='resource-label' style='display: inline-block;'>${ comp.system.key } :</div>
+            <div style='display: inline-block;'>${ comp.system.name }</div>
+            <div style='display: inline-block;'>(`;
+
+
+        if(itemData){
+            if (itemData.select1){
+                output += `${itemData.select1.values[comp.system.select1]}`;
+            }
+
+            if (itemData.select2){
+                output += `, ${itemData.select2.values[comp.system.select2]}`;
+            }
+
+            if (itemData.select3){
+                output += `, ${itemData.select3.values[comp.system.select3]}`;
+            }
+
+            if (itemData.select4){
+                output += `, ${itemData.select4.values[comp.system.select4]}`;
+            }
+
+            if (itemData.multiplier){
+                output += `, ${itemData.multiplier.values[comp.system.multiplier]}`;
+            }
+        }
+
+        output += `
+            )
+            </div>
+          </h4>
+        </div>
+        <div class='item-controls'>
+          <a class='item-control complication-edit' title='Update Complication'>
+            <i class='fas fa-edit'></i>
+          </a>
+          <a class='item-control item-delete' title='Delete Complication'>
+            <i class='fas fa-trash'></i>
+          </a>
+        </div>
+      </li>`;
     }
     return output;
 });

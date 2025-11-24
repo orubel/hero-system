@@ -67,6 +67,7 @@ export class HeroSystemItemSheet extends ItemSheet {
     context.powerlist = this.actor.system.powerlist;
     context.advantagelist = this.actor.system.advantagelist;
     context.disadvantagelist = this.actor.system.disadvantagelist;
+    context.complicationlist = this.actor.system.complicationlist;
 
     if(this.actor.system.advantagelist[itemData.system.key]){
         itemData.system.baseCost = 0;
@@ -83,8 +84,6 @@ export class HeroSystemItemSheet extends ItemSheet {
 
     // Add the item's data to context.data for easier access, as well as flags.
     context.system = itemData.system;
-    console.log("parent:"+itemData.parent);
-    console.log("powerFK:"+itemData.powerFK);
     context.flags = itemData.flags;
 
     // Adding a pointer to CONFIG.HERO_SYSTEM
