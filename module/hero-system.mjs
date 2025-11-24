@@ -438,13 +438,11 @@ Handlebars.registerHelper('showAdvantages', function(advantages, advantagelist, 
             }
         }
 
-
-
         output += `
           <li class='item flexrow' data-item-id=${adv._id}>
             <div class='item-name' style='display:block;flex:0 0 75px; text-align: center;'>`;
             if(itemData){
-                output += `${select1Cost+select2Cost+select3Cost+baseCost}`;
+                output += `${(select1Cost+select2Cost+select3Cost+baseCost)/100}`;
             }else{
                 output += `0`;
             }

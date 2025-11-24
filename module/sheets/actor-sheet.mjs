@@ -185,6 +185,7 @@ export class HeroSystemActorSheet extends ActorSheet {
     context.powerlist = context.system.powerlist;
     context.complicationlist = context.system.complicationlist;
     context.advantagelist = context.system.advantagelist;
+    context.frameworklist = context.system.frameworklist;
 
     context.advantages = advantages;
     context.disadvantages = disadvantages;
@@ -323,7 +324,7 @@ export class HeroSystemActorSheet extends ActorSheet {
       system: data
     };
 
-itemData.system.powerId = hiddenInput.value;
+    itemData.system.powerId = hiddenInput.value;
 
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.system['type'];

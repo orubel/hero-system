@@ -108,13 +108,25 @@ export class HeroSystemItemSheet extends ItemSheet {
     context.advantagelist = this.actor.system.advantagelist;
     if(this.actor.system.advantagelist[itemData.system.key]){
         itemData.system.baseCost = 0;
-        if(!this.actor.system.advantagelist[itemData.system.key].select1){
+        if(this.actor.system.advantagelist[itemData.system.key].select1){
+            if(!this.actor.system.advantagelist[itemData.system.key].select1[itemData.system.select1]){
+                itemData.system.select1 = 0;
+            }
+        }else{
             itemData.system.select1 = 0;
         }
-        if(!this.actor.system.advantagelist[itemData.system.key].select2){
+        if(this.actor.system.advantagelist[itemData.system.key].select2){
+            if(!this.actor.system.advantagelist[itemData.system.key].select2[itemData.system.select2]){
+                itemData.system.select2 = 0;
+            }
+        }else{
             itemData.system.select2 = 0;
         }
-        if(!this.actor.system.advantagelist[itemData.system.key].select3){
+        if(this.actor.system.advantagelist[itemData.system.key].select3){
+            if(!this.actor.system.advantagelist[itemData.system.key].select3[itemData.system.select3]){
+                itemData.system.select3 = 0;
+            }
+        }else{
             itemData.system.select3 = 0;
         }
     }

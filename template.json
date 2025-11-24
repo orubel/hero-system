@@ -118,7 +118,31 @@
           "cost_multiplier": 2
         }
       },
-      "disadvantagelist": {},
+      "disadvantagelist": {
+        "Ablative": {},
+        "Activation": {},
+        "Always On": {},
+        "Charges": {},
+        "Concentration": {},
+        "Extra Time": {},
+        "Focus": {},
+        "Gestures": {},
+        "Incantations": {},
+        "Increased END Cost": {},
+        "Independent": {},
+        "Limited Power": {},
+        "Linked": {},
+        "Mental Powers Based on CON": {},
+        "No Concious Control": {},
+        "No Knockback": {},
+        "Only in Hero ID": {},
+        "Reduced by Range": {},
+        "Reduced Penetration": {},
+        "Requires Skill Roll": {},
+        "Side Effects": {},
+        "Variable Limitations": {},
+        "Visible": {}
+      },
       "advantagelist": {
         "Affects Desolidified": {
           "baseCost": 50
@@ -1606,7 +1630,11 @@
             }
           }
         }
-      }
+      },
+      "frameworklist": [
+        "Multipower",
+        "Elemental Control"
+      ]
     },
     "npc": {
       "templates": ["base"],
@@ -2002,6 +2030,9 @@
       "select3": 0,
       "select4": 0,
       "multiplier": 0
+    },
+    "framework": {
+      "key": ""
     }
   }
 }
