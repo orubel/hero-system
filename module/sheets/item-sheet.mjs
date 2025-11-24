@@ -39,7 +39,8 @@ export class HeroSystemItemSheet extends ItemSheet {
 
   /** @override */
   async getData() {
-  console.log("ietm > getData called...");
+    console.log("ietm > getData called...");
+
     // Retrieve base data structure.
     const context = super.getData();
 
@@ -65,10 +66,46 @@ export class HeroSystemItemSheet extends ItemSheet {
 
     context.abilities = this.actor.system.abilities;
     context.powerlist = this.actor.system.powerlist;
-    context.advantagelist = this.actor.system.advantagelist;
+
     context.disadvantagelist = this.actor.system.disadvantagelist;
     context.complicationlist = this.actor.system.complicationlist;
+    if(this.actor.system.complicationlist[itemData.system.key]){
+        if(this.actor.system.complicationlist[itemData.system.key].select1){
+            if(!this.actor.system.complicationlist[itemData.system.key].select1.values[itemData.system.select1]){
+                itemData.system.select1 = 0;
+            }
+        }
+        if(this.actor.system.complicationlist[itemData.system.key].select2){
+            if(!this.actor.system.complicationlist[itemData.system.key].select2.values[itemData.system.select2]){
+                itemData.system.select2 = 0;
+            }
+        }else{
+            itemData.system.select2 = 0;
+        }
+        if(this.actor.system.complicationlist[itemData.system.key].select3){
+            if(!this.actor.system.complicationlist[itemData.system.key].select3.values[itemData.system.select3]){
+                itemData.system.select3 = 0;
+            }
+        }else{
+            itemData.system.select3 = 0;
+        }
+        if(this.actor.system.complicationlist[itemData.system.key].select4){
+            if(!this.actor.system.complicationlist[itemData.system.key].select4.values[itemData.system.select4]){
+                itemData.system.select4 = 0;
+            }
+        }else{
+            itemData.system.select4 = 0;
+        }
+        if(this.actor.system.complicationlist[itemData.system.key].multiplier){
+            if(!this.actor.system.complicationlist[itemData.system.key].multiplier.values[itemData.system.multiplier]){
+                itemData.system.multiplier = 0;
+            }
+        }else{
+            itemData.system.multiplier = 0;
+        }
+    }
 
+    context.advantagelist = this.actor.system.advantagelist;
     if(this.actor.system.advantagelist[itemData.system.key]){
         itemData.system.baseCost = 0;
         if(!this.actor.system.advantagelist[itemData.system.key].select1){

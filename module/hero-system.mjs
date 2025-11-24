@@ -235,10 +235,15 @@ Handlebars.registerHelper('calcCompPts', function(values) {
 Handlebars.registerHelper('calcCompPtsTotal', function(values,complist) {
     var output = 0;
 
-
     for (let key in values) {
         if(values[key].system.key){
-            output += (Number(values[key].system.select1) + Number(values[key].system.select2) + Number(values[key].system.select3) + Number(values[key].system.select4))*Number(values[key].system.multiplier);
+            if(Number(values[key].system.multiplier)>0){
+                var test = (Number(values[key].system.select1) + Number(values[key].system.select2) + Number(values[key].system.select3) + Number(values[key].system.select4))*Number(values[key].system.multiplier);
+                output = output+test;
+            }else{
+                var test = (Number(values[key].system.select1) + Number(values[key].system.select2) + Number(values[key].system.select3) + Number(values[key].system.select4));
+                output = output+test;
+            }
         }
     }
     return output;
@@ -484,7 +489,7 @@ Handlebars.registerHelper('showComplications', function(comps, complist) {
         var select2Cost = 0;
         var select3Cost = 0;
         var select4Cost = 0;
-        var multiplier = 1;
+        var multiplier = 0;
 
 
         var itemType = '';
@@ -508,6 +513,10 @@ Handlebars.registerHelper('showComplications', function(comps, complist) {
             if(itemData.select4){
                 select4Cost = Number(comp.system.select4);
             }
+
+            if(itemData.multiplier){
+                multiplier = Number(comp.system.multiplier);
+            }
         }
 
         output += `
@@ -515,7 +524,11 @@ Handlebars.registerHelper('showComplications', function(comps, complist) {
         <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>`;
 
             if(itemData){
-                output += `${(Number(select1Cost) + Number(select2Cost) + Number(select3Cost) + Number(select4Cost))*Number(multiplier)}`;
+                if(Number(multiplier)>0){
+                    output += `${(Number(select1Cost) + Number(select2Cost) + Number(select3Cost) + Number(select4Cost))*Number(multiplier)}`;
+                }else{
+                    output += `${(Number(select1Cost) + Number(select2Cost) + Number(select3Cost) + Number(select4Cost))}`;
+                }
             }else{
                 output += `0`;
             }

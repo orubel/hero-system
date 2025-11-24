@@ -122,6 +122,43 @@ export class HeroSystemActorSheet extends ActorSheet {
       }else if (i.type === 'power') {
         powers.push(i);
       }else if (i.type === 'complication') {
+          if(context.system.complicationlist[i.system.key]){
+              if(context.system.complicationlist[i.system.key].select1){
+                  if(!context.system.complicationlist[i.system.key].select1.values[i.system.select1]){
+                      i.system.select1 = 0;
+                  }
+              }else{
+                i.system.select1 = 0;
+              }
+              if(context.system.complicationlist[i.system.key].select2){
+                  if(!context.system.complicationlist[i.system.key].select2.values[i.system.select2]){
+                      i.system.select2 = 0;
+                  }
+              }else{
+                i.system.select2 = 0;
+              }
+              if(context.system.complicationlist[i.system.key].select3){
+                  if(!context.system.complicationlist[i.system.key].select3.values[i.system.select3]){
+                      i.system.select3 = 0;
+                  }
+              }else{
+                i.system.select3 = 0;
+              }
+              if(context.system.complicationlist[i.system.key].select4){
+                  if(!context.system.complicationlist[i.system.key].select4.values[i.system.select4]){
+                      i.system.select4 = 0;
+                  }
+              }else{
+                i.system.select4 = 0;
+              }
+              if(context.system.complicationlist[i.system.key].multiplier){
+                  if(!context.system.complicationlist[i.system.key].multiplier.values[i.system.multiplier]){
+                      i.system.multiplier = 0;
+                  }
+              }else{
+                i.system.multiplier = 0;
+              }
+          }
         complications.push(i);
       }else if (i.type === 'skill') {
         skills.push(i);
@@ -264,7 +301,6 @@ export class HeroSystemActorSheet extends ActorSheet {
   }
 
   async _onAdvantageCreate(event) {
-    console.log("onAdvantageCreate called...");
     event.preventDefault();
 
     const formElement = event.currentTarget.closest('form');

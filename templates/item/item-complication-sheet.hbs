@@ -22,7 +22,7 @@
                       <section style="text-align: left;">
                           <label class='resource-label' style="display:inline-block;;width:100px;">{{localize "Complication"}}</label>
                           <select style="width:250px;" name="system.key" value="{{system.key}}">
-                              {{{ selectKey system.values system.key }}}
+                              {{{ selectKey this.complicationlist system.key }}}
                           </select>
                       </section>
                     </div>
@@ -30,6 +30,7 @@
             </ol>
         </div>
       </div>
+
 
       <div class="flexrow" style="gap: 0.5em;">
         <!-- LEFT COLUMN -->
@@ -40,47 +41,47 @@
               </li>
                 <li class='item flexrow'>
                     <div class="flexcol" style="flex: 1;">
-                        {{#if (lookup (lookup system.values system.key) 'select1')}}
+                        {{#if (lookup (lookup this.complicationlist system.key) 'select1')}}
                           <section style="text-align: left;">
                               <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'select1') 'label' }}</label>
                               <select style="width:250px;" name="system.select1" value="{{system.select1}}">
-                                {{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select1') 'values') system.select1 }}}
+                                {{{ selectKeyVal (lookup (lookup (lookup this.complicationlist system.key) 'select1') 'values') system.select1 }}}
                               </select>
                           </section>
                         {{/if}}
 
-                        {{#if (lookup (lookup system.values system.key) 'select2')}}
+                        {{#if (lookup (lookup this.complicationlist system.key) 'select2')}}
                           <section style="text-align: left;">
                               <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'select2') 'label' }}</label>
                               <select style="width:250px;" name="system.select2" value="{{system.select2}}">
-                                {{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select2') 'values') system.select2 }}}
+                                {{{ selectKeyVal (lookup (lookup (lookup this.complicationlist system.key) 'select2') 'values') system.select2 }}}
                               </select>
                           </section>
                         {{/if}}
 
-                        {{#if (lookup (lookup system.values system.key) 'select3')}}
+                        {{#if (lookup (lookup this.complicationlist system.key) 'select3')}}
                           <section style="text-align: left;">
                               <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'select3') 'label' }}</label>
                               <select style="width:250px;" name="system.select3" value="{{system.select3}}">
-                                {{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select3') 'values') system.select3 }}}
+                                {{{ selectKeyVal (lookup (lookup (lookup this.complicationlist system.key) 'select3') 'values') system.select3 }}}
                               </select>
                           </section>
                         {{/if}}
 
-                        {{#if (lookup (lookup system.values system.key) 'select4')}}
+                        {{#if (lookup (lookup this.complicationlist system.key) 'select4')}}
                           <section style="text-align: left;">
                               <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'select4') 'label' }}</label>
                               <select style="width:250px;" name="system.select4" value="{{system.select4}}">
-                                {{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'select4') 'values') system.select4 }}}
+                                {{{ selectKeyVal (lookup (lookup (lookup this.complicationlist system.key) 'select4') 'values') system.select4 }}}
                               </select>
                           </section>
                         {{/if}}
 
-                        {{#if (lookup (lookup system.values system.key) 'multiplier')}}
+                        {{#if (lookup (lookup this.complicationlist system.key) 'multiplier')}}
                           <section style="text-align: left;">
                               <label class='resource-label' style="display: inline-block;width:100px;">{{ lookup (lookup (lookup system.values system.key) 'multiplier') 'label' }}</label>
                               <select style="width:250px;" name="system.multiplier" value="{{system.multiplier}}">
-                                {{{ selectKeyVal (lookup (lookup (lookup system.values system.key) 'multiplier') 'values') system.multiplier }}}
+                                {{{ selectKeyVal (lookup (lookup (lookup this.complicationlist system.key) 'multiplier') 'values') system.multiplier }}}
                               </select>
                           </section>
                         {{/if}}
