@@ -40,82 +40,98 @@
         "STR": {
           "value": 10,
           "base": 10,
-          "cost_multiplier": 1
+          "cost_multiplier": 1,
+          "notes": ""
         },
         "DEX": {
           "value": 10,
           "base": 10,
-          "cost_multiplier": 3
+          "cost_multiplier": 3,
+          "notes": ""
         },
         "CON": {
           "value": 10,
           "base": 10,
-          "cost_multiplier": 2
+          "cost_multiplier": 2,
+          "notes": ""
         },
         "BODY": {
           "value": 10,
           "base": 10,
-          "cost_multiplier": 2
+          "cost_multiplier": 2,
+          "notes": ""
         },
         "INT": {
           "value": 10,
           "base": 10,
-          "cost_multiplier": 1
+          "cost_multiplier": 1,
+          "notes": ""
         },
         "EGO": {
           "value": 10,
           "base": 10,
-          "cost_multiplier": 2
+          "cost_multiplier": 2,
+          "notes": ""
         },
         "PRE": {
           "value": 10,
           "base": 10,
-          "cost_multiplier": 1
+          "cost_multiplier": 1,
+          "notes": ""
         },
         "PD": {
           "value": 2,
           "base": 0,
-          "cost_multiplier": 1
+          "cost_multiplier": 1,
+          "notes": ""
         },
         "ED": {
           "value": 2,
           "base": 0,
-          "cost_multiplier": 1
+          "cost_multiplier": 1,
+          "notes": ""
         },
         "SPD": {
           "value": 2,
           "base": 1,
-          "cost_multiplier": 10
+          "cost_multiplier": 10,
+          "notes": ""
         },
         "OCV": {
           "value": 0,
           "base": 1,
-          "cost_multiplier": 10
+          "cost_multiplier": 10,
+          "notes": ""
         },
         "DCV": {
           "value": 0,
           "base": 1,
-          "cost_multiplier": 10
+          "cost_multiplier": 10,
+          "notes": ""
         },
         "ECV": {
           "value": 0,
           "base": 1,
-          "cost_multiplier": 10
+          "cost_multiplier": 10,
+          "notes": ""
         },
         "REC": {
           "value": 4,
           "base": 0,
-          "cost_multiplier": 2
+          "cost_multiplier": 2,
+          "notes": ""
         },
         "END": {
           "value": 20,
           "base": 0,
-          "cost_multiplier": 0.5
+          "cost_multiplier": 0.5,
+          "notes": ""
         },
         "STUN": {
           "value": 20,
           "base": 0,
-          "cost_multiplier": 2
+          "cost_multiplier": 2,
+          "notes": ""
         }
       },
       "disadvantagelist": {
