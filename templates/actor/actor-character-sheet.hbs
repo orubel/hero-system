@@ -69,8 +69,8 @@
             <div>Base</div>
             <div style="flex:0 0 75px;">Multiplier</div>
             <div style="flex:0 0 50px;">Cost</div>
+            <div style="flex:0 0 75px;">Ability Roll</div>
             <div>Notes</div>
-            <div>Ability Roll</div>
           </li>
             <li class='item flexrow'>
               <div class="align-center" style="flex:0 0 50px;">
@@ -82,12 +82,12 @@
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcStrPts system.abilities.[STR] }}
               </div>
-              <div class="align-center">
-                <input type="text" class="item-field-label-long2" name="system.abilities.STR.notes" value="{{system.abilities.STR.notes}}" data-dtype="String" />
-              </div>
-              <div class="align-center">
+              <div class="align-center" style="flex:0 0 75px;">
                 <!-- example 3d6+@abilities.BODY.mod -->
                 <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'STR'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.STR.mod decimals=0 sign=false}}></span>
+              </div>
+              <div class="align-center">
+                <input type="text" class="item-field-label-long2" name="system.abilities.STR.notes" value="{{system.abilities.STR.notes}}" data-dtype="String" />
               </div>
             </li>
             <li class='item flexrow'>
@@ -100,12 +100,12 @@
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcDexPts system.abilities.[DEX] }}
               </div>
-              <div class="align-center">
-                <input type="text" class="item-field-label-long2" name="system.abilities.DEX.notes" value="{{system.abilities.DEX.notes}}" data-dtype="String" />
-              </div>
-              <div class="align-center">
+              <div class="align-center" style="flex:0 0 75px;">
                 <!-- example 3d6+@abilities.BODY.mod -->
                 <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'DEX'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.DEX.mod decimals=0 sign=false}}></span>
+              </div>
+              <div class="align-center">
+                <input type="text" class="item-field-label-long2" name="system.abilities.DEX.notes" value="{{system.abilities.DEX.notes}}" data-dtype="String" />
               </div>
             </li>
             <li class='item flexrow'>
@@ -118,12 +118,12 @@
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcConPts system.abilities.[CON] }}
               </div>
-              <div class="align-center">
-                <input type="text" class="item-field-label-long2" name="system.abilities.CON.notes" value="{{system.abilities.CON.notes}}" data-dtype="String" />
-              </div>
-              <div class="align-center">
+              <div class="align-center" style="flex:0 0 75px;">
                 <!-- example 3d6+@abilities.BODY.mod -->
                 <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'CON'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.CON.mod decimals=0 sign=false}}></span>
+              </div>
+              <div class="align-center">
+                <input type="text" class="item-field-label-long2" name="system.abilities.CON.notes" value="{{system.abilities.CON.notes}}" data-dtype="String" />
               </div>
             </li>
             <li class='item flexrow'>
@@ -136,12 +136,12 @@
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcBodyPts system.abilities.[BODY] }}
               </div>
-              <div class="align-center">
-                <input type="text" class="item-field-label-long2" name="system.abilities.BODY.notes" value="{{system.abilities.BODY.notes}}" data-dtype="String" />
-              </div>
-              <div class="align-center">
+              <div class="align-center" style="flex:0 0 75px;">
                 <!-- example 3d6+@abilities.BODY.mod -->
                 <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'BODY'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.BODY.mod decimals=0 sign=false}}></span>
+              </div>
+              <div class="align-center">
+                <input type="text" class="item-field-label-long2" name="system.abilities.BODY.notes" value="{{system.abilities.BODY.notes}}" data-dtype="String" />
               </div>
             </li>
             <li class='item flexrow'>
@@ -154,12 +154,12 @@
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcIntPts system.abilities.[INT] }}
               </div>
-              <div class="align-center">
-                <input type="text" class="item-field-label-long2" name="system.abilities.INT.notes" value="{{system.abilities.INT.notes}}" data-dtype="String" />
-              </div>
-              <div class="align-center">
+              <div class="align-center" style="flex:0 0 75px;">
                 <!-- example 3d6+@abilities.BODY.mod -->
                 <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'INT'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.INT.mod decimals=0 sign=false}}></span>
+              </div>
+              <div class="align-center">
+                <input type="text" class="item-field-label-long2" name="system.abilities.INT.notes" value="{{system.abilities.INT.notes}}" data-dtype="String" />
               </div>
             </li>
             <li class='item flexrow'>
@@ -172,12 +172,12 @@
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcEgoPts system.abilities.[EGO] }}
               </div>
-              <div class="align-center">
-                <input type="text" class="item-field-label-long2" name="system.abilities.EGO.notes" value="{{system.abilities.EGO.notes}}" data-dtype="String" />
-              </div>
-              <div class="align-center">
+              <div class="align-center" style="flex:0 0 75px;">
                 <!-- example 3d6+@abilities.BODY.mod -->
                 <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'EGO'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.EGO.mod decimals=0 sign=false}}></span>
+              </div>
+              <div class="align-center">
+                <input type="text" class="item-field-label-long2" name="system.abilities.EGO.notes" value="{{system.abilities.EGO.notes}}" data-dtype="String" />
               </div>
             </li>
             <li class='item flexrow'>
@@ -190,12 +190,12 @@
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcPrePts system.abilities.[PRE] }}
               </div>
-              <div class="align-center">
-                <input type="text" class="item-field-label-long2" name="system.abilities.PRE.notes" value="{{system.abilities.PRE.notes}}" data-dtype="String" />
-              </div>
-              <div class="align-center">
+              <div class="align-center" style="flex:0 0 75px;">
                 <!-- example 3d6+@abilities.BODY.mod -->
                 <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'PRE'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.PRE.mod decimals=0 sign=false}}></span>
+              </div>
+              <div class="align-center">
+                <input type="text" class="item-field-label-long2" name="system.abilities.PRE.notes" value="{{system.abilities.PRE.notes}}" data-dtype="String" />
               </div>
             </li>
             <li class='item flexrow'>
@@ -208,11 +208,11 @@
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcPdPts system.abilities }}
               </div>
-              <div class="align-center">
-                <input type="text" class="item-field-label-long2" name="system.abilities.PD.notes" value="{{system.abilities.PD.notes}}" data-dtype="String" />
+              <div class="align-center" style="flex:0 0 75px;">
+                <h4 class="item-field-label-short margin-item-list">-</h4>
               </div>
               <div class="align-center">
-                <h4 class="item-field-label-short margin-item-list">-</h4>
+                <input type="text" class="item-field-label-long2" name="system.abilities.PD.notes" value="{{system.abilities.PD.notes}}" data-dtype="String" />
               </div>
             </li>
             <li class='item flexrow'>
@@ -225,11 +225,11 @@
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcEdPts system.abilities }}
               </div>
-              <div class="align-center">
-                <input type="text" class="item-field-label-long2" name="system.abilities.ED.notes" value="{{system.abilities.ED.notes}}" data-dtype="String" />
+              <div class="align-center" style="flex:0 0 75px;">
+                <h4 class="item-field-label-short margin-item-list">-</h4>
               </div>
               <div class="align-center">
-                <h4 class="item-field-label-short margin-item-list">-</h4>
+                <input type="text" class="item-field-label-long2" name="system.abilities.ED.notes" value="{{system.abilities.ED.notes}}" data-dtype="String" />
               </div>
             </li>
             <li class='item flexrow'>
@@ -242,11 +242,11 @@
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcSpdPts system.abilities }}
               </div>
-              <div class="align-center">
-                <input type="text" class="item-field-label-long2" name="system.abilities.SPD.notes" value="{{system.abilities.SPD.notes}}" data-dtype="String" />
+              <div class="align-center" style="flex:0 0 75px;">
+                <h4 class="item-field-label-short margin-item-list">-</h4>
               </div>
               <div class="align-center">
-                <h4 class="item-field-label-short margin-item-list">-</h4>
+                <input type="text" class="item-field-label-long2" name="system.abilities.SPD.notes" value="{{system.abilities.SPD.notes}}" data-dtype="String" />
               </div>
             </li>
             <li class='item flexrow'>
@@ -259,11 +259,11 @@
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcRecPts system.abilities }}
               </div>
-              <div class="align-center">
-                <input type="text" class="item-field-label-long2" name="system.abilities.REC.notes" value="{{system.abilities.REC.notes}}" data-dtype="String" />
+              <div class="align-center" style="flex:0 0 75px;">
+                <h4 class="item-field-label-short margin-item-list">-</h4>
               </div>
               <div class="align-center">
-                <h4 class="item-field-label-short margin-item-list">-</h4>
+                <input type="text" class="item-field-label-long2" name="system.abilities.REC.notes" value="{{system.abilities.REC.notes}}" data-dtype="String" />
               </div>
             </li>
             <li class='item flexrow'>
@@ -276,11 +276,11 @@
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcEndPts system.abilities }}
               </div>
-              <div class="align-center">
-                <input type="text" class="item-field-label-long2" name="system.abilities.END.notes" value="{{system.abilities.END.notes}}" data-dtype="String" />
+              <div class="align-center" style="flex:0 0 75px;">
+                <h4 class="item-field-label-short margin-item-list">-</h4>
               </div>
               <div class="align-center">
-                <h4 class="item-field-label-short margin-item-list">-</h4>
+                <input type="text" class="item-field-label-long2" name="system.abilities.END.notes" value="{{system.abilities.END.notes}}" data-dtype="String" />
               </div>
             </li>
             <li class='item flexrow'>
@@ -293,11 +293,11 @@
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcStunPts system.abilities }}
               </div>
-              <div class="align-center">
-                <input type="text" class="item-field-label-long2" name="system.abilities.STUN.notes" value="{{system.abilities.STUN.notes}}" data-dtype="String" />
+              <div class="align-center" style="flex:0 0 75px;">
+                <h4 class="item-field-label-short margin-item-list">-</h4>
               </div>
               <div class="align-center">
-                <h4 class="item-field-label-short margin-item-list">-</h4>
+                <input type="text" class="item-field-label-long2" name="system.abilities.STUN.notes" value="{{system.abilities.STUN.notes}}" data-dtype="String" />
               </div>
             </li>
 
@@ -309,7 +309,7 @@
               <div class="align-left" style="flex:0 0 50px;">
                 {{ calcCharTotal system.abilities }}
               </div>
-              <div class="align-center"></div>
+              <div class="align-center" style="flex:0 0 75px;"></div>
               <div class="align-center"></div>
             </li>
         </ol>
