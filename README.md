@@ -1,3 +1,5 @@
+![alt text](https://github.com/orubel/logos/blob/master/hero-system.png)
+
 # hero-system
 
 - **module/hero-system.mjs** - holds all handlebars
