@@ -66,7 +66,7 @@
           <li class='item flexrow items-header'>
             <div style="flex:0 0 50px;">Value</div>
             <div style="flex:0 0 75px;">Char</div>
-            <div>Base</div>
+            <div style="flex:0 0 250px;">Base</div>
             <div style="flex:0 0 75px;">Multiplier</div>
             <div style="flex:0 0 50px;">Cost</div>
             <div style="flex:0 0 75px;">Ability Roll</div>
@@ -77,7 +77,7 @@
                 <input type="text" name="system.abilities.STR.value" value="{{ system.abilities.STR.value }}" data-dtype="Number"/>
               </div>
               <div class='resource-label align-center' style="flex:0 0 75px;">{{localize 'STR'}}</div>
-              <div class="align-center">{{ system.abilities.[STR].base }}</div>
+              <div class="align-center" style="flex:0 0 250px;">{{ system.abilities.[STR].base }}</div>
               <div class="align-center" style="flex:0 0 75px;">[x{{ system.abilities.[STR].cost_multiplier }}]</div>
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcStrPts system.abilities.[STR] }}
@@ -95,7 +95,7 @@
                 <input type="text" name="system.abilities.DEX.value" value="{{ system.abilities.[DEX].value }}" data-dtype="Number"/>
               </div>
               <div class='resource-label align-center' style="flex:0 0 75px;">{{localize 'DEX'}}</div>
-              <div class="align-center">{{ system.abilities.[DEX].base }}</div>
+              <div class="align-center" style="flex:0 0 250px;">{{ system.abilities.[DEX].base }}</div>
               <div class="align-center" style="flex:0 0 75px;">[x{{ system.abilities.[DEX].cost_multiplier }}]</div>
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcDexPts system.abilities.[DEX] }}
@@ -113,7 +113,7 @@
                 <input type="text" name="system.abilities.CON.value" value="{{ system.abilities.[CON].value }}" data-dtype="Number"/>
               </div>
               <div class='resource-label align-center' style="flex:0 0 75px;">{{localize 'CON'}}</div>
-              <div class="align-center">{{ system.abilities.[CON].base }}</div>
+              <div class="align-center" style="flex:0 0 250px;">{{ system.abilities.[CON].base }}</div>
               <div class="align-center" style="flex:0 0 75px;">[x{{ system.abilities.[CON].cost_multiplier }}]</div>
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcConPts system.abilities.[CON] }}
@@ -131,7 +131,7 @@
                 <input type="text" name="system.abilities.BODY.value" value="{{ system.abilities.[BODY].value }}" data-dtype="Number"/>
               </div>
               <div class='resource-label align-center' style="flex:0 0 75px;">{{localize 'BODY'}}</div>
-              <div class="align-center">{{ system.abilities.[BODY].base }}</div>
+              <div class="align-center" style="flex:0 0 250px;">{{ system.abilities.[BODY].base }}</div>
               <div class="align-center" style="flex:0 0 75px;">[x{{ system.abilities.[BODY].cost_multiplier }}]</div>
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcBodyPts system.abilities.[BODY] }}
@@ -149,7 +149,7 @@
                 <input type="text" name="system.abilities.INT.value" value="{{ system.abilities.[INT].value }}" data-dtype="Number"/>
               </div>
               <div class='resource-label align-center' style="flex:0 0 75px;">{{localize 'INT'}}</div>
-              <div class="align-center">{{ system.abilities.[INT].base }}</div>
+              <div class="align-center" style="flex:0 0 250px;">{{ system.abilities.[INT].base }}</div>
               <div class="align-center" style="flex:0 0 75px;">[x{{ system.abilities.[INT].cost_multiplier }}]</div>
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcIntPts system.abilities.[INT] }}
@@ -167,7 +167,7 @@
                 <input type="text" name="system.abilities.EGO.value" value="{{ system.abilities.[EGO].value }}" data-dtype="Number"/>
               </div>
               <div class='resource-label align-center' style="flex:0 0 75px;">{{ localize 'EGO' }}</div>
-              <div class="align-center">{{ system.abilities.[EGO].base }}</div>
+              <div class="align-center" style="flex:0 0 250px;">{{ system.abilities.[EGO].base }}</div>
               <div class="align-center" style="flex:0 0 75px;">[x{{ system.abilities.[EGO].cost_multiplier }}]</div>
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcEgoPts system.abilities.[EGO] }}
@@ -185,7 +185,7 @@
                 <input type="text" name="system.abilities.PRE.value" value="{{ system.abilities.[PRE].value }}" data-dtype="Number"/>
               </div>
               <div class='resource-label align-center' style="flex:0 0 75px;">{{localize 'PRE'}}</div>
-              <div class="align-center">{{ system.abilities.[PRE].base }}</div>
+              <div class="align-center" style="flex:0 0 250px;">{{ system.abilities.[PRE].base }}</div>
               <div class="align-center" style="flex:0 0 75px;">[x{{ system.abilities.[PRE].cost_multiplier }}]</div>
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcPrePts system.abilities.[PRE] }}
@@ -203,7 +203,7 @@
                 <input type="text" name="system.abilities.PD.value" value="{{ system.abilities.[PD].value }}" data-dtype="Number"/>
               </div>
               <div class='resource-label align-center' style="flex:0 0 75px;">{{localize 'PD'}}</div>
-              <div class="align-center">STR/5</div>
+              <div class="align-center" style="flex:0 0 250px;">STR/5</div>
               <div class="align-center" style="flex:0 0 75px;">[x1]</div>
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcPdPts system.abilities }}
@@ -220,7 +220,7 @@
                 <input type="text" name="system.abilities.ED.value" value="{{ system.abilities.[ED].value }}" data-dtype="Number"/>
               </div>
               <div class='resource-label align-center' style="flex:0 0 75px;">{{localize 'ED'}}</div>
-              <div class="align-center">CON/5</div>
+              <div class="align-center" style="flex:0 0 250px;">CON/5</div>
               <div class="align-center" style="flex:0 0 75px;">[x1]</div>
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcEdPts system.abilities }}
@@ -237,7 +237,7 @@
                 <input type="text" name="system.abilities.SPD.value" value="{{ system.abilities.[SPD].value }}" data-dtype="Number"/>
               </div>
               <div class='resource-label align-center' style="flex:0 0 75px;">{{localize 'SPD'}}</div>
-              <div class="align-center">DEX/10+1</div>
+              <div class="align-center" style="flex:0 0 250px;">DEX/10+1</div>
               <div class="align-center" style="flex:0 0 75px;">[x10]</div>
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcSpdPts system.abilities }}
@@ -254,7 +254,7 @@
                 <input type="text" name="system.abilities.REC.value" value="{{ system.abilities.[REC].value }}" data-dtype="Number"/>
               </div>
               <div class='resource-label align-center' style="flex:0 0 75px;">{{localize 'REC'}}</div>
-              <div class="align-center">STR/5+CON/5</div>
+              <div class="align-center" style="flex:0 0 250px;">STR/5+CON/5</div>
               <div class="align-center" style="flex:0 0 75px;">[x2]</div>
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcRecPts system.abilities }}
@@ -271,7 +271,7 @@
                 <input type="text" name="system.abilities.END.value" value="{{ system.abilities.[END].value }}" data-dtype="Number"/>
               </div>
               <div class='resource-label align-center' style="flex:0 0 75px;">{{localize 'END'}}</div>
-              <div class="align-center">CONx2</div>
+              <div class="align-center" style="flex:0 0 250px;">CONx2</div>
               <div class="align-center" style="flex:0 0 75px;">[x1/2]</div>
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcEndPts system.abilities }}
@@ -288,7 +288,7 @@
                 <input type="text" name="system.abilities.STUN.value" value="{{ system.abilities.[STUN].value }}" data-dtype="Number"/>
               </div>
               <div class='resource-label align-center' style="flex:0 0 75px;">{{localize 'STUN'}}</div>
-              <div class="align-center">BODY+STR/2+CON/2</div>
+              <div class="align-center" style="flex:0 0 250px;">BODY+STR/2+CON/2</div>
               <div class="align-center" style="flex:0 0 75px;">[x2]</div>
               <div class="align-center" style="flex:0 0 50px;">
                 {{ calcStunPts system.abilities }}
@@ -304,7 +304,7 @@
             <li class='item flexrow items-header'>
               <div class="align-center" style="flex:0 0 50px;"></div>
               <div class='resource-label align-center' style="flex:0 0 75px;"></div>
-              <div class="align-center"></div>
+              <div class="align-center" style="flex:0 0 250px;"></div>
               <div class="align-center" style="flex:0 0 75px;"><span class="resource-label align-right">Char Total = </span></div>
               <div class="align-left" style="flex:0 0 50px;">
                 {{ calcCharTotal system.abilities }}

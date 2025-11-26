@@ -182,6 +182,7 @@ export class HeroSystemActorSheet extends ActorSheet {
     }
 
     context.abilities = context.system.abilities;
+    context.skilllist = context.system.skilllist;
     context.powerlist = context.system.powerlist;
     context.complicationlist = context.system.complicationlist;
     context.advantagelist = context.system.advantagelist;

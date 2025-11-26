@@ -249,12 +249,12 @@ Handlebars.registerHelper('calcCompPtsTotal', function(values,complist) {
     return output;
 });
 
-Handlebars.registerHelper('showSkills', function(abilities, skills) {
+Handlebars.registerHelper('showSkills', function(abilities, skills, skilllist) {
     var output = ``;
     for (let key in skills) {
 
         var skill = skills[key];
-        var itemData = skills[key].system.values[skills[key].system.key];
+        var itemData = skilllist[skills[key].system.key];
 
         var itemType = '';
         if(itemData !== undefined){
@@ -262,7 +262,7 @@ Handlebars.registerHelper('showSkills', function(abilities, skills) {
         }
 
         output += `
-          <li class='item flexrow' data-item-id=${skills[key]._id}>
+          <li class='item flexrow' data-item-id=${skill._id}>
             <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>${Number(skill.system.baseCost)+Number(skill.system.levels)}</div>
             <div class='item-name' style='display:block;flex: 0 0 300px;padding:3px;'>
               <h4>`;
@@ -281,7 +281,7 @@ Handlebars.registerHelper('showSkills', function(abilities, skills) {
             if(itemType!=''){
                 output += `
                             <span class="ability-mod rollable" data-roll="3d6" data-label='${skill.system.key} Skill Check'>
-                            <i class='fas fa-dice'></i>${Number(abilities[skill.system.values[skill.system.key].type].mod)+Number(skill.system.levels)}>
+                            <i class='fas fa-dice'></i>${Number(abilities[itemData.type].mod)+Number(skill.system.levels)}>
                             </span>`;
             }
 
@@ -522,10 +522,10 @@ Handlebars.registerHelper('showComplications', function(comps, complist) {
         <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>`;
 
             if(itemData){
-                if(Number(multiplier)>0){
-                    output += `${(Number(select1Cost) + Number(select2Cost) + Number(select3Cost) + Number(select4Cost))*Number(multiplier)}`;
+                if(multiplier>0){
+                    output += `${(select1Cost + select2Cost + select3Cost + select4Cost)*multiplier}`;
                 }else{
-                    output += `${(Number(select1Cost) + Number(select2Cost) + Number(select3Cost) + Number(select4Cost))}`;
+                    output += `${(select1Cost + select2Cost + select3Cost + select4Cost)}`;
                 }
             }else{
                 output += `0`;

@@ -135,29 +135,195 @@
         }
       },
       "disadvantagelist": {
-        "Ablative": {},
-        "Activation": {},
-        "Always On": {},
-        "Charges": {},
-        "Concentration": {},
-        "Extra Time": {},
-        "Focus": {},
-        "Gestures": {},
-        "Incantations": {},
-        "Increased END Cost": {},
-        "Independent": {},
-        "Limited Power": {},
-        "Linked": {},
-        "Mental Powers Based on CON": {},
-        "No Concious Control": {},
-        "No Knockback": {},
-        "Only in Hero ID": {},
-        "Reduced by Range": {},
-        "Reduced Penetration": {},
-        "Requires Skill Roll": {},
-        "Side Effects": {},
-        "Variable Limitations": {},
-        "Visible": {}
+        "Ablative": {
+          "baseCost": -100
+        },
+        "Activation": {
+          "baseCost": 0,
+          "select1": {
+            "0": "none",
+            "-200": "8<",
+            "-150": "9<",
+            "-125": "10<",
+            "-100": "11<",
+            "-75": "12<",
+            "-50": "14<",
+            "-25": "15<"
+          }
+        },
+        "Activation (burnout)": {
+          "baseCost": 0,
+          "select1": {
+            "0": "none",
+            "-150": "8<",
+            "-125": "9<",
+            "-100": "10<",
+            "-75": "11<",
+            "-50": "12<",
+            "-25": "14<"
+          }
+        },
+        "Activation (jammed)": {
+          "baseCost": 0,
+          "select1": {
+            "0": "none",
+            "-150": "8<",
+            "-125": "9<",
+            "-100": "10<",
+            "-75": "11<",
+            "-50": "12<",
+            "-25": "14<"
+          }
+        },
+        "Always On": {
+          "baseCost": -50
+        },
+        "Charges": {
+          "baseCost": 0,
+          "select1": {
+            "0": "13-16 charges",
+            "-25": "9-12 charges",
+            "-50": "7-8 charges",
+            "-75": "5-6 charges",
+            "-100": "4 charges",
+            "-125": "3 charges",
+            "-150": "2 charges",
+            "-200": "1 charges"
+          },
+          "select2": {
+            "0": "continues full phase",
+            "25": "continues extra phase",
+            "50": "continues 1 turn",
+            "75": "continues 1 minute",
+            "100": "continues 5 minutes",
+            "125": "continues 1 hour"
+          },
+          "select3": {
+            "0": "None",
+            "50": "recoverable"
+          }
+        },
+        "Concentration": {
+          "baseCost": 0,
+          "select1": {
+            "0": "none",
+            "-25": "1/2 DCV",
+            "-50" : "1/2 DCV (continuous)",
+            "-51": "0 DCV",
+            "-100": "0 DCV (continuous)"
+          }
+        },
+        "Extra Time": {
+          "baseCost": 0,
+          "select1": {
+            "0": "none",
+            "-50": "full phase",
+            "-150": "1 turn",
+            "-200": "1 minute",
+            "-250": "5 minutes",
+            "-300": "1 hour"
+          }
+        },
+        "Focus": {
+          "baseCost": 0,
+          "select1": {
+            "0": "none",
+            "-25": "inobvious innaccessible (IIF)",
+            "-50": "inobvious accessible (IAF)",
+            "-51": "obvious innaccessible (OIF)",
+            "-100": "inobvious innaccessible (OAF)"
+          },
+          "select2": {
+            "0": "none",
+            "-25": "Fragile",
+            "-50": "Bulky (1/2 DCV)",
+            "-100": "immobile"
+          },
+          "select3": {
+            "0": "none",
+            "-25": "expendable, very common to replace (ie store bought)",
+            "-50": "expendable, common to replace (ie from overseas)",
+            "-75": "expendable, uncommon to replace (ie bespoke)",
+            "-100": "expendable, rare to replace (ie came from outer space)"
+          }
+        },
+        "Gestures": {
+          "baseCost": -25,
+          "select1": {
+            "0": "none",
+            "-25": "constant"
+          }
+        },
+        "Incantations": {
+          "baseCost": -25,
+          "select1": {
+            "0": "none",
+            "-25": "constant"
+          }
+        },
+        "Increased END Cost": {
+          "baseCost": 0,
+          "select1": {
+            "0": "none",
+            "-50": "x2",
+            "-100": "x3",
+            "-150": "x4",
+            "-200": "x5",
+            "-250": "x6",
+            "-300": "x7"
+          }
+        },
+        "Independent": {
+          "baseCost": -200
+        },
+        "Limited Power": {
+          "baseCost": 0,
+          "select1": {
+            "0": "none",
+            "-50": "very usable (11<)",
+            "-100": "usable (9<)",
+            "-150": "seldom usable (7<)",
+            "-200": "rarely usable (5<)"
+          }
+        },
+        "Linked": {
+          "baseCost": -50
+        },
+        "Mental Powers Based on CON": {
+          "baseCost": -50
+        },
+        "No Concious Control": {
+          "baseCost": -200
+        },
+        "No Knockback": {
+          "baseCost": -25
+        },
+        "Only in Hero ID": {
+          "baseCost": -25
+        },
+        "Reduced by Range": {
+          "baseCost": -25
+        },
+        "Reduced Penetration": {
+          "baseCost": -25
+        },
+        "Requires Skill Roll": {
+          "baseCost": -50
+        },
+        "Side Effects": {
+          "baseCost": 0,
+          "select1": {
+            "0": "none",
+            "-50": "30 pts/half active pts",
+            "-100": "60 pts/all active pts"
+          }
+        },
+        "Variable Limitations": {
+          "baseCost": -50
+        },
+        "Visible": {
+          "baseCost": -25
+        }
       },
       "advantagelist": {
         "Affects Desolidified": {
@@ -166,6 +332,7 @@
         "Area Effect": {
           "baseCost": 0,
           "select1": {
+            "0": "none",
             "50": "one hex",
             "100": "radius/cone/line"
           },
@@ -198,6 +365,9 @@
         "Based on EGO CV": {
           "baseCost": 100
         },
+        "Change Environment (vary env)": {
+          "baseCost": "100"
+        },
         "Charges": {
           "baseCost": 0,
           "select1": {
@@ -226,6 +396,18 @@
         "Double Knockback": {
           "baseCost": 75
         },
+        "Entangle Effects": {
+          "baseCost": 0,
+          "select1": {
+            "0": "None",
+            "50": "entangle takes no damage",
+            "25": "entangle/character take damage"
+          },
+          "select2": {
+            "0": "None",
+            "50": "backlash"
+          }
+        },
         "Explosion": {
           "baseCost": 50,
           "select1": {
@@ -236,19 +418,48 @@
             "100": "+4 HEX for DC"
           }
         },
+        "Force Wall (permeable to friendly energy/physical attacks)": {
+          "baseCost": 50
+        },
         "Hardened": {
           "baseCost": 25
         },
         "Hole in the Middle": {
           "baseCost": 0,
           "select1": {
+            "0": "none",
             "25": "fixed size",
             "50": "variable size"
+          }
+        },
+        "Images (increased Radius)": {
+          "baseCost": 0,
+          "select1": {
+            "0": "none",
+            "25": "2 x radius",
+            "50": "4 x radius",
+            "75": "6 x radius",
+            "100": "8 x radius"
+          }
+        },
+        "Improved Return Rate": {
+          "baseCost": 0,
+          "select1": {
+            "0": "None",
+            "25": "return pts/minute",
+            "50": "return pts/5 minutes",
+            "75": "return pts/hour",
+            "100": "return pts/5 hours",
+            "125": "return pts/day",
+            "150": "return pts/5 days",
+            "175": "return pts/week",
+            "200": "return pts/5 weeks"
           }
         },
         "Increased Max Range": {
           "baseCost": 0,
           "select1": {
+            "0": "none",
             "25": "5x max range",
             "50": "10x max range",
             "75": "15x max range",
@@ -258,6 +469,7 @@
         "Increased STUN Multiplier": {
           "baseCost": 0,
           "select1": {
+            "0": "none",
             "50": "+1 STUN per die",
             "100": "+2 STUN per die",
             "150": "+3 STUN per die",
@@ -267,6 +479,7 @@
         "Indirect": {
           "baseCost": 0,
           "select1": {
+            "0": "none",
             "25": "att comes from same location/fires away",
             "50": "att comes from any location/fires away",
             "75": "att comes from any location/any direction"
@@ -280,6 +493,14 @@
             "50": "+2 addtnl sense groups",
             "75": "+3 addtnl sense groups",
             "100": "+4 addtnl sense groups"
+          }
+        },
+        "Missile Deflection (improved range)": {
+          "baseCost": 50,
+          "select1": {
+            "0": "none",
+            "50": "deflect adjacent attacks",
+            "100":"deflect at range"
           }
         },
         "No Normal Defense": {
@@ -297,13 +518,25 @@
         "Reduced Endurance": {
           "baseCost": 0,
           "select1": {
+            "0": "none",
             "25": "1/2 END",
             "50": "0 END",
             "100": "0 END Persistant"
           }
         },
+        "Resistant": {
+          "baseCost": "50"
+        },
         "Sticky": {
           "baseCost": 50
+        },
+        "Targetting Groups": {
+          "baseCost": 0,
+          "select1": {
+            "0": "None",
+            "25": "any single power",
+            "2": "any group"
+          }
         },
         "Time Delay": {
           "baseCost": 25
@@ -311,6 +544,7 @@
         "Trigger": {
           "baseCost": 0,
           "select1": {
+            "0": "none",
             "25": "preset trigger",
             "50": "variable trigger"
           }
@@ -318,12 +552,14 @@
         "Usable by Others": {
           "baseCost": 0,
           "select1": {
+            "0": "none",
             "25": "+1 person",
             "50": "+2 persons",
             "75": "+3 persons",
             "100": "+4 persons"
           },
           "select2": {
+            "0": "none",
             "25": "loses power while used",
             "50": "all can use power"
           }
@@ -376,17 +612,6 @@
             "label": "addtnl pool pnts",
             "levelCost": 0.5,
             "baseLevels": 0
-          },
-          "advantage": {
-            "None": 0,
-            "return pts/minute": 0.25,
-            "return pts/5 minutes": 0.5,
-            "return pts/hour": 0.75,
-            "return pts/5 hours": 1,
-            "return pts/day": 1.25,
-            "return pts/5 days": 1.5,
-            "return pts/week": 1.75,
-            "return pts/5 weeks": 2
           }
         },
         "Active Sonar": {
@@ -435,10 +660,6 @@
             "label": "hex radius",
             "levelCost": 5,
             "baseLevels": 2
-          },
-          "advantage": {
-            "None": 0,
-            "Vary Environment": 1
           }
         },
         "Clinging": {
@@ -463,10 +684,6 @@
             "label": "levels (x25%)",
             "levelCost": 10,
             "baseLevels": 1
-          },
-          "advantage": {
-            "None": 0,
-            "Resistant": 0.5
           }
         },
         "Damage Resistance": {
@@ -534,11 +751,6 @@
             "label": "d6",
             "levelCost": 3,
             "baseLevels": 3
-          },
-          "advantage": {
-            "None": 0,
-            "any single power": 0.25,
-            "any group": 2
           }
         },
         "Drain": {
@@ -551,17 +763,6 @@
             "label": "d6",
             "levelCost": 10,
             "baseLevels": 2
-          },
-          "advantage": {
-            "None": 0,
-            "return pts/minute": 0.25,
-            "return pts/5 minutes": 0.5,
-            "return pts/hour": 0.75,
-            "return pts/5 hours": 1,
-            "return pts/day": 1.25,
-            "return pts/5 days": 1.5,
-            "return pts/week": 1.75,
-            "return pts/5 weeks": 2
           }
         },
         "Duplication": {
@@ -650,12 +851,6 @@
             "levelCost": 5,
             "baseLevels": 0
           },
-          "advantage": {
-            "None": 0,
-            "entangle takes no damage": 0.5,
-            "entangle/character take damage": 0.25,
-            "backlash": 0.5
-          },
           "disadvantage": {
             "None": 0,
             "no defense": 1.5,
@@ -738,10 +933,6 @@
             "levelCost": 0.5,
             "baseLevels": 5
           },
-          "advantage": {
-            "None": 0,
-            "friendly fire penetrates (energy/physical)": 0.5
-          },
           "disadvantage": {
             "None": 0,
             "feedback": 1
@@ -805,10 +996,6 @@
             "label": "pts subtracted from PER checks",
             "levelCost": 3,
             "baseLevels": 0
-          },
-          "advantage": {
-            "None": 0,
-            "double radius": 0.25
           }
         },
         "Infrared Vision": {
@@ -962,13 +1149,6 @@
             "label": "character pts per form",
             "levelCost": 0.2,
             "baseLevels": 100
-          },
-          "advantage": {
-            "None": 0,
-            "2 duplicate": 1,
-            "3 duplicate": 2,
-            "4 duplicate": 3,
-            "5 duplicate": 4
           }
         },
         "Mind Link": {
@@ -1022,11 +1202,6 @@
           "select1": {
             "0": "None",
             "10": "reflect attacks"
-          },
-          "advantage": {
-            "None": 0,
-            "deflect adjacent attacks": 0.5,
-            "deflect at range": 1
           }
         },
         "Multiform": {
@@ -1150,6 +1325,42 @@
             "baseLevels": 1
           }
         },
+        "Skill Levels (three related skills)": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "baseCost": 0,
+          "input1": {
+            "label": "+ w/ any three related skills",
+            "levelCost": 3,
+            "baseLevels": 0
+          }
+        },
+        "Skill Levels (group of related skills)": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "baseCost": 0,
+          "input1": {
+            "label": "+ w/ group of similar skills",
+            "levelCost": 5,
+            "baseLevels": 0
+          }
+        },
+        "Skill Levels (overall skill)": {
+          "desc": "",
+          "type": "STANDARD",
+          "duration": "CONSTANT",
+          "target": "SELF",
+          "baseCost": 0,
+          "input1": {
+            "label": "+ one overall level",
+            "levelCost": 10,
+            "baseLevels": 0
+          }
+        },
         "Spatial Awareness": {
           "desc": "",
           "type": "SENSE",
@@ -1196,11 +1407,6 @@
             "label": "d6",
             "levelCost": 5,
             "baseLevels": 2
-          },
-          "advantage": {
-            "None": 0,
-            "one power": 0.25,
-            "one group": 2
           }
         },
         "Swimming": {
@@ -1323,17 +1529,6 @@
             "label": " x 2 addtnl transfer pts",
             "levelCost": 1,
             "baseLevels": 0
-          },
-          "advantage": {
-            "None": 0,
-            "return pts/minute": 0.25,
-            "return pts/5 minutes": 0.5,
-            "return pts/hour": 0.75,
-            "return pts/5 hours": 1,
-            "return pts/day": 1.25,
-            "return pts/5 days": 1.5,
-            "return pts/week": 1.75,
-            "return pts/5 weeks": 2
           }
         },
         "Tunnelling": {
@@ -1374,6 +1569,7 @@
           "select1": {
             "label": "Circumstances",
             "values": {
+              "0":  "none" ,
               "5": "uncommon",
               "10": "common",
               "15": "very common"
@@ -1393,6 +1589,7 @@
           "select1": {
             "label": "Circumstances",
             "values": {
+              "0":  "none",
               "5": "uncommon",
               "10": "common",
               "15": "very common"
@@ -1650,32 +1847,8 @@
       "frameworklist": [
         "Multipower",
         "Elemental Control"
-      ]
-    },
-    "npc": {
-      "templates": ["base"],
-      "cr": 0
-    }
-  },
-  "Item": {
-    "types": ["item", "skill", "power","advantage","disadvantage","complication"],
-    "templates": {
-      "base": {
-        "description": ""
-      }
-    },
-    "item": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
-    },
-    "skill": {
-      "key": "",
-      "type": "",
-      "baseCost": 2,
-      "levels": 0,
-      "values": {
+      ],
+      "skilllist": {
         "Acrobatics": {
           "desc": "",
           "type": "DEX",
@@ -1807,6 +1980,12 @@
           "type": "INT",
           "baseCost": 2,
           "levelCost": 1
+        },
+        "Familiarity": {
+          "desc": "",
+          "type": "BACKGROUND",
+          "baseCost": 1,
+          "levelCost": 0
         },
         "Forensics": {
           "desc": "",
@@ -2014,9 +2193,33 @@
         }
       }
     },
+    "npc": {
+      "templates": ["base"],
+      "cr": 0
+    }
+  },
+  "Item": {
+    "types": ["item", "skill", "power","advantage","disadvantage","complication"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "item": {
+      "templates": ["base"],
+      "quantity": 1,
+      "weight": 0,
+      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+    },
+    "skill": {
+      "key": "",
+      "type": "",
+      "baseCost": 2,
+      "levels": 0
+    },
     "power": {
       "key": "",
-      "powername": "",
+      "powername": "New Power",
       "input1": 0,
       "input2": 0,
       "input3": 0,
