@@ -177,6 +177,18 @@ export class HeroSystemActorSheet extends ActorSheet {
         }
         advantages.push(i);
       }else if (i.type === 'disadvantage') {
+          if(context.system.disadvantagelist[i.system.key]){
+              i.system.baseCost = context.system.disadvantagelist[i.system.key].baseCost;
+              if(!context.system.disadvantagelist[i.system.key].select1){
+                  i.system.select1 = 0;
+              }
+              if(!context.system.disadvantagelist[i.system.key].select2){
+                  i.system.select2 = 0;
+              }
+              if(!context.system.disadvantagelist[i.system.key].select3){
+                  i.system.select3 = 0;
+              }
+          }
         disadvantages.push(i);
       }
     }
@@ -186,6 +198,7 @@ export class HeroSystemActorSheet extends ActorSheet {
     context.powerlist = context.system.powerlist;
     context.complicationlist = context.system.complicationlist;
     context.advantagelist = context.system.advantagelist;
+    context.disadvantagelist = context.system.disadvantagelist;
     context.frameworklist = context.system.frameworklist;
 
     context.advantages = advantages;

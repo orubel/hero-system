@@ -70,7 +70,6 @@ export class HeroSystemItemSheet extends ItemSheet {
 
     context.powerlist = this.actor.system.powerlist;
 
-    context.disadvantagelist = this.actor.system.disadvantagelist;
     context.complicationlist = this.actor.system.complicationlist;
     if(this.actor.system.complicationlist[itemData.system.key]){
         if(this.actor.system.complicationlist[itemData.system.key].select1){
@@ -127,6 +126,32 @@ export class HeroSystemItemSheet extends ItemSheet {
         }
         if(this.actor.system.advantagelist[itemData.system.key].select3){
             if(!this.actor.system.advantagelist[itemData.system.key].select3[itemData.system.select3]){
+                itemData.system.select3 = 0;
+            }
+        }else{
+            itemData.system.select3 = 0;
+        }
+    }
+
+    context.disadvantagelist = this.actor.system.disadvantagelist;
+    if(this.actor.system.disadvantagelist[itemData.system.key]){
+        itemData.system.baseCost = 0;
+        if(this.actor.system.disadvantagelist[itemData.system.key].select1){
+            if(!this.actor.system.disadvantagelist[itemData.system.key].select1[itemData.system.select1]){
+                itemData.system.select1 = 0;
+            }
+        }else{
+            itemData.system.select1 = 0;
+        }
+        if(this.actor.system.disadvantagelist[itemData.system.key].select2){
+            if(!this.actor.system.disadvantagelist[itemData.system.key].select2[itemData.system.select2]){
+                itemData.system.select2 = 0;
+            }
+        }else{
+            itemData.system.select2 = 0;
+        }
+        if(this.actor.system.advantagelist[itemData.system.key].select3){
+            if(!this.actor.system.disadvantagelist[itemData.system.key].select3[itemData.system.select3]){
                 itemData.system.select3 = 0;
             }
         }else{

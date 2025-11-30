@@ -454,7 +454,69 @@ Handlebars.registerHelper('showAdvantages', function(advantages, advantagelist, 
             if(itemType!=''){
               output += `<div class='resource-label' style='display: inline-block;'>${adv.system.key} (${powername})</div>`;
             }else{
-              output += `<div class='resource-label' style='display: inline-block;'>Undefined Power</div>`;
+              output += `<div class='resource-label' style='display: inline-block;'>Undefined Advantage</div>`;
+            }
+
+        output += `
+              </h4>
+            </div>
+
+            <div class='item-controls' style='display:block;flex: 0 0 50px;''>
+              <a class='item-control item-edit' title='Edit Power'>
+                <i class='fas fa-edit'></i>
+              </a>
+              <a class='item-control item-delete' title='Delete Power'>
+                <i class='fas fa-trash'></i>
+              </a>
+            </div>
+          </li>
+          `;
+    }
+    return output;
+});
+
+Handlebars.registerHelper('showDisadvantages', function(disadvantages, disadvantagelist, powers) {
+    var output = ``;
+    for (let key in disadvantages) {
+
+        var dis = disadvantages[key];
+
+        var itemData = disadvantagelist[dis.system.key];
+
+        var baseCost = Number(dis.system.baseCost);
+        var select1Cost = Number(dis.system.select1);
+        var select2Cost = Number(dis.system.select2);
+        var select3Cost = Number(dis.system.select3);
+
+        var itemType = '';
+        if(itemData !== undefined){
+            itemType = itemData.type;
+        }
+
+        var powername = "";
+        for (let key in powers) {
+            if(powers[key]._id == dis.system.powerId){
+                powername = powers[key].system.key
+            }
+        }
+
+        output += `
+          <li class='item flexrow' data-item-id=${dis._id}>
+            <div class='item-name' style='display:block;flex:0 0 75px; text-align: center;'>`;
+            if(itemData){
+                output += `${(select1Cost+select2Cost+select3Cost+baseCost)/100}`;
+            }else{
+                output += `0`;
+            }
+        output += `
+            </div>
+            <div class='item-name' style='display:block;padding:3px;'>
+              <h4>`;
+
+            if(itemType!=''){
+              output += `<div class='resource-label' style='display: inline-block;'>${dis.system.key} (${powername})</div>`;
+            }else{
+              output += `<div class='resource-label' style='display: inline-block;'>Undefined Disadvantage</div>`;
             }
 
         output += `
