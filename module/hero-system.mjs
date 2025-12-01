@@ -311,7 +311,7 @@ Handlebars.registerHelper('calcPowerPtsTotal', function(powerListInput, input) {
     return output;
 });
 
-Handlebars.registerHelper('showPowers', function(powers, powerlist) {
+Handlebars.registerHelper('showPowers', function(powers, powerlist, advantages, disadvantages) {
     var output = ``;
     for (let key in powers) {
 
@@ -324,6 +324,8 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
         var input3Cost = 0;
         var select1Cost = 0;
         var select2Cost = 0;
+        var advCost = 0;
+        var disCost = 0;
 
         var itemType = '';
         if(itemData !== undefined){
@@ -348,6 +350,20 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
             if(itemData.select2){
                 select2Cost = Number(power.system.select2);
             }
+
+            for (let adv in advantages) {
+                if(power._id == advantages[adv].system.powerId){
+                    var cost = (Number(advantages[adv].system.select1)+Number(advantages[adv].system.select2)+Number(advantages[adv].system.select3)+Number(advantages[adv].system.baseCost))/100;
+                    advCost += cost;
+                }
+            }
+
+            for (let dis in disadvantages) {
+                if(power._id == disadvantages[dis].system.powerId){
+                    var cost = (Number(disadvantages[dis].system.select1)+Number(disadvantages[dis].system.select2)+Number(disadvantages[dis].system.select3)+Number(disadvantages[dis].system.baseCost))/100;
+                    disCost += cost;
+                }
+            }
         }
 
         output += `
@@ -355,7 +371,11 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
             <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>`;
 
             if(itemData){
-                output += `${Math.floor(input1Cost+input2Cost+input3Cost+select1Cost+select2Cost+Number(itemData.baseCost))}`;
+                var cost = Math.ceil(input1Cost+input2Cost+input3Cost+select1Cost+select2Cost+Number(itemData.baseCost));
+                var disAmount = cost*disCost;
+                var advAmount = cost*advCost;
+
+                output += `${Math.ceil(cost+(advAmount+disAmount))}`;
             }else{
                 output += `0`;
             }

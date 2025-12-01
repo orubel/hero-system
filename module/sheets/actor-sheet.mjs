@@ -379,7 +379,7 @@ export class HeroSystemActorSheet extends ActorSheet {
     // Finally, create the item!
     return await Item.create(itemData, { parent: this.actor });
   }
-  
+
   /**
    * Handle clickable rolls.
    * @param {Event} event   The originating click event
