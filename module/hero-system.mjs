@@ -393,7 +393,7 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist) {
             </div>
 
             <div class='item-controls' style='display:block;flex: 0 0 50px;''>
-                <a class='item-control item-create' title='Create Advantage' data-type='disadvantage'>
+                <a class='item-control dis-create' title='Create Disadvantage' data-type='disadvantage'>
                   <i class='fas fa-plus'></i>New Disadvantage
                 </a>
             </div>
@@ -494,7 +494,9 @@ Handlebars.registerHelper('showDisadvantages', function(disadvantages, disadvant
         }
 
         var powername = "";
+        console.log("powerId:"+dis.system.powerId);
         for (let key in powers) {
+            console.log("ID :"+powers[key]._id)
             if(powers[key]._id == dis.system.powerId){
                 powername = powers[key].system.key
             }

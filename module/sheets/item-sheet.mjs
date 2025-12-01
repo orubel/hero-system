@@ -150,7 +150,7 @@ export class HeroSystemItemSheet extends ItemSheet {
         }else{
             itemData.system.select2 = 0;
         }
-        if(this.actor.system.advantagelist[itemData.system.key].select3){
+        if(this.actor.system.disadvantagelist[itemData.system.key].select3){
             if(!this.actor.system.disadvantagelist[itemData.system.key].select3[itemData.system.select3]){
                 itemData.system.select3 = 0;
             }

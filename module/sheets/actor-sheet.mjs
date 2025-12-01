@@ -253,6 +253,7 @@ export class HeroSystemActorSheet extends ActorSheet {
     // Add Inventory Item
     html.on('click', '.item-create', this._onItemCreate.bind(this));
     html.on('click', '.adv-create', this._onAdvantageCreate.bind(this));
+    html.on('click', '.dis-create', this._onDisadvantageCreate.bind(this));
 
     // Delete Inventory Item
     html.on('click', '.item-delete', (ev) => {
@@ -347,6 +348,38 @@ export class HeroSystemActorSheet extends ActorSheet {
     return await Item.create(itemData, { parent: this.actor });
   }
 
+  async _onDisadvantageCreate(event) {
+    event.preventDefault();
+
+    const formElement = event.currentTarget.closest('form');
+    const hiddenInput = formElement.querySelector('input[name="power_id"]');
+    //const item = this.actor.items.get(hiddenInput.value);
+
+    const header = event.currentTarget;
+    // Get the type of item to create.
+    const type = header.dataset.type;
+    // Grab any data associated with this control.
+    const data = duplicate(header.dataset);
+    // Initialize a default name.
+    const name = `${type.capitalize()}`;
+    // Prepare the item object.
+
+
+    const itemData = {
+      name: name,
+      type: type,
+      system: data
+    };
+
+    itemData.system.powerId = hiddenInput.value;
+
+    // Remove the type from the dataset since it's in the itemData.type prop.
+    delete itemData.system['type'];
+
+    // Finally, create the item!
+    return await Item.create(itemData, { parent: this.actor });
+  }
+  
   /**
    * Handle clickable rolls.
    * @param {Event} event   The originating click event
