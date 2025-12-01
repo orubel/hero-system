@@ -1,0 +1,90 @@
+{{! This template is a fallback for when items don't have more specific templates. }}
+{{! Generally, you'll want to make more specific templates when possible. }}
+
+
+
+<form class='{{cssClass}}' autocomplete='off'>
+  <header class='sheet-header'>
+        {{! Editors must receive enriched text data from getData to properly handle rolls }}
+        {{editor (lookup (lookup system.values system.key) 'desc') target='system.desc' engine='prosemirror' button=true editable=editable}}
+  </header>
+      <div class="flexrow" style="gap: 0.5em;">
+        <!-- LEFT COLUMN -->
+        <div class="flexcol" style="flex: 1;">
+            <ol class='items-list'>
+              <li class='item flexrow items-header'>
+                <div>Setup</div>
+              </li>
+                <li class='item flexrow'>
+                    <div class="flexcol" style="flex: 1;">
+                      <section style="text-align: left;">
+                          <label class='resource-label' style="display: inline-block;width:100px;">{{localize "Name"}}</label>
+                          {{{ system.parent.key }}}
+                      </section>
+
+                      <section style="text-align: left;">
+                          <label class='resource-label' style="display:inline-block;;width:100px;">{{localize "Disadvantage"}}</label>
+                          <select style="width:250px;" name="system.key" value="{{system.key}}">
+                              {{{ selectKey this.disadvantagelist system.key }}}
+                          </select>
+                      </section>
+                    </div>
+                </li>
+            </ol>
+        </div>
+      </div>
+
+      <div class="flexrow" style="gap: 0.5em;">
+        <!-- LEFT COLUMN -->
+        <div class="flexcol" style="flex: 1;">
+            <ol class='items-list'>
+              <li class='item flexrow items-header'>
+                <div>Config</div>
+              </li>
+                <li class='item flexrow'>
+                    <div class="flexcol" style="flex: 1;">
+
+
+                      {{#if (lookup (lookup this.disadvantagelist system.key) 'select1')}}
+                        <li class='item flexrow'>
+                            <div class="flexcol" style="flex: 1;">
+                              <section style="text-align: left;">
+                                  <select style="width:250px;" name="system.select1" >
+                                    {{{ selectKeyVal (lookup (lookup this.disadvantagelist system.key) 'select1') system.select1 }}}
+                                  </select>
+                              </section>
+                            </div>
+                        </li>
+                      {{/if}}
+
+                      {{#if (lookup (lookup this.disadvantagelist system.key) 'select2')}}
+                        <li class='item flexrow'>
+                            <div class="flexcol" style="flex: 1;">
+                              <section style="text-align: left;">
+                                  <select style="width:250px;" name="system.select2" >
+                                       {{{ selectKeyVal (lookup (lookup this.disadvantagelist system.key) 'select2') system.select2 }}}
+                                  </select>
+                              </section>
+                            </div>
+                        </li>
+                      {{/if}}
+
+                      {{#if (lookup (lookup this.disadvantagelist system.key) 'select3')}}
+                        <li class='item flexrow'>
+                            <div class="flexcol" style="flex: 1;">
+                              <section style="text-align: left;">
+                                  <select style="width:250px;" name="system.select3" >
+                                       {{{ selectKeyVal (lookup (lookup this.disadvantagelist system.key) 'select3') system.select3 }}}
+                                  </select>
+                              </section>
+                            </div>
+                        </li>
+                      {{/if}}
+
+                    </div>
+                </li>
+            </ol>
+        </div>
+      </div>
+
+</form>
