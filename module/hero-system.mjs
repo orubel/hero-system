@@ -190,6 +190,18 @@ Handlebars.registerHelper('selectKey', function(values,comp_key) {
     return output;
 });
 
+Handlebars.registerHelper('selectValue', function(values,comp_key) {
+    var output = ``
+    for (let key in values) {
+        if(key==comp_key){
+            output += `<option name='name' type='text' value='`+values[key]+`' placeholder='Name' selected>`+values[key]+`</option>`;
+        }else{
+            output += `<option name='name' type='text' value='`+values[key]+`' placeholder='Name'>`+values[key]+`</option>`;
+        }
+    };
+    return output;
+});
+
 Handlebars.registerHelper('selectKeyVal', function(values,comp_key) {
     var output = ``
     for (let key in values) {
@@ -307,6 +319,63 @@ Handlebars.registerHelper('calcPowerPtsTotal', function(powerListInput, input) {
         output = Number(powerListInput.baseCost);
     }else{
         output = Number(powerListInput.baseCost)+Math.floor(Number(input) * Number(powerListInput.levelCost));
+    }
+    return output;
+});
+
+Handlebars.registerHelper('showFrameworks', function(frameworks, frameworklist, powers) {
+    var output = ``;
+
+    for (let key in frameworks) {
+
+        var framework = frameworks[key];
+
+        console.log("exists: "+JSON.stringify(framework));
+console.log("fw: "+JSON.stringify(frameworklist));
+
+        output += `
+          <li class='item flexrow' data-item-id=${framework._id}>
+            <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>`;
+
+            if(framework.system.points>0){
+                output += `${framework.system.points}`;
+            }else{
+                output += `0`;
+            }
+
+        output += `
+            </div>
+            <div class='item-name' style='display:block;padding:3px;'>
+              <h4>`;
+
+            if(framework.system.key!=''){
+              output += `<div class='resource-label' style='display: inline-block;'>${framework.system.key}</div>`;
+            }else{
+              output += `<div class='resource-label' style='display: inline-block;'>Undefined Framework</div>`;
+            }
+
+
+        output += `
+              </h4>
+            </div>
+
+            <div class='item-controls' style='display:block;flex: 0 0 50px;''>
+                  <a class='item-control power-create' title='Create Power' data-type='power'>
+                    <input type="hidden" name="framework_id" value="`+framework._id+`">
+                    <i class='fas fa-plus'></i>New Power
+                  </a>
+            </div>
+
+            <div class='item-controls' style='display:block;flex: 0 0 50px;''>
+              <a class='item-control item-edit' title='Edit Power'>
+                <i class='fas fa-edit'></i>
+              </a>
+              <a class='item-control item-delete' title='Delete Power'>
+                <i class='fas fa-trash'></i>
+              </a>
+            </div>
+          </li>
+          `;
     }
     return output;
 });
@@ -514,9 +583,7 @@ Handlebars.registerHelper('showDisadvantages', function(disadvantages, disadvant
         }
 
         var powername = "";
-        console.log("powerId:"+dis.system.powerId);
         for (let key in powers) {
-            console.log("ID :"+powers[key]._id)
             if(powers[key]._id == dis.system.powerId){
                 powername = powers[key].system.key
             }

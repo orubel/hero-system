@@ -108,6 +108,7 @@ export class HeroSystemActorSheet extends ActorSheet {
     const disadvantages = [];
     const complications = [];
     const skills = [];
+    const frameworks = [];
     const powers = [];
     const gear = [];
 
@@ -119,6 +120,8 @@ export class HeroSystemActorSheet extends ActorSheet {
 
       if (i.type === 'item') {
         gear.push(i);
+      }else if (i.type === 'framework') {
+        frameworks.push(i);
       }else if (i.type === 'power') {
         powers.push(i);
       }else if (i.type === 'complication') {
@@ -206,6 +209,7 @@ export class HeroSystemActorSheet extends ActorSheet {
     context.complications = complications;
     context.skills = skills;
     context.powers = powers;
+    context.frameworks = frameworks;
     context.gear = gear;
 
 
@@ -252,6 +256,7 @@ export class HeroSystemActorSheet extends ActorSheet {
 
     // Add Inventory Item
     html.on('click', '.item-create', this._onItemCreate.bind(this));
+    html.on('click', '.power-create', this._onPowerCreate.bind(this));
     html.on('click', '.adv-create', this._onAdvantageCreate.bind(this));
     html.on('click', '.dis-create', this._onDisadvantageCreate.bind(this));
 
@@ -316,11 +321,11 @@ export class HeroSystemActorSheet extends ActorSheet {
     return await Item.create(itemData, { parent: this.actor });
   }
 
-  async _onAdvantageCreate(event) {
+  async _onPowerCreate(event) {
     event.preventDefault();
 
     const formElement = event.currentTarget.closest('form');
-    const hiddenInput = formElement.querySelector('input[name="power_id"]');
+    const frameworkId = formElement.querySelector('input[name="framework_id"]');
     //const item = this.actor.items.get(hiddenInput.value);
 
     const header = event.currentTarget;
@@ -339,7 +344,39 @@ export class HeroSystemActorSheet extends ActorSheet {
       system: data
     };
 
-    itemData.system.powerId = hiddenInput.value;
+    itemData.system.frameworkId = frameworkId.value;
+
+    // Remove the type from the dataset since it's in the itemData.type prop.
+    delete itemData.system['type'];
+
+    // Finally, create the item!
+    return await Item.create(itemData, { parent: this.actor });
+  }
+
+  async _onAdvantageCreate(event) {
+    event.preventDefault();
+
+    const formElement = event.currentTarget.closest('form');
+    const powerId = formElement.querySelector('input[name="power_id"]');
+    //const item = this.actor.items.get(hiddenInput.value);
+
+    const header = event.currentTarget;
+    // Get the type of item to create.
+    const type = header.dataset.type;
+    // Grab any data associated with this control.
+    const data = duplicate(header.dataset);
+    // Initialize a default name.
+    const name = `${type.capitalize()}`;
+    // Prepare the item object.
+
+
+    const itemData = {
+      name: name,
+      type: type,
+      system: data
+    };
+
+    itemData.system.powerId = powerId.value;
 
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.system['type'];

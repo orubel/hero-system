@@ -68,6 +68,8 @@ export class HeroSystemItemSheet extends ItemSheet {
 
     context.skilllist = this.actor.system.skilllist;
 
+    context.frameworklist = this.actor.system.frameworklist;
+
     context.powerlist = this.actor.system.powerlist;
 
     context.complicationlist = this.actor.system.complicationlist;

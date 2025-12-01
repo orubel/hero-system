@@ -1,4 +1,18 @@
 <ol class='items-list'>
+
+  <li class='item flexrow items-header'>
+    <div style="flex:0 0 50px;">Pts</div>
+    <div style="flex: 0 0 300px;text-align:left;">Frameworks</div>
+    <div style="text-align:right;">
+      <a class='item-control item-create' title='{{localize "DOCUMENT.Create" type='Framework'}}' data-type='framework'>
+        <i class='fas fa-plus'></i>{{localize 'DOCUMENT.New' type='framework'}}
+      </a>
+    </div>
+    <div style="text-align:right;"></div>
+  </li>
+
+    {{{ showFrameworks frameworks system.frameworklist powers}}}
+
   <li class='item flexrow items-header'>
     <div style="flex:0 0 50px;">Pts</div>
     <div style="flex: 0 0 300px;text-align:left;">Powers</div>
