@@ -330,9 +330,6 @@ Handlebars.registerHelper('showFrameworks', function(frameworks, frameworklist, 
 
         var framework = frameworks[key];
 
-        console.log("exists: "+JSON.stringify(framework));
-console.log("fw: "+JSON.stringify(frameworklist));
-
         output += `
           <li class='item flexrow' data-item-id=${framework._id}>
             <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>`;
@@ -359,7 +356,7 @@ console.log("fw: "+JSON.stringify(frameworklist));
               </h4>
             </div>
 
-            <div class='item-controls' style='display:block;flex: 0 0 50px;''>
+            <div class='item-controls' style='display:block;flex: 0 0 100px;''>
                   <a class='item-control power-create' title='Create Power' data-type='power'>
                     <input type="hidden" name="framework_id" value="`+framework._id+`">
                     <i class='fas fa-plus'></i>New Power
@@ -380,12 +377,11 @@ console.log("fw: "+JSON.stringify(frameworklist));
     return output;
 });
 
-Handlebars.registerHelper('showPowers', function(powers, powerlist, advantages, disadvantages) {
+Handlebars.registerHelper('showPowers', function(powers, powerlist, advantages, disadvantages, frameworks) {
     var output = ``;
     for (let key in powers) {
 
         var power = powers[key];
-
         var itemData = powerlist[power.system.key];
 
         var input1Cost = 0;
@@ -395,6 +391,8 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist, advantages, 
         var select2Cost = 0;
         var advCost = 0;
         var disCost = 0;
+        var fwName = '';
+        var fwPoints = 0;
 
         var itemType = '';
         if(itemData !== undefined){
@@ -420,6 +418,13 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist, advantages, 
                 select2Cost = Number(power.system.select2);
             }
 
+            for (let fw in frameworks) {
+                if(power.system.frameworkId == frameworks[fw]._id){
+                    fwName = frameworks[fw].system.key
+                    fwPoints = frameworks[fw].system.points;
+                }
+            }
+
             for (let adv in advantages) {
                 if(power._id == advantages[adv].system.powerId){
                     var cost = (Number(advantages[adv].system.select1)+Number(advantages[adv].system.select2)+Number(advantages[adv].system.select3)+Number(advantages[adv].system.baseCost))/100;
@@ -441,6 +446,22 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist, advantages, 
 
             if(itemData){
                 var cost = Math.ceil(input1Cost+input2Cost+input3Cost+select1Cost+select2Cost+Number(itemData.baseCost));
+                if(fwName!=''){
+                    switch(fwName){
+                        case 'Multipower':
+                            // if cost below or equal to frameworks[fw].system.points, then active points equal cost/5
+                            if(cost>=fwPoints){
+                                cost = cost/5;
+                            }
+                            break;
+                        case 'Elemental Control':
+                            // if cost below or equal to frameworks[fw].system.points, then active points equal cost-fwPoints
+                            if(cost>=fwPoints){
+                                cost = cost-fwPoints;
+                            }
+                            break;
+                    }
+                }
                 var disAmount = cost*disCost;
                 var advAmount = cost*advCost;
 
@@ -455,7 +476,12 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist, advantages, 
               <h4>`;
 
             if(itemType!=''){
-              output += `<div class='resource-label' style='display: inline-block;'>${power.system.key}-${power.system.name} (`;
+                if(fwName!=''){
+                    output += `<div class='resource-label' style='display: inline-block;'>(${fwName}) ${power.system.key}-${power.system.name} (`;
+                }else{
+                    output += `<div class='resource-label' style='display: inline-block;'>${power.system.key}-${power.system.name} (`;
+                }
+
 
               if (power.system.input1){ output += `${power.system.input1} ${itemData.input1.label}`;}
 
@@ -473,15 +499,14 @@ Handlebars.registerHelper('showPowers', function(powers, powerlist, advantages, 
         output += `
               </h4>
             </div>
-
-            <div class='item-controls' style='display:block;flex: 0 0 50px;''>
+            <input type="hidden" name="powers[${key}]._id" value="`+power._id+`">
+            <div class='item-controls' style='display:block;flex: 0 0 125px;''>
                   <a class='item-control adv-create' title='Create Advantage' data-type='advantage'>
-                    <input type="hidden" name="power_id" value="`+power._id+`">
                     <i class='fas fa-plus'></i>New Advantage
                   </a>
             </div>
 
-            <div class='item-controls' style='display:block;flex: 0 0 50px;''>
+            <div class='item-controls' style='display:block;flex: 0 0 125px;''>
                 <a class='item-control dis-create' title='Create Disadvantage' data-type='disadvantage'>
                   <i class='fas fa-plus'></i>New Disadvantage
                 </a>

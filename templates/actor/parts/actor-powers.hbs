@@ -2,13 +2,13 @@
 
   <li class='item flexrow items-header'>
     <div style="flex:0 0 50px;">Pts</div>
-    <div style="flex: 0 0 300px;text-align:left;">Frameworks</div>
-    <div style="text-align:right;">
+    <div style="text-align:left;">Frameworks</div>
+    <div style=""flex:0 0 75px;text-align:right;"></div>
+    <div style="flex:0 0 150px;">
       <a class='item-control item-create' title='{{localize "DOCUMENT.Create" type='Framework'}}' data-type='framework'>
         <i class='fas fa-plus'></i>{{localize 'DOCUMENT.New' type='framework'}}
       </a>
     </div>
-    <div style="text-align:right;"></div>
   </li>
 
     {{{ showFrameworks frameworks system.frameworklist powers}}}
@@ -16,16 +16,16 @@
   <li class='item flexrow items-header'>
     <div style="flex:0 0 50px;">Pts</div>
     <div style="flex: 0 0 300px;text-align:left;">Powers</div>
-    <div style="text-align:right;">
+    <div style="text-align:right;"></div>
+    <div style="text-align:right;"></div>
+    <div style="flex:0 0 150px;">
       <a class='item-control item-create' title='{{localize "DOCUMENT.Create" type='Power'}}' data-type='power'>
         <i class='fas fa-plus'></i>{{localize 'DOCUMENT.New' type='power'}}
       </a>
     </div>
-    <div style="text-align:right;"></div>
-    <div style="text-align:right;"></div>
   </li>
 
-  {{{ showPowers powers system.powerlist advantages disadvantages}}}
+  {{{ showPowers powers system.powerlist advantages disadvantages frameworks}}}
 
   <li class='item flexrow items-header'>
     <div style="flex:0 0 75px;">CostMod</div>

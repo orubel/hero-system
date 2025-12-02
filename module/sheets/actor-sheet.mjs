@@ -2,6 +2,7 @@ import {
   onManageActiveEffect,
   prepareActiveEffectCategories,
 } from '../helpers/effects.mjs';
+import { HeroSystemRollDialog } from "../hero-system-roll-dialog.mjs";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -356,9 +357,9 @@ export class HeroSystemActorSheet extends ActorSheet {
   async _onAdvantageCreate(event) {
     event.preventDefault();
 
-    const formElement = event.currentTarget.closest('form');
-    const powerId = formElement.querySelector('input[name="power_id"]');
-    //const item = this.actor.items.get(hiddenInput.value);
+      const li = $(event.currentTarget).parents('.item');
+      const item = this.actor.items.get(li.data('itemId'));
+      var id = li.data('itemId')
 
     const header = event.currentTarget;
     // Get the type of item to create.
@@ -376,7 +377,7 @@ export class HeroSystemActorSheet extends ActorSheet {
       system: data
     };
 
-    itemData.system.powerId = powerId.value;
+    itemData.system.powerId = id;
 
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.system['type'];
@@ -386,11 +387,12 @@ export class HeroSystemActorSheet extends ActorSheet {
   }
 
   async _onDisadvantageCreate(event) {
+  console.log("OnDisadvantageCreate called");
     event.preventDefault();
 
-    const formElement = event.currentTarget.closest('form');
-    const hiddenInput = formElement.querySelector('input[name="power_id"]');
-    //const item = this.actor.items.get(hiddenInput.value);
+      const li = $(event.currentTarget).parents('.item');
+      const item = this.actor.items.get(li.data('itemId'));
+      var id = li.data('itemId')
 
     const header = event.currentTarget;
     // Get the type of item to create.
@@ -408,7 +410,7 @@ export class HeroSystemActorSheet extends ActorSheet {
       system: data
     };
 
-    itemData.system.powerId = hiddenInput.value;
+    itemData.system.powerId = id;
 
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.system['type'];
