@@ -1,0 +1,81 @@
+<form class="skill-roll-dialog">
+   <header class="roll-dialog-header">
+     <div class="flexrow">
+       <h2 class="dialog-roll-title roll-dialog-header">{{title}}</h2>
+     </div>
+   </header>
+
+   <div class="flexcol">
+
+     {{#if charac}}
+       <div class="flexrow">
+         <span class="item-field-label-long margin-item-list">{{#if isPerception}}Perception{{else}}{{{charac.label}}} Roll{{/if}} : </span>
+         <span class="item-field-label-medium margin-item-list">{{charac.roll}}-</span>
+       </div>
+     {{/if}}
+
+     {{#if (eq subMode "ocv")}}
+       <div class="flexrow">
+         <span class="item-field-label-long margin-item-list">OCV : </span>
+         <span class="item-field-label-medium margin-item-list">{{characteristics.ocv.value}}</span>
+       </div>
+       <div class="flexrow">
+         <span class="item-field-label-long margin-item-list">{{upperFirst item.type}} OCV : </span>
+         <span class="item-field-label-medium margin-item-list">{{fixNum item.system.ocv}}</span>
+       </div>
+     {{/if}}
+
+     {{#if (eq subMode "omcv")}}
+       <div class="flexrow">
+         <span class="item-field-label-long margin-item-list">OMCV : </span>
+         <span class="item-field-label-medium margin-item-list">{{characteristics.omcv.value}}</span>
+       </div>
+       <div class="flexrow">
+         <span class="item-field-label-long margin-item-list">{{upperFirst item.type}} OMCV : </span>
+         <span class="item-field-label-medium margin-item-list">{{fixNum item.system.omcv}}</span>
+       </div>
+     {{/if}}
+
+     {{#if item}}
+     <div class="flexrow">
+       <span class="item-field-label-long margin-item-list">{{upperFirst item.type}} - {{upperFirst item.name}}</span>
+       {{#if item.roll}}
+       <span class="item-field-label-medium margin-item-list">{{item.roll}}-</span>
+       {{else}}
+       <span class="item-field-label-medium margin-item-list">{{item.system.roll}}-</span>
+       {{/if}}
+     </div>
+     {{/if}}
+
+     <div class="flexrow">
+       <span class="item-field-label-long margin-item-list">Bonus/Penalty : </span>
+       <select class="item-field-label-medium" type="text" id="bonusMalus" value="{{bonusMalus}}" data-dtype="Number" >
+         {{#select bonusMalus}}
+         <option value="-10">-10</option>
+         <option value="-9">-9</option>
+         <option value="-8">-8</option>
+         <option value="-7">-7</option>
+         <option value="-6">-6</option>
+         <option value="-5">-5</option>
+         <option value="-4">-4</option>
+         <option value="-3">-3</option>
+         <option value="-2">-2</option>
+         <option value="-1">-1</option>
+         <option value="0">0</option>
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+         <option value="5">5</option>
+         <option value="6">6</option>
+         <option value="7">7</option>
+         <option value="8">8</option>
+         <option value="9">9</option>
+         <option value="10">10</option>
+         {{/select}}
+       </select>
+     </div>
+
+   </div>
+
+ </form>

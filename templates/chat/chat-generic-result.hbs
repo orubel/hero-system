@@ -1,0 +1,79 @@
+<div class="chat-message-header">
+  <h4 class=chat-actor-name>{{alias}}</h4>
+</div>
+
+{{#if isSuccess}}
+    <div style="background-color:green;color:white;">
+{{else}}
+    <div style="background-color:red;color:white;">
+{{/if}}
+      <ul>
+        {{#if target}}
+        <li>Target Roll : {{target}}-
+        </li>
+        {{/if}}
+
+        {{#if weapon}}
+        <li>Weapon : {{weapon.name}}
+        </li>
+        {{/if}}
+
+        {{#if maneuver}}
+        <li>Maneuver : {{maneuver.name}}
+        </li>
+        {{/if}}
+
+        {{#if power}}
+        <li>Power : {{power.name}}
+        </li>
+        {{/if}}
+
+        {{#if rollSource}}
+        <li>Roll : {{rollSource}}</li>
+        {{/if}}
+
+        {{#if charac}}
+        <li>CHAR : {{charac.label}}</li>
+        {{/if}}
+
+        {{#if item}}
+        <li>{{item.name}} ({{upperFirst item.type}})</li>
+          {{#if (eq item.type "maneuver")}}
+          <li>{{item.system.effects}}</li>
+            {{#if item.system.haseffectroll}}
+            <li>{{item.system.effectrollformula}}</li>
+            {{/if}}
+          {{/if}}
+        {{/if}}
+
+        {{#if bonusMalus}}
+        <li>Bonus/Penalty : {{bonusMalus}}
+        </li>
+        {{/if}}
+
+        <li><strong>TOTAL : {{result}}</strong>
+          {{#if margin}}
+            (<strong>{{#if isSuccess}}Success!!{{else}}Failure!{{/if}}</strong>)
+          {{/if}}
+        </li>
+
+        {{#if bodyValue}}
+        <li><strong>BODY : {{bodyValue}}</strong>
+        {{/if}}
+
+        {{#if margin}}
+          {{#if (eq subMode "normal")}}
+          <li><strong>Margin : {{margin}}</strong>
+          {{/if}}
+          {{#if (eq subMode "ocv")}}
+          <li><strong>Margin (DCV Hit): {{margin}}</strong>
+          {{/if}}
+          {{#if (eq subMode "omcv")}}
+          <li><strong>Margin (DMCV Hit): {{margin}}</strong>
+          {{/if}}
+        {{/if}}
+
+      </ul>
+    </div>
+
+  </div>
