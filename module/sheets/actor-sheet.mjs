@@ -30,6 +30,7 @@ export class HeroSystemActorSheet extends ActorSheet {
     return `systems/hero-system/templates/actor/actor-${this.actor.type}-sheet.hbs`;
   }
 
+
   /* -------------------------------------------- */
 
   /** @override */
@@ -222,6 +223,11 @@ export class HeroSystemActorSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
+    html.find('.roll-charac').click((event) => {
+      const characKey = $(event.currentTarget).data("charac-key");
+      this.rollCharac(characKey);
+    });
+
     // Add Inventory Item
     html.on('click', '.complication-create', this._onItemCreate.bind(this));
 
@@ -292,6 +298,8 @@ export class HeroSystemActorSheet extends ActorSheet {
       });
     }
   }
+
+
 
   /**
    * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
@@ -425,12 +433,23 @@ export class HeroSystemActorSheet extends ActorSheet {
    * @private
    */
   _onRoll(event) {
+    console.log("onROLL called")
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
 
+    const context = super.getData();
+
+console.log("dataset:"+JSON.stringify(dataset))
+
+    let rollData = this.getCommonRollData(context, dataset.label);
+
+console.log("startRoll (rtollData): "+JSON.stringify(rollData))
+
+    this.startRoll(rollData, context);
+
     // Handle item rolls.
-    if (dataset.rollType) {
+    if (dataset.type) {
       if (dataset.rollType == 'item') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
@@ -450,4 +469,77 @@ export class HeroSystemActorSheet extends ActorSheet {
       return roll;
     }
   }
+
+  async startRoll(rollData) {
+    let rollDialog = await HeroSystemRollDialog.create(this, rollData)
+    rollDialog.render(true)
+  }
+
+
+
+  getCommonRollData(context, chKey = undefined) {
+        // chKey = ability name (ie STR, INT)
+
+        let rollData = {
+          rollId: randomID(16),
+          rollMode: game.settings.get("core", "rollMode"),
+          bonusMalus: 0
+        }
+
+        // update target
+        var target
+        if (game.user.targets) {
+          for (let tar of game.user.targets) {
+            //target = tar
+            rollData.defenderTokenId = tar.id
+          }
+        }
+
+
+      rollData.alias = this.name
+      rollData.actorImg = this.img
+      rollData.actorId = this.id
+      rollData.img = this.img
+      rollData.title = this.name
+      rollData.subMode = "normal"
+
+      if (chKey) {
+        rollData.charac = duplicate(context.actor.system.abilities[chKey])
+        rollData.charac.label = chKey
+        this.prepareCharacValues(rollData.charac)
+      }
+      if (rollData.defenderTokenId) {
+        let defenderToken = game.canvas.tokens.get(rollData.defenderTokenId)
+        let defender = defenderToken.actor
+
+        // Distance management
+        let token = this.token
+        if (!token) {
+          let tokens = this.getActiveTokens()
+          token = tokens[0]
+        }
+        if (token) {
+          const ray = new Ray(token.object?.center || token.center, defenderToken.center)
+          rollData.tokensDistance = canvas.grid.measureDistances([{ ray }], { gridSpaces: false })[0] / canvas.grid.grid.options.dimensions.distance
+        } else {
+          //ui.notifications.info("No token connected to this actor, unable to compute distance.")
+          //return
+        }
+        if (defender) {
+        }
+      }
+
+      return rollData
+  }
+
+    prepareCharacValues(charac) {
+        console.log("prepareCharaValues : "+JSON.stringify(charac))
+      if (charac.label == "OCV" || charac.label == "OMCV" ) {
+        charac.total = charac.value
+        charac.roll = 11 + charac.value
+      } else {
+        charac.total = charac.value
+        charac.roll = 9 + Math.round((charac.value) / 5)
+      }
+    }
 }

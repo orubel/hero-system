@@ -84,7 +84,7 @@
               </div>
               <div class="align-center" style="flex:0 0 75px;">
                 <!-- example 3d6+@abilities.BODY.mod -->
-                <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'STR'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.STR.mod decimals=0 sign=false}}></span>
+                <span class="ability-mod rollable" data-roll="3d6" data-type="char" data-label="{{localize 'STR'}}"><i class="fas fa-dice"></i>{{system.abilities.STR.mod}}></span>
               </div>
               <div class="align-center">
                 <input type="text" class="item-field-label-long2" name="system.abilities.STR.notes" value="{{system.abilities.STR.notes}}" data-dtype="String" />
@@ -120,6 +120,7 @@
               </div>
               <div class="align-center" style="flex:0 0 75px;">
                 <!-- example 3d6+@abilities.BODY.mod -->
+                {{ log system.abilities.CON.mod }}
                 <span class="ability-mod rollable" data-roll="3d6" data-label="{{localize 'CON'}}"><i class="fas fa-dice"></i>{{numberFormat system.abilities.CON.mod decimals=0 sign=false}}></span>
               </div>
               <div class="align-center">
