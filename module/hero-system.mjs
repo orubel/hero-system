@@ -229,7 +229,7 @@ Handlebars.registerHelper('selectValKey', function(values,comp_key) {
 
 Handlebars.registerHelper('selectLevels', function(skill_key) {
     var output = ``
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 0; i <= 10; i++) {
         if(i==Number(skill_key)){
             output += `<option name='name' type='text' value='`+i+`' selected>`+i+` Level(s)</option>`;
         }else{
@@ -276,11 +276,11 @@ Handlebars.registerHelper('showSkills', function(abilities, skills, skilllist) {
         output += `
           <li class='item flexrow' data-item-id=${skill._id}>
             <div class='item-name' style='display:block;flex:0 0 50px; text-align: center;'>${Number(skill.system.baseCost)+Number(skill.system.levels)}</div>
-            <div class='item-name' style='display:block;flex: 0 0 300px;padding:3px;'>
+            <div class='item-name' style='display:block;flex: 0 0 250px;padding:3px;'>
               <h4>`;
 
             if(itemType!=''){
-              output += `<div class='resource-label' style='display: inline-block;'>${skill.system.key}</div>`;
+              output += `<div class='resource-label' style='display: inline-block;'>${skill.system.key} (${itemData.type})</div>`;
             }else{
               output += `<div class='resource-label' style='display: inline-block;'>Undefined Skill</div>`;
             }
@@ -288,12 +288,50 @@ Handlebars.registerHelper('showSkills', function(abilities, skills, skilllist) {
         output += `
               </h4>
             </div>
+
+            <div class='item-name' style='display:block;flex: 0 0 100px;padding:3px;'>
+              <h4>`;
+
+            if(itemType!=''){
+              output += `<div class='resource-label' style='display: inline-block;'>${itemData.baseCost[skill.system.baseCost]}</div>`;
+            }else{
+              output += `<div class='resource-label' style='display: inline-block;'></div>`;
+            }
+
+        output += `
+              </h4>
+            </div>
+
+            <div class='item-name' style='display:block;flex: 0 0 50px;padding:3px;'>
+              <h4>`;
+
+            if(itemType!=''){
+              output += `<div class='resource-label' style='display: inline-block;'>${skill.system.levels}</div>`;
+            }else{
+              output += `<div class='resource-label' style='display: inline-block;'></div>`;
+            }
+
+        output += `
+              </h4>
+            </div>
+
+
             <div class='item-name' style='text-align: left;'>`;
 
             if(itemType!=''){
                 output += `
-                            <span class="ability-mod rollable" data-roll="3d6" data-label='${skill.system.key} Skill Check'>
-                            <i class='fas fa-dice'></i>${Number(abilities[itemData.type].mod)+Number(skill.system.levels)}>
+                            <span class="ability-mod rollable" data-roll="3d6" data-label='${skill.system.key} Skill Check'>`;
+                switch(itemData.baseCost[skill.system.baseCost]){
+                    case 'Everyman':
+                    case 'Familiar':
+                        output += `<i class='fas fa-dice'></i>8>`;
+                        break;
+                    case 'Skilled':
+                        output += `<i class='fas fa-dice'></i>${Number(abilities[itemData.type].mod)+Number(skill.system.levels)}>`;
+                        break;
+                }
+
+                output += `
                             </span>`;
             }
 

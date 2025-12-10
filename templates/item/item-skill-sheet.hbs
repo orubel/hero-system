@@ -22,6 +22,12 @@
                           </select>
                       </section>
                       <section style="text-align: left;">
+                          <label class='resource-label' style="display:inline-block;;width:100px;">{{localize "Type"}}</label>
+                          <select style="width:250px;" name="system.baseCost" value="{{system.baseCost}}">
+                            {{{ selectKeyVal (lookup (lookup this.skilllist system.key) 'baseCost') system.baseCost }}}
+                          </select>
+                      </section>
+                      <section style="text-align: left;">
                           <label class='resource-label' style="display:inline-block;;width:100px;">{{localize "Levels"}}</label>
                           <select style="width:250px;" name="system.levels" value="{{system.levels}}">
                               {{{ selectLevels system.levels }}}
