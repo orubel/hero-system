@@ -427,6 +427,99 @@ Handlebars.registerHelper('showFrameworks', function(frameworks, frameworklist, 
     return output;
 });
 
+Handlebars.registerHelper('calcPowPtsTotal', function(powers, powerlist, frameworks, frameworklist, advantages, disadvantages) {
+    var output = 0;
+    var fwName = '';
+    var fwPoints = 0;
+
+
+
+    for (let key in powers) {
+        var power = powers[key];
+        var itemData = powerlist[power.system.key];
+
+        var input1Cost = 0;
+        var input2Cost = 0;
+        var input3Cost = 0;
+        var select1Cost = 0;
+        var select2Cost = 0;
+        var advCost = 0;
+        var disCost = 0;
+
+        var itemType = '';
+        if(itemData !== undefined){
+            itemType = itemData.type;
+        }
+
+        if(itemData){
+            input1Cost = (itemData.input1)?Number(itemData.input1.levelCost)*Number(power.system.input1):0;
+
+            if(itemData.input2){
+                input2Cost = (itemData.input2)?Number(itemData.input2.levelCost)*Number(power.system.input2):0;
+            }
+
+            if(itemData.input3){
+                input3Cost = (itemData.input3)?Number(itemData.input3.levelCost)*Number(power.system.input3):0;
+            }
+
+            if(itemData.select1){
+                select1Cost = Number(power.system.select1);
+            }
+
+            if(itemData.select2){
+                select2Cost = Number(power.system.select2);
+            }
+
+            for (let fw in frameworks) {
+                if(power.system.frameworkId == frameworks[fw]._id){
+                    fwName = frameworks[fw].system.key
+                    fwPoints = frameworks[fw].system.points;
+                }
+            }
+
+            for (let adv in advantages) {
+                if(power._id == advantages[adv].system.powerId){
+                    var cost = (Number(advantages[adv].system.select1)+Number(advantages[adv].system.select2)+Number(advantages[adv].system.select3)+Number(advantages[adv].system.baseCost))/100;
+                    advCost += cost;
+                }
+            }
+
+            for (let dis in disadvantages) {
+                if(power._id == disadvantages[dis].system.powerId){
+                    var cost = (Number(disadvantages[dis].system.select1)+Number(disadvantages[dis].system.select2)+Number(disadvantages[dis].system.select3)+Number(disadvantages[dis].system.baseCost))/100;
+                    disCost += cost;
+                }
+            }
+
+            var cost = Math.ceil(input1Cost+input2Cost+input3Cost+select1Cost+select2Cost+Number(itemData.baseCost));
+            if(fwName!=''){
+                switch(fwName){
+                    case 'Multipower':
+                        // if cost below or equal to frameworks[fw].system.points, then active points equal cost/5
+                        if(cost>=fwPoints){
+                            cost = cost/5;
+                        }
+                        break;
+                    case 'Elemental Control':
+                        // if cost below or equal to frameworks[fw].system.points, then active points equal cost-fwPoints
+                        if(cost>=fwPoints){
+                            cost = cost-fwPoints;
+                        }
+                        break;
+                }
+            }
+            var disAmount = cost*disCost;
+            var advAmount = cost*advCost;
+
+            output += Math.ceil(cost+(advAmount+disAmount));
+        }
+    }
+
+    output+=Number(fwPoints)
+
+    return output;
+});
+
 Handlebars.registerHelper('showPowers', function(powers, powerlist, advantages, disadvantages, frameworks) {
     var output = ``;
     for (let key in powers) {
