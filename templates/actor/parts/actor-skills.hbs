@@ -14,4 +14,14 @@
 
   {{{ showSkills system.abilities skills system.skilllist }}}
 
+  <li class='item flexrow items-header'>
+    <div style="flex:0 0 50px;">
+        {{ calcSkillPtsTotal skills system.skilllist }}
+    </div>
+    <div style="flex: 0 0 250px;text-align:left;">Total</div>
+    <div style="flex: 0 0 100px;text-align:left;"></div>
+    <div style="flex: 0 0 50px;text-align:left;"></div>
+    <div style="text-align:left;"></div>
+    <div style="text-align:right;"></div>
+  </li>
 </ol>

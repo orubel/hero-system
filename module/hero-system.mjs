@@ -261,6 +261,18 @@ Handlebars.registerHelper('calcCompPtsTotal', function(values,complist) {
     return output;
 });
 
+Handlebars.registerHelper('calcSkillPtsTotal', function(values,skilllist) {
+    var output = 0;
+
+    for (let key in values) {
+        if(values[key].system.key){
+            var test = Number(values[key].system.baseCost)+Number(values[key].system.levels);
+            output = output+test;
+        }
+    }
+    return output;
+});
+
 Handlebars.registerHelper('showSkills', function(abilities, skills, skilllist) {
     var output = ``;
     for (let key in skills) {
