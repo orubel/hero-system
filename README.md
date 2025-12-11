@@ -1,14 +1,16 @@
 ![alt text](https://github.com/orubel/logos/blob/master/hero-system.png)
 
 # hero-system
+This is a Foundry VTT system for the Champions/Hero-System TTRPG
 
-- **module/hero-system.mjs** - holds all handlebars
-- **module/sheet/actor-sheet.mjs** - has the listeners here
+It encorporates the following functionality:
 
-# notes
-- **system.abilities** - found in actor_sheet; 'shorthand' system parameter for game.actors.getName(actorName).system.abilities
+- Hero Generation w/pt calculations
+  - Auto Calculate Power cost, Characteristic cost, Skill cost, Complication pts
+- Dice rolling
+  - formats chat message for dice rolls to make success/failure more clear
+- Simplifies Power, Skill, Complication generation
+- adds disadvantages/advanatages
+- adds power frameworks
 
-# directories
-- **templates/item** - these are the popup windows for 'items'
-- **templates/actor** - 'actor' character sheets
-- **module/** - functions for individual parts (item/effects/actor)
+
