@@ -5,7 +5,7 @@ This is a Foundry VTT system for the Champions/Hero-System TTRPG
 
 It encorporates the following functionality:
 
-- Simpler character creation
+- Simpler, more intuitive character creation system
 - Hero Generation w/pt calculations
   - Auto Calculate Power cost, Characteristic cost, Skill cost, Complication pts
   - adds disadvantages/advanatages
