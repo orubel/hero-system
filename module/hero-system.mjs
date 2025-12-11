@@ -243,15 +243,44 @@ Handlebars.registerHelper('calcPtsSpent', function(abilities, skills, skilllist,
 
 Handlebars.registerHelper('calcPtsAvail', function(comps, complicationlist, biodata) {
     var compPts = calcCompPtsTotal(comps,complicationlist);
-    console.log("compPts:"+compPts)
     var basePts = biodata.basePts;
     var xp = biodata.xpearned;
     return Number(compPts)+Number(basePts)+Number(xp)
 });
 
+Handlebars.registerHelper('calcPts', function(abilities, skills, skilllist, powers, powerlist, frameworks, frameworklist, advantages, disadvantages, comps, complicationlist, biodata) {
+    var output = "";
+
+    var charTotal = calcCharTotal(abilities);
+    var skillTotal = calcSkillPtsTotal(skills,skilllist);
+    var powTotal = calcPowPtsTotal(powers, powerlist, frameworks, frameworklist, advantages, disadvantages);
+    var ptsSpent = Number(charTotal)+Number(skillTotal)+Number(powTotal);
+
+    var compPts = calcCompPtsTotal(comps,complicationlist);
+    var basePts = biodata.basePts;
+    var xp = biodata.xpearned;
+    var ptsAvail = Number(compPts)+Number(basePts)+Number(xp)
+
+    if(ptsSpent>ptsAvail){
+        output = `
+        <div style="background-color:red;">${ptsSpent}</div>
+        <div style="flex:0 0 100px;background-color:red;">${ptsAvail - ptsSpent}</div>
+        `;
+    }else{
+        output = `
+        <div>${ptsSpent}</div>
+        <div style="flex:0 0 100px;">${ptsAvail - ptsSpent}</div>
+        `;
+    }
+    output += `<div>${ptsAvail}</div>`;
+    return output;
+});
+
 Handlebars.registerHelper('calcCharTotal', function(abilities) {
     return calcCharTotal(abilities);
 });
+
+
 
 Handlebars.registerHelper('calcCompPts', function(comps) {
     return calcCompPts(comps);

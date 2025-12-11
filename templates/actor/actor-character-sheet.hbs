@@ -6,9 +6,6 @@
       <div class="flexrow" style="gap: 0.5em;">
         <!-- LEFT COLUMN -->
         <div class="flexcol" style="flex: 1;">
-          <section>
-            <p>Put your main content here.</p>
-          </section>
 
           <h1 class="charname "><input name="system.biodata.name" type="text" value="{{system.biodata.name}}" placeholder="Name" /></h1>
 
@@ -103,8 +100,6 @@
       </div>
   </header>
 
-  {{log system}}
-
     <div class="tab" style="padding:5px;border-radius: 25px; background-color: #c1d9ff;text-align:center;">
 
         <ol style="margin:5px;">
@@ -122,9 +117,11 @@
             </div>
             <div style="flex:0 0 10px;"></div>
             <div>
-                <label class="resource-label" style="align:center; color:#000;">Pts Spent</label>
+                <label class="resource-label" style="align:center; color:#000;">Cost</label>
             </div>
-            <div style="flex:0 0 10px;"></div>
+            <div style="flex:0 0 100px;">
+                <label class="resource-label" style="align:center; color:#000;">Free Pts</label>
+            </div>
             <div>
                 <label class="resource-label" style="align:center; color:#000;">Pts Avail</label>
             </div>
@@ -148,9 +145,9 @@
             <div style="flex:0 0 10px;">+</div>
             <div>{{ calcPowPtsTotal powers system.powerlist frameworks system.frameworklist advantages disadvantages}}</div>
             <div style="flex:0 0 10px;">=</div>
-            <div>{{ calcPtsSpent system.abilities skills system.skilllist powers system.powerlist frameworks system.frameworklist advantages disadvantages }}</div>
-            <div style="flex:0 0 10px;"></div>
-            <div>{{calcPtsAvail complications system.complicationlist system.biodata}}</div>
+
+{{{ calcPts abilities skills system.skilllist powers system.powerlist frameworks system.frameworklist advantages disadvantages complications system.complicationlist system.biodata }}}
+
             <div style="flex:0 0 10px;">=</div>
             <div>{{ calcCompPtsTotal complications system.complicationlist }}</div>
             <div style="flex:0 0 10px;">+</div>
