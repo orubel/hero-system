@@ -173,11 +173,6 @@ Handlebars.registerHelper('calcCurrentStun', function(stun,current_stun) {
     return calcCurrentStun(stun,current_stun);
 });
 
-Handlebars.registerHelper('calcCharTotal', function(abilities) {
-    let out = calcStrPts(abilities.STR) + calcDexPts(abilities.DEX) + calcConPts(abilities.CON) + calcBodyPts(abilities.BODY) + calcIntPts(abilities.INT) + calcEgoPts(abilities.EGO) + calcPrePts(abilities.PRE) + calcPdPts(abilities) + calcEdPts(abilities) + calcSpdPts(abilities) + calcRecPts(abilities) + calcEndPts(abilities) + calcStunPts(abilities);
-    return out;
-});
-
 Handlebars.registerHelper('selectKey', function(values,comp_key) {
     var output = ``
     for (let key in values) {
@@ -239,38 +234,39 @@ Handlebars.registerHelper('selectLevels', function(skill_key) {
     return output;
 });
 
-Handlebars.registerHelper('calcCompPts', function(values) {
-    var output = (Number(values.select1) + Number(values.select2) + Number(values.select3) + Number(values.select4))*Number(values.multiplier);
-    return output;
+Handlebars.registerHelper('calcPtsSpent', function(abilities, skills, skilllist, powers, powerlist, frameworks, frameworklist, advantages, disadvantages) {
+    var charTotal = calcCharTotal(abilities);
+    var skillTotal = calcSkillPtsTotal(skills,skilllist);
+    var powTotal = calcPowPtsTotal(powers, powerlist, frameworks, frameworklist, advantages, disadvantages);
+    return Number(charTotal)+Number(skillTotal)+Number(powTotal)
 });
 
-Handlebars.registerHelper('calcCompPtsTotal', function(values,complist) {
-    var output = 0;
-
-    for (let key in values) {
-        if(values[key].system.key){
-            if(Number(values[key].system.multiplier)>0){
-                var test = (Number(values[key].system.select1) + Number(values[key].system.select2) + Number(values[key].system.select3) + Number(values[key].system.select4))*Number(values[key].system.multiplier);
-                output = output+test;
-            }else{
-                var test = (Number(values[key].system.select1) + Number(values[key].system.select2) + Number(values[key].system.select3) + Number(values[key].system.select4));
-                output = output+test;
-            }
-        }
-    }
-    return output;
+Handlebars.registerHelper('calcPtsAvail', function(comps, complicationlist, biodata) {
+    var compPts = calcCompPtsTotal(comps,complicationlist);
+    console.log("compPts:"+compPts)
+    var basePts = biodata.basePts;
+    var xp = biodata.xpearned;
+    return Number(compPts)+Number(basePts)+Number(xp)
 });
 
-Handlebars.registerHelper('calcSkillPtsTotal', function(values,skilllist) {
-    var output = 0;
+Handlebars.registerHelper('calcCharTotal', function(abilities) {
+    return calcCharTotal(abilities);
+});
 
-    for (let key in values) {
-        if(values[key].system.key){
-            var test = Number(values[key].system.baseCost)+Number(values[key].system.levels);
-            output = output+test;
-        }
-    }
-    return output;
+Handlebars.registerHelper('calcCompPts', function(comps) {
+    return calcCompPts(comps);
+});
+
+Handlebars.registerHelper('calcCompPtsTotal', function(comps,complist) {
+    return calcCompPtsTotal(comps,complist);
+});
+
+Handlebars.registerHelper('calcSkillPtsTotal', function(skills,skilllist) {
+    return calcSkillPtsTotal(skills,skilllist);
+});
+
+Handlebars.registerHelper('calcPowPtsTotal', function(powers, powerlist, frameworks, frameworklist, advantages, disadvantages) {
+    return calcPowPtsTotal(powers, powerlist, frameworks, frameworklist, advantages, disadvantages)
 });
 
 Handlebars.registerHelper('showSkills', function(abilities, skills, skilllist) {
@@ -363,16 +359,6 @@ Handlebars.registerHelper('showSkills', function(abilities, skills, skilllist) {
     return output;
 });
 
-Handlebars.registerHelper('calcPowerPtsTotal', function(powerListInput, input) {
-    var output = 0;
-    if(powerListInput.levelCost == 0){
-        output = Number(powerListInput.baseCost);
-    }else{
-        output = Number(powerListInput.baseCost)+Math.floor(Number(input) * Number(powerListInput.levelCost));
-    }
-    return output;
-});
-
 Handlebars.registerHelper('showFrameworks', function(frameworks, frameworklist, powers) {
     var output = ``;
 
@@ -424,99 +410,6 @@ Handlebars.registerHelper('showFrameworks', function(frameworks, frameworklist, 
           </li>
           `;
     }
-    return output;
-});
-
-Handlebars.registerHelper('calcPowPtsTotal', function(powers, powerlist, frameworks, frameworklist, advantages, disadvantages) {
-    var output = 0;
-    var fwName = '';
-    var fwPoints = 0;
-
-
-
-    for (let key in powers) {
-        var power = powers[key];
-        var itemData = powerlist[power.system.key];
-
-        var input1Cost = 0;
-        var input2Cost = 0;
-        var input3Cost = 0;
-        var select1Cost = 0;
-        var select2Cost = 0;
-        var advCost = 0;
-        var disCost = 0;
-
-        var itemType = '';
-        if(itemData !== undefined){
-            itemType = itemData.type;
-        }
-
-        if(itemData){
-            input1Cost = (itemData.input1)?Number(itemData.input1.levelCost)*Number(power.system.input1):0;
-
-            if(itemData.input2){
-                input2Cost = (itemData.input2)?Number(itemData.input2.levelCost)*Number(power.system.input2):0;
-            }
-
-            if(itemData.input3){
-                input3Cost = (itemData.input3)?Number(itemData.input3.levelCost)*Number(power.system.input3):0;
-            }
-
-            if(itemData.select1){
-                select1Cost = Number(power.system.select1);
-            }
-
-            if(itemData.select2){
-                select2Cost = Number(power.system.select2);
-            }
-
-            for (let fw in frameworks) {
-                if(power.system.frameworkId == frameworks[fw]._id){
-                    fwName = frameworks[fw].system.key
-                    fwPoints = frameworks[fw].system.points;
-                }
-            }
-
-            for (let adv in advantages) {
-                if(power._id == advantages[adv].system.powerId){
-                    var cost = (Number(advantages[adv].system.select1)+Number(advantages[adv].system.select2)+Number(advantages[adv].system.select3)+Number(advantages[adv].system.baseCost))/100;
-                    advCost += cost;
-                }
-            }
-
-            for (let dis in disadvantages) {
-                if(power._id == disadvantages[dis].system.powerId){
-                    var cost = (Number(disadvantages[dis].system.select1)+Number(disadvantages[dis].system.select2)+Number(disadvantages[dis].system.select3)+Number(disadvantages[dis].system.baseCost))/100;
-                    disCost += cost;
-                }
-            }
-
-            var cost = Math.ceil(input1Cost+input2Cost+input3Cost+select1Cost+select2Cost+Number(itemData.baseCost));
-            if(fwName!=''){
-                switch(fwName){
-                    case 'Multipower':
-                        // if cost below or equal to frameworks[fw].system.points, then active points equal cost/5
-                        if(cost>=fwPoints){
-                            cost = cost/5;
-                        }
-                        break;
-                    case 'Elemental Control':
-                        // if cost below or equal to frameworks[fw].system.points, then active points equal cost-fwPoints
-                        if(cost>=fwPoints){
-                            cost = cost-fwPoints;
-                        }
-                        break;
-                }
-            }
-            var disAmount = cost*disCost;
-            var advAmount = cost*advCost;
-
-            output += Math.ceil(cost+(advAmount+disAmount));
-        }
-    }
-
-    output+=Number(fwPoints)
-
     return output;
 });
 
@@ -991,6 +884,135 @@ function calcCurrentStun(stun,current_stun){
     }else{
         return foundry.utils.duplicate(current_stun);
     }
+}
+
+function calcCompPts(values) {
+    return (Number(values.select1) + Number(values.select2) + Number(values.select3) + Number(values.select4))*Number(values.multiplier);
+}
+
+function calcCompPtsTotal(values,complist){
+    var output = 0;
+
+    for (let key in values) {
+        if(values[key].system.key){
+            if(Number(values[key].system.multiplier)>0){
+                var test = (Number(values[key].system.select1) + Number(values[key].system.select2) + Number(values[key].system.select3) + Number(values[key].system.select4))*Number(values[key].system.multiplier);
+                output = output+test;
+            }else{
+                var test = (Number(values[key].system.select1) + Number(values[key].system.select2) + Number(values[key].system.select3) + Number(values[key].system.select4));
+                output = output+test;
+            }
+        }
+    }
+    return output;
+}
+
+function calcSkillPtsTotal(values,skilllist) {
+    var output = 0;
+
+    for (let key in values) {
+        if(values[key].system.key){
+            var test = Number(values[key].system.baseCost)+Number(values[key].system.levels);
+            output = output+test;
+        }
+    }
+    return output;
+}
+
+function calcCharTotal(abilities){
+    let out = calcStrPts(abilities.STR) + calcDexPts(abilities.DEX) + calcConPts(abilities.CON) + calcBodyPts(abilities.BODY) + calcIntPts(abilities.INT) + calcEgoPts(abilities.EGO) + calcPrePts(abilities.PRE) + calcPdPts(abilities) + calcEdPts(abilities) + calcSpdPts(abilities) + calcRecPts(abilities) + calcEndPts(abilities) + calcStunPts(abilities);
+    return out;
+}
+
+function calcPowPtsTotal(powers, powerlist, frameworks, frameworklist, advantages, disadvantages){
+    var output = 0;
+    var fwName = '';
+    var fwPoints = 0;
+
+    for (let key in powers) {
+        var power = powers[key];
+        var itemData = powerlist[power.system.key];
+
+        var input1Cost = 0;
+        var input2Cost = 0;
+        var input3Cost = 0;
+        var select1Cost = 0;
+        var select2Cost = 0;
+        var advCost = 0;
+        var disCost = 0;
+
+        var itemType = '';
+        if(itemData !== undefined){
+            itemType = itemData.type;
+        }
+
+        if(itemData){
+            input1Cost = (itemData.input1)?Number(itemData.input1.levelCost)*Number(power.system.input1):0;
+
+            if(itemData.input2){
+                input2Cost = (itemData.input2)?Number(itemData.input2.levelCost)*Number(power.system.input2):0;
+            }
+
+            if(itemData.input3){
+                input3Cost = (itemData.input3)?Number(itemData.input3.levelCost)*Number(power.system.input3):0;
+            }
+
+            if(itemData.select1){
+                select1Cost = Number(power.system.select1);
+            }
+
+            if(itemData.select2){
+                select2Cost = Number(power.system.select2);
+            }
+
+            for (let fw in frameworks) {
+                if(power.system.frameworkId == frameworks[fw]._id){
+                    fwName = frameworks[fw].system.key
+                    fwPoints = frameworks[fw].system.points;
+                }
+            }
+
+            for (let adv in advantages) {
+                if(power._id == advantages[adv].system.powerId){
+                    var cost = (Number(advantages[adv].system.select1)+Number(advantages[adv].system.select2)+Number(advantages[adv].system.select3)+Number(advantages[adv].system.baseCost))/100;
+                    advCost += cost;
+                }
+            }
+
+            for (let dis in disadvantages) {
+                if(power._id == disadvantages[dis].system.powerId){
+                    var cost = (Number(disadvantages[dis].system.select1)+Number(disadvantages[dis].system.select2)+Number(disadvantages[dis].system.select3)+Number(disadvantages[dis].system.baseCost))/100;
+                    disCost += cost;
+                }
+            }
+
+            var cost = Math.ceil(input1Cost+input2Cost+input3Cost+select1Cost+select2Cost+Number(itemData.baseCost));
+            if(fwName!=''){
+                switch(fwName){
+                    case 'Multipower':
+                        // if cost below or equal to frameworks[fw].system.points, then active points equal cost/5
+                        if(cost>=fwPoints){
+                            cost = cost/5;
+                        }
+                        break;
+                    case 'Elemental Control':
+                        // if cost below or equal to frameworks[fw].system.points, then active points equal cost-fwPoints
+                        if(cost>=fwPoints){
+                            cost = cost-fwPoints;
+                        }
+                        break;
+                }
+            }
+            var disAmount = cost*disCost;
+            var advAmount = cost*advCost;
+
+            output += Math.ceil(cost+(advAmount+disAmount));
+        }
+    }
+
+    output+=Number(fwPoints)
+
+    return output;
 }
 
 /**

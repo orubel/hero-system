@@ -437,15 +437,9 @@ export class HeroSystemActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-
     const context = super.getData();
 
-console.log("dataset:"+JSON.stringify(dataset))
-
     let rollData = this.getCommonRollData(context, dataset.label);
-
-console.log("startRoll (rtollData): "+JSON.stringify(rollData))
-
     this.startRoll(rollData, context);
 
     // Handle item rolls.

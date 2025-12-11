@@ -3,13 +3,77 @@
   {{!-- Sheet Header --}}
   <header class="sheet-header">
       <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="400" width="300"/>
-      <div class="flexrow" style="height:100%; gap: 0.5em;">
+      <div class="flexrow" style="gap: 0.5em;">
         <!-- LEFT COLUMN -->
         <div class="flexcol" style="flex: 1;">
           <section>
             <p>Put your main content here.</p>
           </section>
+
+          <h1 class="charname "><input name="system.biodata.name" type="text" value="{{system.biodata.name}}" placeholder="Name" /></h1>
+
+          <div class="flexrow">
+            <ul class="item-list alternate-list">
+              <li class="item flexrow">
+                <label class="item-field-label-medium">Alternate IDs</label>
+                <input type="text" class="item-field-label-long4" name="system.biodata.alternateids"
+                  value="{{system.biodata.origin}}" data-dtype="String" />
+              </li>
+            </ul>
+          </div>
+
+          <div class="grid grid-2col">
+            <div>
+              <ul class="item-list alternate-list">
+                <li class="flexrow item">
+                  <label class="item-field-label-medium">Campaign</label>
+                  <input type="text" class="item-field-label-long3" name="system.biodata.campaign"
+                    value="{{system.biodata.campaign}}" data-dtype="String" />
+                </li>
+                <li class="flexrow item">
+                  <label class="item-field-label-medium">Player</label>
+                  <input type="text" class="item-field-label-long3" name="system.biodata.player"
+                    value="{{system.biodata.player}}" data-dtype="String" />
+                </li>
+                <li class="flexrow item">
+                  <label class="item-field-label-medium">GM</label>
+                  <input type="text" class="item-field-label-long3" name="system.biodata.gm"
+                    value="{{system.biodata.gm}}" data-dtype="String" />
+                </li>
+                <li class="item flexrow">
+                  <label class="item-field-label-medium">Hair</label>
+                  <input type="text" class="item-field-label-long3" name="system.biodata.hair"
+                    value="{{system.biodata.hair}}" data-dtype="String" />
+                </li>
+              </ul>
+            </div>
+            <div>
+              <ul class="item-list alternate-list">
+                <li class="flexrow item">
+                  <label class="item-field-label-medium">Gender</label>
+                  <input type="text" class="item-field-label-medium" name="system.biodata.gender"
+                    value="{{system.biodata.gender}}" data-dtype="String" />
+                </li>
+                <li class="item flexrow">
+                  <label class="item-field-label-medium">Height</label>
+                  <input type="text" class="item-field-label-medium" name="system.biodata.height"
+                    value="{{system.biodata.height}}" data-dtype="String" />
+                </li>
+                <li class="item flexrow">
+                  <label class="item-field-label-medium">Mass</label>
+                  <input type="text" class="item-field-label-medium" name="system.biodata.mass"
+                    value="{{system.biodata.mass}}" data-dtype="String" />
+                </li>
+                <li class="item flexrow">
+                  <label class="item-field-label-medium">Eyes</label>
+                  <input type="text" class="item-field-label-medium" name="system.biodata.eyes"
+                    value="{{system.biodata.eyes}}" data-dtype="String" />
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+
 
         <!-- RIGHT COLUMN -->
         <div class="flexcol" style="flex: 0 0 100px; grid-template-rows: 1fr 1fr 1fr; grid-template-columns: 1fr; gap: 0.25em;">
@@ -20,6 +84,7 @@
                   <input type="text" name="system.STUN.current" value="{{calcCurrentStun system.abilities.STUN.value system.STUN.current}}" data-dtype="Number"/>
               </div>
           </div>
+
           <div style="padding:5px;border-radius: 25px; background-color: #4287f5;text-align:center;">
               <label class="resource-label" style="align:center; color:#fff;">BODY</label>
               <div class="flexrow flex-center flex-between" style="padding:10px; display: flex; align-items: center;">
@@ -36,8 +101,69 @@
           </div>
         </div>
       </div>
-
   </header>
+
+  {{log system}}
+
+    <div class="tab" style="padding:5px;border-radius: 25px; background-color: #c1d9ff;text-align:center;">
+
+        <ol style="margin:5px;">
+          <li class='flexrow'>
+            <div>
+                <label class="resource-label" style="align:center; color:#000;">Chars</label>
+            </div>
+            <div style="flex:0 0 10px;"></div>
+            <div>
+                <label class="resource-label" style="align:center; color:#000;">Skills</label>
+            </div>
+            <div style="flex:0 0 10px;"></div>
+            <div>
+                <label class="resource-label" style="align:center; color:#000;">Powers</label>
+            </div>
+            <div style="flex:0 0 10px;"></div>
+            <div>
+                <label class="resource-label" style="align:center; color:#000;">Pts Spent</label>
+            </div>
+            <div style="flex:0 0 10px;"></div>
+            <div>
+                <label class="resource-label" style="align:center; color:#000;">Pts Avail</label>
+            </div>
+            <div style="flex:0 0 10px;"></div>
+            <div>
+                <label class="resource-label" style="align:center; color:#000;">Comps</label>
+            </div>
+            <div style="flex:0 0 10px;"></div>
+            <div>
+                <label class="resource-label" style="align:center; color:#000;">Base</label>
+            </div>
+            <div style="flex:0 0 10px;"></div>
+            <div>
+                <label class="resource-label" style="align:center; color:#000;">XP</label>
+            </div>
+          </li>
+          <li class='flexrow'>
+            <div>{{ calcCharTotal system.abilities }}</div>
+            <div style="flex:0 0 10px;">+</div>
+            <div>{{ calcSkillPtsTotal skills system.skilllist }}</div>
+            <div style="flex:0 0 10px;">+</div>
+            <div>{{ calcPowPtsTotal powers system.powerlist frameworks system.frameworklist advantages disadvantages}}</div>
+            <div style="flex:0 0 10px;">=</div>
+            <div>{{ calcPtsSpent system.abilities skills system.skilllist powers system.powerlist frameworks system.frameworklist advantages disadvantages }}</div>
+            <div style="flex:0 0 10px;"></div>
+            <div>{{calcPtsAvail complications system.complicationlist system.biodata}}</div>
+            <div style="flex:0 0 10px;">=</div>
+            <div>{{ calcCompPtsTotal complications system.complicationlist }}</div>
+            <div style="flex:0 0 10px;">+</div>
+            <div>
+                <input type="text" name="system.biodata.basePts" value="{{system.biodata.basePts}}" data-dtype="Number"/>
+            </div>
+            <div style="flex:0 0 10px;">+</div>
+            <div>
+                <input type="text" name="system.biodata.xpearned" value="{{system.biodata.xpearned}}" data-dtype="Number"/>
+            </div>
+          </li>
+        </ol>
+    </div>
 
 
   {{!-- Sheet Tab Navigation --}}

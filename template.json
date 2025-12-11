@@ -4,6 +4,7 @@
     "templates": {
       "biodata": {
         "biodata": {
+          "name": "",
           "alternateids":"",
           "player": "",
           "gender": 0,
@@ -13,6 +14,7 @@
           "quote" : "",
           "description": "",
           "notes": "",
+          "basePts": 100,
           "xpearned": 0
         }
       },
