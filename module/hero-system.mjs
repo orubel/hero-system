@@ -4,6 +4,7 @@ import { HeroSystemItem } from './documents/item.mjs';
 // Import sheet classes.
 import { HeroSystemActorSheet } from './sheets/actor-sheet.mjs';
 import { HeroSystemItemSheet } from './sheets/item-sheet.mjs';
+import { HeroSystemCombat, HeroSystemCombatTracker } from "./hero-system-combat.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { HERO_SYSTEM } from './helpers/config.mjs';
@@ -30,13 +31,14 @@ Hooks.once('init', function () {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: '1d20 + @abilities.dex.mod',
-    decimals: 2,
+    formula: "1d6",
+    decimals: 2
   };
 
   // Define custom Document classes
   CONFIG.Actor.documentClass = HeroSystemActor;
   CONFIG.Item.documentClass = HeroSystemItem;
+  CONFIG.ui.combat = HeroSystemCombatTracker;
 
   // Active Effects are never copied to the Actor,
   // but will still apply to the Actor from within the Item
